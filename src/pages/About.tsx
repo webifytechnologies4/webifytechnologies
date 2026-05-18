@@ -16,45 +16,9 @@ import {
   Smartphone,
 } from "lucide-react";
 
-import {
-  FaReact,
-  FaNodeJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-} from "react-icons/fa";
-
-import {
-  SiTypescript,
-  SiTailwindcss,
-  SiMongodb,
-  SiExpress,
-  SiNextdotjs,
-} from "react-icons/si";
 
 import Navbar from "../components/Navbar";
 
-const technologies = [
-  { name: "React", icon: <FaReact /> },
-  { name: "TypeScript", icon: <SiTypescript /> },
-  { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-  { name: "Node.js", icon: <FaNodeJs /> },
-  { name: "MongoDB", icon: <SiMongodb /> },
-  { name: "Express", icon: <SiExpress /> },
-  { name: "Next.js", icon: <SiNextdotjs /> },
-  { name: "HTML5", icon: <FaHtml5 /> },
-  { name: "CSS3", icon: <FaCss3Alt /> },
-  { name: "JavaScript", icon: <FaJs /> },
-];
-
-const industries = [
-  "Healthcare",
-  "Finance",
-  "Education",
-  "Technology",
-  "Real Estate",
-  "E-Commerce",
-];
 
 const process = [
   "Research & Planning",

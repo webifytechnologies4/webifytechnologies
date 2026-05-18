@@ -12,10 +12,8 @@ import {
   Building2,
 } from "lucide-react";
 
-
-
 import Navbar from "../components/Navbar";
-
+import Footer from "../components/Footer";
 const technologies = [
   {
     name: "React",
@@ -799,6 +797,7 @@ const Home = () => {
         </section>
 
       </div>
+      <Footer />
     </>
   );
 };

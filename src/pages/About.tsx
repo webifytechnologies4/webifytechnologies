@@ -10,7 +10,6 @@ import {
   Star,
   CheckCircle2,
   Sparkles,
-  Building2,
   Workflow,
   Globe,
   Code2,

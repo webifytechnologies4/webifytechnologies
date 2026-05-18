@@ -9,7 +9,6 @@ import {
   Code2,
   ShieldCheck,
   Rocket,
-  Sparkles,
   Building2,
 } from "lucide-react";
 

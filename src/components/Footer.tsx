@@ -1,4 +1,4 @@
-import { Globe, Mail, Phone, Rocket, ArrowRight } from "lucide-react";
+import { Globe, Mail, Rocket, ArrowRight } from "lucide-react";
 
 const Footer = () => {
     return (

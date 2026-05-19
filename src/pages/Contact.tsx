@@ -62,11 +62,9 @@ const Contact = () => {
       </section>
 
       {/* CONTACT SECTION */}
-      <section className="px-6 md:px-20 py-24 bg-gradient-to-b from-gray-50 to-white grid md:grid-cols-[1.6fr_1fr] gap-14">
-
-        {/* LEFT FORM (WIDER) */}
-        {/* LEFT FORM (UPDATED FIELDS) */}
-        <div className="bg-white border border-gray-200 rounded-3xl p-10 shadow-sm hover:shadow-xl transition-all duration-300 w-full">
+      <section className="px-4 md:px-20 py-24 bg-gradient-to-b from-gray-50 to-white grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-10 md:gap-14">
+        {/* LEFT FORM  */}
+      <div className="bg-white border border-gray-200 rounded-3xl p-5 sm:p-10 shadow-sm hover:shadow-xl transition-all duration-300 w-full">
 
           <p className="text-xs tracking-[3px] text-gray-500 uppercase">
             Webify Technologies
@@ -80,7 +78,7 @@ const Contact = () => {
             Share your details and our team will get back to you shortly.
           </p>
 
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5">
 
             {/* FULL NAME */}
             <input
@@ -143,7 +141,7 @@ const Contact = () => {
               Your information is secure and only used for project discussion.
             </p>
 
-            <button className="bg-black text-white px-8 py-4 rounded-xl hover:scale-[1.02] transition">
+            <button className="bg-black text-white px-6 md:px-8 py-4 rounded-xl w-full md:w-auto hover:scale-[1.02] transition">
               Send Message →
             </button>
 

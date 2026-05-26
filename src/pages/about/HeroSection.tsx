@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 import Img1 from "../../assets/aboutfrist.avif";
 
@@ -68,7 +70,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center">
+    <section className="relative min-h-screen overflow-hidden flex items-center pt-14 sm:pt-16 md:pt-0">
       {/* BACKGROUND IMAGES */}
       <div className="absolute inset-0">
         {backgrounds.map((bg, index) => (
@@ -96,22 +98,21 @@ const HeroSection = () => {
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/80 z-[1]" />
 
-      {/* GRADIENT LIGHTS */}
-     
-
       {/* CONTENT */}
       <div
         ref={heroRef}
-        className="relative z-10 w-full px-6 md:px-20 py-32"
+        className="relative z-10 w-full px-6 md:px-20 py-20 md:py-32"
       >
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+            className="text-center lg:text-left"
           >
-            <p className="text-cyan-400 tracking-[6px] uppercase text-xs md:text-sm font-semibold">
+            <p className="text-cyan-400 tracking-[4px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold">
               INNOVATE • DEVELOP • GROW
             </p>
 
@@ -124,37 +125,40 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            <p className="text-gray-100 mt-6 text-lg leading-relaxed max-w-xl">
+            <p className="text-gray-100 mt-6 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
               At Webify Technologies, we create modern websites, scalable
               e-commerce platforms, and powerful digital solutions that help
-              brands succeed online with innovation, performance, and clean
-              UI/UX.
+              brands succeed online with innovation, performance, and clean UI/UX.
             </p>
 
             {/* BUTTONS */}
-            <div className="flex flex-wrap gap-4 mt-10">
-              <motion.button
-                whileHover={{
-                  scale: 1.08,
-                  boxShadow: "0px 0px 30px rgba(34,211,238,0.5)",
-                }}
-                className="px-8 py-3 rounded-full bg-cyan-500 text-black font-semibold"
-              >
-                Explore Services
-              </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
+              <Link to="/services">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0px 0px 30px rgba(34,211,238,0.5)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 rounded-full bg-cyan-500 text-black font-semibold w-full sm:w-auto"
+                >
+                  Explore Services
+                </motion.button>
+              </Link>
 
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "rgba(255,255,255,0.1)",
-                }}
-                className="px-8 py-3 rounded-full border border-white/20 text-white"
-              >
-                Start Your Project
-              </motion.button>
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 rounded-full border border-white/20 text-white w-full sm:w-auto"
+                >
+                  Start Your Project
+                </motion.button>
+              </Link>
             </div>
-
-  
           </motion.div>
 
           {/* RIGHT IMAGE */}
@@ -162,17 +166,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="relative flex justify-center"
+            className="relative flex justify-center mt-10 lg:mt-0"
           >
             <motion.div
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-              }}
-              className="relative w-[320px] md:w-[500px] h-[380px] md:h-[450px] rounded-lg overflow-hidden border border-white/10 backdrop-blur-2xl bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="relative w-full max-w-[320px] md:max-w-[500px] h-[340px] md:h-[450px] rounded-lg overflow-hidden border border-white/10 backdrop-blur-2xl bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
             >
               <img
                 src={Img1}
@@ -180,7 +179,6 @@ const HeroSection = () => {
                 className="w-full h-full object-cover hover:scale-110 transition duration-700"
               />
 
-              {/* GLASS TAGS */}
               <div className="absolute top-6 left-6 bg-cyan-500/20 px-4 py-2 rounded-full text-cyan-300 text-xs backdrop-blur-md border border-cyan-400/20">
                 UI/UX Design
               </div>
@@ -190,9 +188,9 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
-            {/* GLOW */}
-            <div className="absolute -z-10 w-[550px] h-[550px] bg-cyan-400/20 blur-[140px] rounded-full" />
+            <div className="absolute -z-10 w-[450px] h-[450px] bg-cyan-400/20 blur-[140px] rounded-full" />
           </motion.div>
+
         </div>
       </div>
     </section>

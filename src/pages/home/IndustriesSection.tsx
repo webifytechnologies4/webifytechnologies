@@ -1,4 +1,4 @@
-import  { useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -128,7 +128,6 @@ const IndustriesSection = () => {
     >
       {/* BACKGROUND LIGHT */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-sky-200/40 blur-[140px] rounded-full" />
-
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-100/40 blur-[120px] rounded-full" />
 
       {/* GRID */}
@@ -164,73 +163,69 @@ const IndustriesSection = () => {
 
       {/* TIMELINE */}
       <div className="timeline-wrapper relative max-w-7xl mx-auto">
+
         {/* LINE */}
         <div className="absolute left-[18px] md:left-1/2 top-0 w-[2px] h-full bg-slate-200 -translate-x-1/2" />
 
         {/* ANIMATED LINE */}
         <div className="timeline-line-fill absolute left-[18px] md:left-1/2 top-0 w-[3px] h-0 bg-gradient-to-b from-blue-700 via-sky-500 to-cyan-400 -translate-x-1/2 origin-top" />
 
-        <div className="space-y-18">
+        <div className="space-y-12 md:space-y-18">
+
           {industries.map((ind, i) => {
             const reverse = i % 2 === 0;
 
             return (
               <div
                 key={i}
-                className={`timeline-item relative flex flex-col md:flex-row gap-10 items-center ${
-                  reverse ? "md:flex-row-reverse" : ""
-                }`}
+                className={`timeline-item relative flex flex-col md:flex-row gap-6 md:gap-10 items-center ${reverse ? "md:flex-row-reverse" : ""
+                  }`}
               >
                 {/* DOT */}
                 <div className="timeline-dot absolute left-[18px] md:left-1/2 top-10 w-5 h-5 rounded-full bg-sky-500 border-4 border-white shadow-[0_0_20px_rgba(14,165,233,0.45)] -translate-x-1/2 z-20" />
 
                 {/* CONTENT */}
-                <div className="w-full md:w-1/2 pl-14 md:pl-0">
-                  <div className="timeline-card relative overflow-hidden rounded-lg border border-slate-300 bg-white/80 backdrop-blur-xl p-8 shadow-xl hover:shadow-[0_20px_60px_rgba(14,165,233,0.12)] transition-all duration-500">
-                    {/* HOVER GLOW */}
-                    <div className="absolute inset-0 opacity-0 hover:opacity-100 transition duration-700 bg-gradient-to-br from-sky-100/60 to-transparent" />
+                <div className="w-full md:w-1/2 pl-10 md:pl-0">
+                  <div className="timeline-card relative overflow-hidden rounded-lg border border-slate-300 bg-white/80 backdrop-blur-xl p-5 md:p-8 shadow-xl">
 
-                    {/* STAGE */}
                     <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-xs font-bold tracking-[2px] uppercase">
                       {ind.stage}
                     </div>
 
-                    {/* TITLE */}
-                    <h3 className="mt-6 text-3xl font-black text-slate-900">
+                    <h3 className="mt-5 text-2xl md:text-3xl font-black text-slate-900">
                       {ind.title}
                     </h3>
 
-                    {/* DESC */}
-                    <p className="mt-5 text-slate-500 leading-relaxed text-lg">
+                    <p className="mt-4 text-slate-500 leading-relaxed text-sm md:text-lg">
                       {ind.desc}
                     </p>
 
-                    {/* ICON */}
-                    <div className="absolute top-6 right-6 text-4xl opacity-90">
+                    <div className="absolute top-5 right-5 text-3xl md:text-4xl opacity-90">
                       {ind.icon}
                     </div>
                   </div>
                 </div>
 
                 {/* IMAGE */}
-                <div className="w-full md:w-1/2 pl-14 md:pl-0">
-                  <div className="timeline-image relative overflow-hidden rounded-lg h-[220px] border border-slate-200 group shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
+                <div className="w-full md:w-1/2 pl-10 md:pl-0">
+                  <div className="relative overflow-hidden rounded-lg h-[180px] md:h-[220px] border border-slate-200 group shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
+
                     <img
                       src={ind.image}
                       alt={ind.title}
                       className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
                     />
 
-                    {/* OVERLAY */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
 
-                    {/* SHINE */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-150%] group-hover:translate-x-[180%]" />
                   </div>
                 </div>
+
               </div>
             );
           })}
+
         </div>
       </div>
     </section>

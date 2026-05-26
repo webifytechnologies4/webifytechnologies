@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {  Zap, Layout, Lock } from "lucide-react";
+import { Zap, Layout, Lock } from "lucide-react";
 import Stack from "../../components/Stack/Stack";
 
 // ── Each topic has its own icon, label, description & hero image ──────────
@@ -59,50 +59,52 @@ const AboutSection = () => {
   ));
 
   return (
-    <section className="px-6 md:px-20 py-28">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
+    <section className="px-6 md:px-20 py-14 md:py-28 overflow-hidden">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center">
 
-        {/* ── LEFT: HEADING + TOPICS ───────────────────────────────── */}
+        {/* ── LEFT ── */}
         <motion.div
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-center md:text-left"
         >
-          <h2 className="text-5xl font-serif font-black leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black leading-tight">
             Why Choose
             <span className="text-blue-900"> Webify?</span>
           </h2>
-          <p className="text-gray-500 text-lg mt-6 leading-relaxed">
+
+          <p className="text-gray-500 text-base md:text-lg mt-4 md:mt-6 leading-relaxed">
             We combine modern technologies, futuristic UI/UX and scalable
             architecture to create next-generation digital products.
           </p>
 
           {/* TOPIC LIST */}
-          <div className="flex flex-col gap-3 mt-10">
+          <div className="flex flex-col gap-3 mt-8 md:mt-10">
             {topics.map((topic, i) => {
               const isActive = i === activeIndex;
+
               return (
                 <motion.div
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   animate={{
                     backgroundColor: isActive
-                      ? "rgba(219,234,254,1)"   // blue-100
-                      : "rgba(239,246,255,0.6)", // blue-50/60
+                      ? "rgba(219,234,254,1)"
+                      : "rgba(239,246,255,0.6)",
                     borderColor: isActive
-                      ? "rgba(147,197,253,1)"   // blue-300
+                      ? "rgba(147,197,253,1)"
                       : "rgba(219,234,254,0.6)",
                   }}
-                  transition={{ duration: 0.4 }}
-                  className="flex items-start gap-4 px-5 py-4 rounded-lg shadow-md shadow-black/60 border cursor-pointer group"
+                  transition={{ duration: 0.3 }}
+                  className="flex items-start gap-3 md:gap-4 px-4 md:px-5 py-3 md:py-4 rounded-lg shadow-md border cursor-pointer"
                 >
                   {/* ICON */}
                   <div
-                    className={`mt-0.5 flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-                      isActive
+                    className={`mt-0.5 flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-xl flex items-center justify-center ${isActive
                         ? "bg-blue-800 text-white"
                         : "bg-blue-100 text-blue-600"
-                    }`}
+                      }`}
                   >
                     {topic.icon}
                   </div>
@@ -110,9 +112,8 @@ const AboutSection = () => {
                   {/* TEXT */}
                   <div>
                     <p
-                      className={`font-semibold text-md transition-colors duration-300 ${
-                        isActive ? "text-blue-800" : "text-slate-700"
-                      }`}
+                      className={`font-semibold text-sm md:text-md ${isActive ? "text-blue-800" : "text-slate-700"
+                        }`}
                     >
                       {topic.label}
                     </p>
@@ -123,8 +124,7 @@ const AboutSection = () => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.35 }}
-                          className="text-sm text-blue-600/80 mt-1 leading-relaxed overflow-hidden"
+                          className="text-xs md:text-sm text-blue-600/80 mt-1 leading-relaxed"
                         >
                           {topic.desc}
                         </motion.p>
@@ -132,12 +132,11 @@ const AboutSection = () => {
                     </AnimatePresence>
                   </div>
 
-                  {/* ACTIVE DOT */}
+                  {/* DOT */}
                   {isActive && (
                     <motion.div
                       layoutId="topic-dot"
-                      className="ml-auto mt-1 w-2.5 h-2.5 rounded-full bg-blue-600 flex-shrink-0"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      className="ml-auto mt-1 w-2 h-2 rounded-full bg-blue-600"
                     />
                   )}
                 </motion.div>
@@ -146,21 +145,18 @@ const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/* ── RIGHT: STACK COMPONENT ───────────────────────────────── */}
+        {/* ── RIGHT ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center mt-10 md:mt-0"
         >
           {/* GLOW */}
           <div className="absolute inset-0 bg-blue-400/20 blur-[80px] rounded-full" />
 
-          {/* STACK WRAPPER — fixed size so cards render correctly */}
-          <div
-            style={{ width: 460, height: 480 }}
-            className="relative"
-          >
+          {/* RESPONSIVE STACK WRAPPER (FIX MAIN ISSUE) */}
+          <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:w-[460px] md:h-[480px] h-[380px]">
             <Stack
               cards={stackCards}
               randomRotation={true}
@@ -170,15 +166,11 @@ const AboutSection = () => {
             />
           </div>
 
-          {/* FLOATING LABEL under stack */}
+          {/* LABEL */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35 }}
-              className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-10 py-2 rounded-full bg-blue-700 text-white text-sm font-semibold shadow-lg whitespace-nowrap"
+              className="absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 px-6 md:px-10 py-2 rounded-full bg-blue-700 text-white text-xs md:text-sm font-semibold shadow-lg whitespace-nowrap"
             >
               {topics[activeIndex].label}
             </motion.div>

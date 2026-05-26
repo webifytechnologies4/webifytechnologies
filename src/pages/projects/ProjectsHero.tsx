@@ -1,42 +1,155 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const bgImages = [
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+];
+
+const services = [
+  { name: "Website", desc: "Modern & Fast" },
+  { name: "Software", desc: "Scalable Systems" },
+  { name: "Mobile Apps", desc: "iOS & Android" },
+  { name: "UI/UX", desc: "Clean Design" },
+];
 
 const ProjectsHero = () => {
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % bgImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center px-6 md:px-20 pt-32 pb-20 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-cyan-400/20 blur-[150px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/15 blur-[120px] rounded-full" />
+    <section className="relative min-h-screen overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-24 sm:py-28">
 
-      <div className="relative z-10 text-center max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-cyan-200 bg-cyan-50 mb-8"
-        >
-          <span className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
-          <span className="text-cyan-600 font-medium tracking-wide text-sm">Our Portfolio</span>
-        </motion.div>
+      {/* BACKGROUND */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentBg}
+            src={bgImages[currentBg]}
+            initial={{ opacity: 0, scale: 1.2 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.8 }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+      </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight"
-        >
-          Our Premium
-          <span className="text-cyan-500"> Projects</span>
-        </motion.h1>
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-black/80 z-10" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-600 mt-8 leading-relaxed max-w-3xl mx-auto"
-        >
-          Explore futuristic websites, applications and scalable software systems built by Webify
-          Technologies.
-        </motion.p>
+      {/* GLOW */}
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 6, repeat: Infinity }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-[120px] rounded-full z-10"
+      />
+
+      {/* MAIN GRID */}
+      <div className="relative z-30 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+
+        {/* LEFT SIDE */}
+        <div className="text-left max-w-2xl w-full">
+
+          {/* BADGE */}
+          <motion.p
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-cyan-400 tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-5 sm:mb-6"
+          >
+            DESIGN • DEVELOP • DELIVER
+          </motion.p>
+
+          {/* TITLE */}
+          <motion.h1
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.05] text-white"
+          >
+            Turning Ideas Into
+            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-sky-500">
+              Digital Reality
+            </span>
+          </motion.h1>
+
+          {/* DESCRIPTION */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-5 sm:mt-6 text-gray-300 text-sm sm:text-base md:text-lg"
+          >
+            We design and build high-performance websites, apps, and software
+            solutions that help businesses grow faster with modern technology.
+          </motion.p>
+
+          {/* BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-4"
+          >
+            <Link to="/projects">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-semibold shadow-lg w-full sm:w-auto"
+              >
+                Explore Projects
+              </motion.button>
+            </Link>
+
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 bg-white/5 text-white backdrop-blur-md w-full sm:w-auto"
+              >
+                Start Your Project
+              </motion.button>
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* RIGHT SIDE FLOATING SERVICES */}
+        <div className="w-full max-w-md grid grid-cols-2 gap-4 sm:gap-6 mt-10 lg:mt-0">
+
+          {services.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{
+                opacity: 1,
+                y: [0, -8, 0],
+              }}
+              transition={{
+                duration: 3 + i,
+                repeat: Infinity,
+              }}
+              className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 sm:p-6 text-center shadow-xl"
+            >
+              <h3 className="text-white font-bold text-base sm:text-lg">
+                {item.name}
+              </h3>
+              <p className="text-gray-300 text-[10px] sm:text-xs mt-2">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+
+        </div>
+
       </div>
     </section>
   );

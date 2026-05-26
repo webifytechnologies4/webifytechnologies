@@ -1,78 +1,99 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
-    <section className="relative py-10 md:py-18 bg-[#fdfeff] flex justify-center overflow-hidden">
+    <section className="relative py-14 md:py-18 bg-[#fdfeff] flex justify-center overflow-hidden">
+
       {/* Background Soft Glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -top-20 -left-20" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute w-[280px] h-[280px] md:w-[500px] md:h-[500px] bg-blue-50/50 rounded-full blur-3xl -top-16 md:-top-20 -left-16 md:-left-20" />
       </div>
 
-      <div className="relative px-6 w-full max-w-7xl grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="relative px-4 sm:px-6 w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+
         {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center">
-          <p className="text-xs md:text-sm text-gray-500 uppercase tracking-[4px] font-bold mb-3">
+        <div className="flex flex-col justify-center text-center md:text-left">
+
+          <p className="text-[11px] sm:text-xs md:text-sm text-gray-500 uppercase tracking-[3px] md:tracking-[4px] font-bold mb-3">
             BUILDING DIGITAL EXCELLENCE
           </p>
 
-          <h2 className="text-3xl md:text-5xl font-black text-[#1e1b4b] leading-[1.15]">
-            Transform Your Ideas Into 
-            <span className="text-[#facc15]"> Powerful Digital Solutions</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1e1b4b] leading-[1.15]">
+            Transform Your Ideas Into{" "}
+            <span className="text-[#facc15]">
+              Powerful Digital Solutions
+            </span>
           </h2>
 
-          <p className="text-gray-500 mt-6 text-base md:text-lg max-w-xl leading-relaxed">
+          <p className="text-gray-500 mt-5 md:mt-6 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed mx-auto md:mx-0">
             EXOCHOS delivers modern software development, scalable web applications,
             and innovative programming solutions tailored to help businesses grow
             faster in the digital world.
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-5 mt-8">
-            <button className="px-8 py-3.5 bg-[#1e1b4b] text-white rounded-xl font-semibold shadow-lg shadow-indigo-950/20 hover:bg-[#2e2a78] transition-all">
-              Start Your Project
-            </button>
+          {/* BUTTONS */}
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-center md:items-start gap-4 sm:gap-5 mt-8">
 
-            <button className="flex items-center gap-2 px-4 py-3 text-[#1e1b4b] font-bold hover:text-indigo-700 transition-colors group">
-              Explore Services
-              <ArrowRight
-                size={18}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </button>
+            <Link to="/contact" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-3.5 bg-[#1e1b4b] text-white rounded-xl font-semibold shadow-lg shadow-indigo-950/20 hover:bg-[#2e2a78] active:scale-[0.98] transition-all text-sm sm:text-base">
+                Start Your Project
+              </button>
+            </Link>
+
+            <Link to="/services">
+              <button className="flex items-center justify-center gap-2 px-4 py-3 text-[#1e1b4b] font-bold hover:text-indigo-700 transition-colors group text-sm sm:text-base">
+                Explore Services
+
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </button>
+            </Link>
           </div>
         </div>
 
         {/* RIGHT VISUAL */}
-        <div className="relative h-[450px] md:h-[500px] w-full flex items-center justify-center">
-          {/* 1. Software Development Card  */}
+        <div className="relative h-[420px] sm:h-[500px] md:h-[500px] w-full flex items-center justify-center">
+
+          {/* CARD 1 */}
           <motion.div
             initial={{ opacity: 0, y: -150 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute top-4 right-4 md:right-8 w-[80%] md:w-[75%] bg-white border border-gray-100 shadow-2xl shadow-indigo-950/5 rounded-3xl p-5 z-10"
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+            className="absolute top-2 sm:top-4 right-0 sm:right-4 md:right-8 w-[92%] sm:w-[85%] md:w-[75%] bg-white border border-gray-100 shadow-2xl shadow-indigo-950/5 rounded-2xl md:rounded-3xl p-4 sm:p-5 z-10"
           >
-            <div className="flex justify-between items-center mb-4">
+
+            <div className="flex justify-between items-start sm:items-center gap-3 mb-4">
+
               <div className="flex items-center gap-2">
-                <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
-                  <BarChart3 size={18} />
+
+                <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
+                  <BarChart3 size={16} />
                 </div>
-                <h3 className="font-bold text-[#1e1b4b] text-base md:text-lg capitalize">
+
+                <h3 className="font-bold text-[#1e1b4b] text-sm sm:text-base md:text-lg capitalize leading-snug">
                   software development
                 </h3>
               </div>
-              <span className="text-xs bg-emerald-50 text-emerald-700 font-medium px-2.5 py-1 rounded-md flex items-center gap-1 cursor-pointer">
-                <BarChart3 size={12} /> Read More
+
+              <span className="text-[10px] sm:text-xs bg-emerald-50 text-emerald-700 font-medium px-2 py-1 rounded-md flex items-center gap-1 whitespace-nowrap cursor-pointer">
+                <BarChart3 size={10} />
+                Read More
               </span>
             </div>
 
-            <p className="text-xs md:text-sm text-gray-500 mb-4">
+            <p className="text-[11px] sm:text-xs md:text-sm text-gray-500 mb-4 leading-relaxed">
               Websites & media that move users to action. Plans and creatives that scale.
             </p>
 
-            {/* Mock Code/Laptop Image */}
-            <div className="rounded-xl overflow-hidden h-40 md:h-48">
+            <div className="rounded-xl overflow-hidden h-36 sm:h-40 md:h-48">
               <img
                 src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
                 alt="Software Development"
@@ -81,34 +102,42 @@ const CTASection = () => {
             </div>
           </motion.div>
 
-          {/* 2. Programming Card */}
+          {/* CARD 2 */}
           <motion.div
             initial={{ opacity: 0, y: -200 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-            className="absolute bottom-4 left-0 w-[78%] md:w-[72%] bg-white border border-gray-100 shadow-2xl shadow-indigo-950/10 rounded-3xl p-5 z-20"
+            transition={{
+              duration: 0.9,
+              delay: 0.2,
+              ease: "easeOut",
+            }}
+            className="absolute bottom-2 sm:bottom-4 left-0 w-[88%] sm:w-[82%] md:w-[72%] bg-white border border-gray-100 shadow-2xl shadow-indigo-950/10 rounded-2xl md:rounded-3xl p-4 sm:p-5 z-20"
           >
-            <div className="flex justify-between items-center mb-3">
+
+            <div className="flex justify-between items-start sm:items-center gap-3 mb-3">
+
               <div className="flex items-center gap-2">
-                <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
-                  <Code2 size={18} />
+
+                <div className="p-2 bg-blue-50 text-blue-600 rounded-lg shrink-0">
+                  <Code2 size={16} />
                 </div>
-                <h3 className="font-bold text-[#1e1b4b] text-base md:text-lg capitalize">
+
+                <h3 className="font-bold text-[#1e1b4b] text-sm sm:text-base md:text-lg capitalize">
                   Programming
                 </h3>
               </div>
-              <span className="text-xs bg-blue-50 text-blue-700 font-medium px-2.5 py-1 rounded-md flex items-center gap-1 cursor-pointer">
+
+              <span className="text-[10px] sm:text-xs bg-blue-50 text-blue-700 font-medium px-2 py-1 rounded-md flex items-center gap-1 whitespace-nowrap cursor-pointer">
                 &lt;&gt; Read More
               </span>
             </div>
 
-            <p className="text-xs md:text-sm text-gray-500 mb-4">
+            <p className="text-[11px] sm:text-xs md:text-sm text-gray-500 mb-4 leading-relaxed">
               Modern stacks, clean patterns & scalable codebase.
             </p>
 
-            {/* Mock Developer Image */}
-            <div className="rounded-xl overflow-hidden h-28 md:h-32">
+            <div className="rounded-xl overflow-hidden h-24 sm:h-28 md:h-32">
               <img
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop"
                 alt="Programming"

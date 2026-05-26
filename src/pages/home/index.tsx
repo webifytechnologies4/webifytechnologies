@@ -17,7 +17,6 @@ const Home = () => {
       <Navbar />
       <div className="bg-white text-black overflow-hidden">
         <HeroSection />
-        {/* <TechMarquee /> */}
         <ServicesSection />
         <AboutSection />
         <FeaturesSection />
@@ -25,7 +24,7 @@ const Home = () => {
         <ProjectsSection />
         <CTASection />
         <ClientsSection />
-        <TestimonialSection/>
+        <TestimonialSection />
       </div>
       <Footer />
     </>

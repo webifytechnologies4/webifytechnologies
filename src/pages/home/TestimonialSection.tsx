@@ -49,33 +49,36 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section className="w-full bg-[#f5f5f5] py-14 overflow-hidden relative">
+    <section className="relative w-full overflow-hidden bg-[#f5f5f5] py-10 md:py-14">
       {/* Background Blur */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 blur-3xl rounded-full" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-yellow-200/20 blur-3xl rounded-full" />
+      <div className="absolute top-20 left-10 w-52 h-52 md:w-72 md:h-72 bg-blue-200/20 blur-3xl rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-0">
+      <div className="absolute bottom-10 right-10 w-56 h-56 md:w-80 md:h-80 bg-yellow-200/20 blur-3xl rounded-full" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-10 md:mb-14"
         >
-          <p className="uppercase tracking-[5px] text-yellow-600 font-semibold mb-4">
+          <p className="uppercase tracking-[3px] md:tracking-[5px] text-yellow-600 font-semibold mb-3 md:mb-4 text-xs sm:text-sm">
             Student Voices
           </p>
 
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight text-[#16235a]">
-            Real stories.{" "}
-            <span className="text-yellow-600">Real trust.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-[#16235a]">
+            Real stories.
+            <span className="block md:inline text-yellow-600">
+              {" "}Real trust.
+            </span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* Left Images */}
-          <div className="flex items-center justify-center lg:justify-start gap-5 flex-wrap">
+          <div className="flex items-center justify-center lg:justify-start gap-4 md:gap-5 flex-wrap">
             {testimonials.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -85,11 +88,10 @@ const TestimonialSection = () => {
                   rotate: index === active ? 0 : 4,
                 }}
                 transition={{ duration: 0.4 }}
-                className={`relative cursor-pointer rounded-full p-[4px] ${
-                  index === active
+                className={`relative cursor-pointer rounded-full p-[4px] ${index === active
                     ? "bg-blue-600"
-                    : "bg-gray-300 "
-                }`}
+                    : "bg-gray-300"
+                  }`}
               >
                 {/* Pulse Ring */}
                 {index === active && (
@@ -107,18 +109,17 @@ const TestimonialSection = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className={`w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-4 transition-all duration-500 ${
-                    index === active
+                  className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full object-cover border-4 transition-all duration-500 ${index === active
                       ? "border-white grayscale-0"
                       : "border-white grayscale"
-                  }`}
+                    }`}
                 />
               </motion.div>
             ))}
           </div>
 
           {/* Right Content */}
-          <div className="relative min-h-[320px]">
+          <div className="relative min-h-[260px] md:min-h-[320px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -128,18 +129,16 @@ const TestimonialSection = () => {
                 transition={{ duration: 0.7 }}
                 className="absolute w-full"
               >
-         
-
-                <p className="text-xl md:text-2xl italic text-[#1b274d] leading-relaxed font-medium">
+                <p className="text-lg sm:text-xl md:text-2xl italic text-[#1b274d] leading-relaxed font-medium">
                   {testimonials[active].text}
                 </p>
 
-                <div className="mt-10">
-                  <h4 className="text-xl font-bold text-[#16235a]">
+                <div className="mt-8 md:mt-10">
+                  <h4 className="text-lg sm:text-xl font-bold text-[#16235a]">
                     — {testimonials[active].name}
                   </h4>
 
-                  <p className="text-lg text-slate-900 mt-2">
+                  <p className="text-sm sm:text-base md:text-lg text-slate-900 mt-2">
                     {testimonials[active].country}
                   </p>
                 </div>
@@ -149,16 +148,15 @@ const TestimonialSection = () => {
         </div>
 
         {/* Bottom Progress */}
-        <div className="flex justify-center  gap-3">
+        <div className="flex justify-center gap-3 mt-4 md:mt-0">
           {testimonials.map((_, index) => (
             <motion.div
               key={index}
               onClick={() => setActive(index)}
-              className={`h-2 rounded-full cursor-pointer transition-all duration-500 ${
-                active === index
-                  ? "w-14 bg-blue-600"
+              className={`h-2 rounded-full cursor-pointer transition-all duration-500 ${active === index
+                  ? "w-12 md:w-14 bg-blue-600"
                   : "w-3 bg-gray-300"
-              }`}
+                }`}
             />
           ))}
         </div>

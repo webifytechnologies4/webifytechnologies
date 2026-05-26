@@ -49,11 +49,10 @@ const Navbar = () => {
       <motion.header
         animate={{ y: visible ? 0 : "-120%" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] z-50 rounded-[30px] border transition-colors duration-500 ${
-          scrolled
-            ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
-            : "bg-black/60 backdrop-blur-xl border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
-        }`}
+        className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] z-50 rounded-[30px] border transition-colors duration-500 ${scrolled
+          ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
+          : "bg-black/60 backdrop-blur-xl border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="h-20 flex items-center justify-between">
@@ -80,11 +79,10 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`relative text-[15px] font-semibold transition-all duration-300 ${
-                    location.pathname === link.path
-                      ? "text-sky-400"
-                      : "text-gray-300 hover:text-sky-400"
-                  }`}
+                  className={`relative text-[15px] font-semibold transition-all duration-300 ${location.pathname === link.path
+                    ? "text-sky-400"
+                    : "text-gray-300 hover:text-sky-400"
+                    }`}
                 >
                   {link.name}
                   {location.pathname === link.path && (
@@ -100,14 +98,19 @@ const Navbar = () => {
 
             {/* CTA BUTTON */}
             <div className="hidden md:flex items-center">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(21,101,192,0.5)" }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-sky-500 hover:from-blue-600 hover:to-sky-400 text-white px-7 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(21,101,192,0.4)] transition-all duration-300"
-              >
-                Get Started
-                <ArrowRight size={18} />
-              </motion.button>
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 25px rgba(21,101,192,0.5)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-sky-500 hover:from-blue-600 hover:to-sky-400 text-white px-7 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(21,101,192,0.4)] transition-all duration-300"
+                >
+                  Get Started
+                  <ArrowRight size={18} />
+                </motion.button>
+              </Link>
             </div>
 
             {/* MOBILE MENU BUTTON */}
@@ -125,30 +128,42 @@ const Navbar = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-28 left-1/2 -translate-x-1/2 w-[95%] rounded-[30px] bg-black/95 backdrop-blur-2xl border border-blue-600/20 shadow-[0_10px_50px_rgba(21,101,192,0.25)] z-40 md:hidden overflow-hidden"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.35 }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-2xl md:hidden"
           >
-            <div className="px-6 py-8 flex flex-col gap-6">
+            {/* CLOSE BUTTON */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-6 right-6 text-white text-3xl"
+            >
+              ✕
+            </button>
+
+            {/* MENU ITEMS */}
+            <div className="flex flex-col items-center gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
                   onClick={() => setOpen(false)}
-                  className={`text-lg font-semibold transition-all ${
-                    location.pathname === link.path ? "text-sky-400" : "text-gray-300"
-                  }`}
+                  className={`text-2xl font-semibold transition-all ${location.pathname === link.path
+                    ? "text-sky-400"
+                    : "text-white/70 hover:text-sky-400"
+                    }`}
                 >
                   {link.name}
                 </Link>
               ))}
+            </div>
 
-              {/* MOBILE CTA */}
+            {/* CTA BUTTON */}
+            <div className="mt-12">
               <motion.button
                 whileTap={{ scale: 0.95 }}
-                className="mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-700 to-sky-500 hover:from-blue-600 hover:to-sky-400 text-white py-4 rounded-2xl font-semibold shadow-[0_10px_30px_rgba(21,101,192,0.4)] transition-all"
+                className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg"
               >
                 Start Project
                 <ArrowRight size={18} />

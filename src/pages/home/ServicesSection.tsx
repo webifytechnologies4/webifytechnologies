@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Globe, Smartphone, Code2, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -39,18 +40,16 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section className="relative py-8 max-w-7xl mx-auto px-4 overflow-hidden ">
-
+    <section className="relative py-8 max-w-7xl mx-auto px-4 overflow-hidden">
 
       {/* HEADING */}
       <div className="relative z-10 text-center mb-10">
-
 
         <motion.h2
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mt-6 text-5xl md:text-5xl font-black text-black"
+          className="mt-6 text-4xl md:text-5xl font-black text-black"
         >
           Our Premium
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-300">
@@ -58,14 +57,15 @@ const ServicesSection = () => {
           </span>
         </motion.h2>
 
-        <p className="max-w-5xl mx-auto mt-6 text-lg leading-relaxed text-gray-600">
+        <p className="max-w-5xl mx-auto mt-6 text-base md:text-lg leading-relaxed text-gray-600">
           We build next-generation digital experiences using modern
           technologies, smooth animations and scalable architectures.
         </p>
       </div>
 
       {/* SERVICE CARDS */}
-      <div className="relative z-20 flex flex-col md:flex-row gap-6 h-auto  md:h-[460px]">
+      <div className="relative z-20 flex flex-col md:flex-row gap-6 h-auto md:h-[460px]">
+
         {services.map((service, index) => {
           const isActive = active === index;
 
@@ -73,21 +73,29 @@ const ServicesSection = () => {
             <motion.div
               key={index}
               onMouseEnter={() => setActive(index)}
+
+              /*  MOBILE FIX: no width animation on mobile */
               animate={{
-                width: isActive ? "50%" : "25%",
+                width: typeof window !== "undefined" && window.innerWidth >= 768
+                  ? (isActive ? "50%" : "25%")
+                  : "100%",
               }}
+
               transition={{
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="group relative overflow-hidden rounded-lg cursor-pointer min-h-[340px]"
+
+              className="group relative overflow-hidden rounded-lg cursor-pointer min-h-[320px] w-full md:min-h-[340px]"
               style={{
                 boxShadow: isActive
                   ? "0 25px 80px rgba(0,180,216,0.25)"
                   : "0 10px 30px rgba(0,0,0,0.35)",
               }}
             >
-              {/* BACKGROUND IMAGE */}2              <motion.div
+
+              {/* BACKGROUND IMAGE */}
+              <motion.div
                 animate={{
                   scale: isActive ? 1.08 : 1,
                 }}
@@ -104,29 +112,16 @@ const ServicesSection = () => {
                 />
               </motion.div>
 
-              {/* DARK OVERLAY */}
-              <div
-                className="absolute inset-0 bg-black/50"
-               
-              />
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-black/50" />
 
-              {/* BRAND OVERLAY */}
-              <div
-                className="absolute inset-0 opacity-80 bg-black/50"
- 
-              />
+              <div className="absolute inset-0 opacity-80 bg-black/40" />
 
-              {/* HOVER GLOW */}
-              <div
-                className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-700"
-           
-              />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-black/40" />
 
-              {/* MOVING LIGHT */}
+              {/* LIGHT SWEEP */}
               <motion.div
-                animate={{
-                  x: ["-120%", "180%"],
-                }}
+                animate={{ x: ["-120%", "180%"] }}
                 transition={{
                   repeat: Infinity,
                   duration: 5,
@@ -145,120 +140,52 @@ const ServicesSection = () => {
                 />
               )}
 
-              {/* ORB LIGHT */}
-              <motion.div
-                animate={{
-                  rotate: 360,
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 18,
-                  ease: "linear",
-                }}
-                className="absolute -top-40 -right-40 w-[320px] h-[320px] bg-cyan-400/10 rounded-full blur-3xl"
-              />
+              {/* ORB */}
+              <div className="absolute -top-40 -right-40 w-[320px] h-[320px] bg-cyan-400/10 rounded-full blur-3xl" />
 
               {/* CONTENT */}
-              <div className="relative z-10 h-full flex flex-col justify-between p-8 md:p-10 text-white">
+              <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-10 text-white">
+
                 <div>
                   {/* ICON */}
-                  <motion.div
-                    animate={{
-                      y: [0, -8, 0],
-                    }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 3,
-                    }}
-                    className="w-20 h-20 rounded-3xl bg-white/10 backdrop-blur-xl border border-cyan-400/20 flex items-center justify-center shadow-2xl"
-                  >
+                  <div className="w-16 md:w-20 h-16 md:h-20 rounded-3xl bg-white/10 backdrop-blur-xl border border-cyan-400/20 flex items-center justify-center">
                     {service.icon}
-                  </motion.div>
+                  </div>
 
                   {/* TITLE */}
-                  <motion.h3
-                    layout
-                    className={`font-black mt-8 leading-tight transition-all duration-500 ${
-                      isActive
-                        ? "text-4xl md:text-5xl"
-                        : "text-2xl md:text-3xl"
-                    }`}
-                  >
+                  <h3 className={`font-black mt-6 leading-tight ${isActive ? "text-3xl md:text-5xl" : "text-xl md:text-3xl"
+                    }`}>
                     {service.title}
-                  </motion.h3>
+                  </h3>
 
-                  {/* DETAILS */}
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{
-                          opacity: 0,
-                          y: 30,
-                        }}
-                        animate={{
-                          opacity: 1,
-                          y: 0,
-                        }}
-                        exit={{
-                          opacity: 0,
-                          y: 20,
-                        }}
-                        transition={{
-                          duration: 0.5,
-                        }}
-                        className="overflow-hidden"
-                      >
-                        <p className="mt-6 text-lg leading-relaxed text-white/75 max-w-md">
-                          {service.desc}
-                        </p>
+                  {/* DESCRIPTION */}
+                  <div className="mt-5">
+                    <p className="text-sm md:text-lg text-white/75">
+                      {service.desc}
+                    </p>
 
-                        {/* BUTTON */}
-                        <motion.button
-                          whileHover={{
-                            scale: 1.05,
-                          }}
-                          whileTap={{
-                            scale: 0.95,
-                          }}
-                          className="mt-8 flex items-center gap-3 px-6 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-blue-600 shadow-[0_10px_30px_rgba(0,180,216,0.4)]"
-                        >
-                          Explore Service
-                          <ArrowUpRight size={18} />
-                        </motion.button>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                    {/* BUTTON (ALWAYS VISIBLE ON MOBILE) */}
+                    <Link to="/services">
+                      <button className="mt-6 flex items-center gap-3 px-5 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-blue-600 text-white hover:scale-105 transition duration-300">
+                        Explore Service
+                        <ArrowUpRight size={18} />
+                      </button>
+                    </Link>
+                  </div>
                 </div>
 
-                {/* WATERMARK NUMBER */}
-                <motion.div
-                  animate={{
-                    opacity: isActive ? 0.5 : 0.1,
-                  }}
-                  className="absolute bottom-2 right-6 font-black leading-none select-none"
-                  style={{
-                    fontSize: "clamp(100px,14vw,180px)",
-                  }}
-                >
+                {/* NUMBER */}
+                <div className="absolute bottom-2 right-4 text-7xl md:text-[160px] font-black opacity-10">
                   0{index + 1}
-                </motion.div>
+                </div>
 
-                {/* PREMIUM BADGE */}
+                {/* BADGE */}
                 {isActive && (
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      scale: 0.8,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                    }}
-                    className="absolute top-8 right-8 px-4 py-2 rounded-full text-sm font-semibold bg-yellow-400/15 border border-yellow-300/30 text-yellow-300 backdrop-blur-xl"
-                  >
+                  <div className="absolute top-6 right-6 px-3 py-1 rounded-full text-xs bg-yellow-400/15 text-yellow-300 border border-yellow-300/30">
                     ✦ Premium
-                  </motion.div>
+                  </div>
                 )}
+
               </div>
             </motion.div>
           );

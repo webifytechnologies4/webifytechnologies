@@ -1,146 +1,206 @@
-import { Globe, Mail, Rocket } from "lucide-react";
+import { useRef } from 'react'
+import { Link } from 'react-router-dom'
+import logoImg from "../assets/logo.webp";
+import VariableProximity from '../components/VariableProximity'
 
-const Footer = () => {
-    return (
-        <footer className="relative bg-black text-white overflow-hidden">
+const services = [
+  'Website Development',
+  'Software Development',
+  'Mobile App Development',
+  'UI/UX Design',
+  'Graphic Design',
+  'Video Editing'
+]
+const company = [
+  'Home',
+  'About Us',
+  'Services',
+  'Projects',
+  'Contact Us',
+]
 
-            {/* Glow Background */}
-            <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/20 blur-[180px] rounded-full" />
-            <div className="absolute bottom-[-180px] right-[-120px] w-[500px] h-[500px] bg-blue-500/20 blur-[160px] rounded-full" />
+const socials = [
+  {
+    label: 'LinkedIn', icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
+    ), href: '#'
+  },
+  {
+    label: 'Instagram', icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" /></svg>
+    ), href: '#'
+  },
+  {
+    label: 'Facebook', icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
+    ), href: '#'
+  },
+  {
+    label: 'YouTube',
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.8 31.8 0 000 12a31.8 31.8 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.8 31.8 0 0024 12a31.8 31.8 0 00-.5-5.8zM9.7 15.5v-7L16 12l-6.3 3.5z" />
+      </svg>
+    ),
+    href: '#',
+  },
+]
 
-            <div className="relative z-10 px-6 md:px-20 py-24">
+export default function Footer() {
+  const containerRef = useRef(null);
 
-                {/* TOP GRID */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+  return (
+    <footer className="bg-black relative overflow-hidden border-t border-white/10 noise-overlay">
+      {/* Big display text */}
+      <div className="pt-12 px-8 text-center overflow-hidden no-splash">
+        <div
+          ref={containerRef}
+          style={{ position: 'relative' }}
+          className="font-display font-bold text-[clamp(2.5rem,8vw,7rem)] leading-none text-white/60 [text-stroke:1px_rgba(255,255,255,0.15)] tracking-tighter opacity-80 uppercase cursor-default no-splash"
+        >
+          <VariableProximity
+            label="HELLO! WE'RE LISTENING"
+            className="variable-proximity-demo"
+            fromFontVariationSettings="'wght' 400, 'opsz' 9"
+            toFontVariationSettings="'wght' 1000, 'opsz' 40"
+            containerRef={containerRef}
+            radius={100}
+            falloff="linear"
+          />
+        </div>
+      </div>
 
-                    {/* BRAND */}
-                    <div className="lg:col-span-5 space-y-6">
-                        <div className="flex items-center gap-2 text-3xl font-bold text-cyan-400">
-                            <Rocket /> Webify Technologies
-                        </div>
+      {/* Main footer content */}
+      <div className="max-w-[1400px] mx-auto px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
-                        <p className="text-gray-400 leading-relaxed max-w-md">
-                            We design and build modern digital products with high performance,
-                            scalable architecture and futuristic UI/UX experiences.
-                        </p>
+          {/* Brand column */}
+          <div className="lg:col-span-1">
+            <Link
+              to="/"
+              className="flex items-center gap-3 no-underline mb-5 group"
+            >
+              <img
+                src={logoImg}
+                alt="Webify Logo"
+                className="h-11 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
+              />
 
-                        {/* SOCIAL ICONS */}
-                        <div className="flex gap-5 pt-2">
-
-                            {/* LINKEDIN */}
-                            <a
-                                href="https://www.linkedin.com/company/webifytechnologies/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 rounded-lg border border-white/10 hover:border-cyan-400 hover:text-cyan-400 transition"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8 7.98h3.8v2.12h.05c.53-1 1.83-2.12 3.77-2.12 4.03 0 4.78 2.65 4.78 6.1v9.42h-4v-8.36c0-1.99-.04-4.55-2.78-4.55-2.79 0-3.22 2.18-3.22 4.4v8.51H8V7.98z" />
-                                </svg>
-                            </a>
-
-                            {/* INSTAGRAM */}
-                            <a
-                                href="https://www.instagram.com/webifytechnologies?igsh=MXM4MnRhYXMxY3Q5NQ=="
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 rounded-lg border border-white/10 hover:border-pink-400 hover:text-pink-400 transition"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zM12 7a5 5 0 110 10 5 5 0 010-10z" />
-                                </svg>
-                            </a>
-
-                            {/* FACEBOOK */}
-                            <a
-                                href="https://www.facebook.com/share/1QS9oGiAUA/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 rounded-lg border border-white/10 hover:border-blue-500 hover:text-blue-500 transition"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0022 12z" />
-                                </svg>
-                            </a>
-
-                            {/* GITHUB */}
-                            <a
-                                href="https://github.com/webifytechnologies4"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 rounded-lg border border-white/10 hover:border-gray-400 hover:text-gray-300 transition"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 008 10.95c.58.1.79-.25.79-.56v-2.17c-3.25.71-3.94-1.39-3.94-1.39-.53-1.34-1.29-1.7-1.29-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.77 2.73 1.26 3.39.96.11-.76.41-1.26.74-1.55-2.59-.29-5.31-1.3-5.31-5.79 0-1.28.46-2.33 1.2-3.15-.12-.29-.52-1.46.11-3.04 0 0 .98-.31 3.2 1.2a11.1 11.1 0 015.82 0c2.22-1.51 3.2-1.2 3.2-1.2.63 1.58.23 2.75.11 3.04.75.82 1.2 1.87 1.2 3.15 0 4.5-2.73 5.49-5.33 5.78.42.36.79 1.08.79 2.17v3.22c0 .31.21.67.8.56A11.5 11.5 0 0023.5 12C23.5 5.65 18.35.5 12 .5z" />
-                                </svg>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                    {/* RIGHT GRID */}
-                    <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-12">
-
-                        {/* Services */}
-                        <div>
-                            <h3 className="text-white font-semibold mb-5">Services</h3>
-                            <div className="space-y-4 text-gray-400">
-                                {["Web Development", "App Development", "Software Development", "UI/UX Design", "Video Editing"].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3 hover:text-cyan-400 cursor-pointer transition">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Company */}
-                        <div>
-                            <h3 className="text-white font-semibold mb-5">Company</h3>
-                            <div className="space-y-4 text-gray-400">
-                                {["About", "Projects", "Careers", "Contact"].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3 hover:text-cyan-400 cursor-pointer transition">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                                        {item}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Contact */}
-                        <div>
-                            <h3 className="text-white font-semibold mb-5">Contact</h3>
-
-                            <div className="space-y-4 text-gray-400 text-sm">
-
-                                <div className="flex items-center gap-2 hover:text-cyan-400 cursor-pointer">
-                                    <Mail size={16} /> webifytechnologies4@gmail.com
-                                </div>
-
-                                <div className="flex items-center gap-2 hover:text-cyan-400 cursor-pointer">
-                                    <Globe size={16} /> www.webifytechnologies.com
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-
+              <div className="font-display font-bold leading-[1.1] transition duration-300 group-hover:text-cyan-400">
+                <div className="text-white group-hover:text-cyan-400 transition duration-300">
+                  Webify Technologies
                 </div>
+              </div>
+            </Link>
 
-                {/* BOTTOM BAR */}
-                <div className="border-t border-white/10 mt-20 pt-8 flex justify-center items-center text-gray-500 text-sm">
+            <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-[280px] hover:text-white transition duration-300">
+              Webify Technologies is a modern IT company building websites,
+              software, mobile apps, and powerful digital solutions for growing
+              businesses.
+            </p>
 
-                    <p className="text-center">
-                        © {new Date().getFullYear()} Webify Technologies. All rights reserved.
-                    </p>
-
-                </div>
-
+            {/* Socials */}
+            <div className="flex gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className={`group w-10 h-10 rounded-xl border flex items-center justify-center text-white/70 transition-all duration-300 hover:-translate-y-1
+      ${s.label === "Instagram"
+                      ? "bg-white/10 border-white/10 hover:bg-pink-500 hover:border-pink-500 hover:text-white hover:shadow-[0_10px_25px_rgba(236,72,153,0.45)]"
+                      : s.label === "Facebook"
+                        ? "bg-white/10 border-white/10 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-[0_10px_25px_rgba(37,99,235,0.45)]"
+                        : s.label === "YouTube"
+                          ? "bg-white/10 border-white/10 hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-[0_10px_25px_rgba(220,38,38,0.45)]"
+                          : "bg-white/10 border-white/10 hover:bg-cyan-400 hover:border-cyan-400 hover:text-black hover:shadow-[0_10px_25px_rgba(34,211,238,0.4)]"
+                    }`}
+                >
+                  <span className="transition-transform duration-300 group-hover:scale-110">
+                    {s.icon}
+                  </span>
+                </a>
+              ))}
             </div>
-        </footer>
-    );
-};
+          </div>
 
-export default Footer;
+          {/* Services */}
+          <div>
+            <h4 className="font-display font-semibold text-white mb-5 text-base">
+              Services
+            </h4>
+
+            <ul className="list-none flex flex-col gap-3">
+              {services.map((s) => (
+                <li key={s}>
+                  <Link
+                    to="/services"
+                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
+                  >
+                    <span className="w-0 group-hover:w-2 h-[2px] bg-cyan-400 transition-all duration-300" />
+                    {s}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-display font-semibold text-white mb-5 text-base">
+              Company
+            </h4>
+
+            <ul className="list-none flex flex-col gap-3">
+              {company.map((c) => (
+                <li key={c}>
+                  <Link
+                    to="/about"
+                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
+                  >
+                    <span className="w-0 group-hover:w-2 h-[2px] bg-cyan-400 transition-all duration-300" />
+                    {c}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-display font-semibold text-white mb-5 text-base">
+              Contact
+            </h4>
+
+            <div className="flex flex-col gap-4">
+              <a
+                href="mailto:webifytechnologies4@gmail.com"
+                className="text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-1 break-all"
+              >
+                webifytechnologies4@gmail.com
+              </a>
+
+              <span className="text-white/60 text-sm transition duration-300 hover:text-white">
+                Ahmedabad, Gujarat, India
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10 px-8 py-6">
+        <div className="max-w-[1400px] mx-auto flex flex-wrap justify-center items-center gap-4">
+          <p className="text-white/60 text-[0.75rem] font-mono hover:text-cyan-400 transition duration-300">
+            © 2026 Webify Technologies. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}

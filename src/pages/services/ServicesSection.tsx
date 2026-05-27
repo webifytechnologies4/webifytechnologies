@@ -66,14 +66,14 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.25, 1, 0.5, 1] as const, // Premium cubic-bezier ease out
+      ease: [0.25, 1, 0.5, 1] as const,
     },
   },
 };
 
 const ServicesSection = () => {
   return (
-    <section className="py-24 bg-slate-50/50 flex justify-center overflow-hidden">
+    <section id="services-list" aria-label="Our Premium Services" className="py-8 md:py-16 bg-brand-white flex justify-center overflow-hidden w-full">
       <div className="w-[95%] md:w-[85%] max-w-7xl">
         {/* HEADER */}
         <div className="text-center mb-16 md:mb-24">
@@ -82,7 +82,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-cyan-600 uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm font-semibold"
+            className="text-brand-blue uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm font-semibold"
           >
             What We Offer
           </motion.p>
@@ -92,7 +92,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-3xl md:text-5xl font-black mt-4 text-[#0B1B3F]"
+            className="text-3xl md:text-5xl font-bold mt-4 text-brand-darkBlue"
           >
             Our Premium Services
           </motion.h2>
@@ -120,9 +120,9 @@ const ServicesSection = () => {
                     y: -6,
                     transition: { duration: 0.3, ease: "easeOut" }
                   }}
-                  className={`group relative w-full md:w-[88%] bg-white border border-slate-100 
-                    shadow-xl shadow-black/40
-                    hover:shadow-[0_25px_60px_rgba(11,27,95,0.12)] 
+                  className={`group relative w-full md:w-[88%] bg-white border border-brand-cyan/15 
+                    shadow-lg shadow-brand-blue/5
+                    hover:shadow-[0_25px_60px_rgba(21,101,192,0.08)] 
                     transition-shadow duration-500 px-6 md:px-12 py-10 md:py-12 
                     ${
                       isEven
@@ -141,15 +141,15 @@ const ServicesSection = () => {
                     {/* OUTER CIRCLE SHADOW EFFECT */}
                     <motion.div 
                       whileHover={{ scale: 1.05, rotate: isEven ? 5 : -5 }}
-                      className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-[#f4f0e6] shadow-[0_12px_35px_rgba(11,27,95,0.15)] group-hover:shadow-[0_20px_45px_rgba(11,27,95,0.25)] transition-all duration-500 flex items-center justify-center"
+                      className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-brand-light shadow-[0_12px_35px_rgba(21,101,192,0.1)] group-hover:shadow-[0_20px_45px_rgba(21,101,192,0.15)] transition-all duration-500 flex items-center justify-center"
                     >
                       {/* INNER GRADIENT */}
-                      <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-gradient-to-b from-[#d4af37] via-[#5c5c5c] to-[#0B1B5F] flex items-center justify-center shadow-inner">
+                      <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-gradient-to-b from-brand-cyan to-brand-blue flex items-center justify-center shadow-inner">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 300, damping: 15 }}
                         >
-                          <Icon className="text-white" size={window.innerWidth < 768 ? 24 : 36} />
+                          <Icon className="text-white" size={32} />
                         </motion.div>
                       </div>
                     </motion.div>
@@ -157,15 +157,15 @@ const ServicesSection = () => {
 
                   {/* TYPOGRAPHY CONTENT */}
                   <div className={`${isEven ? "pr-12 md:pr-24 lg:pr-32" : "pl-12 md:pl-24 lg:pl-32"}`}>
-                    <h3 className="text-2xl md:text-3xl font-black text-[#071739] leading-tight transition-colors duration-300 group-hover:text-cyan-600">
+                    <h3 className="text-xl md:text-2xl font-bold text-brand-darkBlue leading-tight transition-colors duration-300 group-hover:text-brand-cyan">
                       {service.title}
                     </h3>
 
-                    <p className="mt-3 md:mt-4 text-[#31496b] text-base md:text-lg leading-relaxed font-semibold">
+                    <p className="mt-3 md:mt-4 text-gray-600 text-sm md:text-base leading-relaxed">
                       {service.desc}
                     </p>
 
-                    <p className="mt-2 text-slate-400 text-xs md:text-sm leading-relaxed font-medium tracking-wide">
+                    <p className="mt-2 text-gray-400 text-xs md:text-sm leading-relaxed">
                       We create modern and scalable digital solutions with premium design and seamless experience.
                     </p>
                   </div>

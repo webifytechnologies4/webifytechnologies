@@ -32,15 +32,15 @@ const wordVariants = {
 
 const CTASection = () => {
   return (
-    <section className="relative py-14 sm:py-16 px-4 sm:px-6 md:px-6 overflow-hidden bg-white">
+    <section id="cta-section-about" aria-label="Work With Us" className="relative py-8 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white">
 
       {/* CLEAN WHITE BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
         {/* KEEP DESKTOP SAME */}
-        <div className="absolute top-[-220px] left-[-120px] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-cyan-100/60 blur-[120px] sm:blur-[160px] rounded-full" />
+        <div className="absolute top-[-220px] left-[-120px] w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-brand-cyan/15 blur-[120px] sm:blur-[160px] rounded-full" />
 
-        <div className="absolute bottom-[-250px] right-[-120px] w-[320px] h-[320px] sm:w-[550px] sm:h-[550px] bg-blue-100/60 blur-[130px] sm:blur-[180px] rounded-full" />
+        <div className="absolute bottom-[-250px] right-[-120px] w-[320px] h-[320px] sm:w-[550px] sm:h-[550px] bg-brand-blue/15 blur-[130px] sm:blur-[180px] rounded-full" />
 
         <motion.div
           animate={{ x: ["-20%", "120%"] }}
@@ -49,7 +49,7 @@ const CTASection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-20 w-[220px] sm:w-[300px] h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+          className="absolute top-20 w-[220px] sm:w-[300px] h-[2px] bg-gradient-to-r from-transparent via-brand-cyan to-transparent"
         />
       </div>
 
@@ -67,11 +67,11 @@ const CTASection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-cyan-100 bg-cyan-50"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-brand-cyan/25 bg-brand-light"
             >
-              <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
 
-              <span className="text-cyan-600 text-[11px] sm:text-sm tracking-[2px] sm:tracking-[3px] uppercase font-semibold">
+              <span className="text-brand-blue text-[11px] sm:text-sm tracking-[2px] sm:tracking-[3px] uppercase font-semibold">
                 Let's Work Together
               </span>
             </motion.div>
@@ -82,7 +82,7 @@ const CTASection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="text-[2.2rem] sm:text-5xl md:text-6xl font-black leading-[1.15] text-gray-900 mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-x-2 sm:gap-x-3 gap-y-1"
+              className="text-3xl md:text-5xl font-bold leading-[1.15] text-brand-darkBlue mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-x-2 sm:gap-x-3 gap-y-1"
             >
               <motion.span variants={wordVariants} className="inline-block">
                 Let's
@@ -99,7 +99,7 @@ const CTASection = () => {
               {/* ANIMATED GRADIENT */}
               <motion.span
                 variants={wordVariants}
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-400 bg-[length:200%_auto] animate-[pulse_6s_ease-in-out_infinite]"
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-cyan bg-[length:200%_auto] animate-[pulse_6s_ease-in-out_infinite]"
               >
                 Amazing Together
               </motion.span>
@@ -114,7 +114,7 @@ const CTASection = () => {
                 duration: 0.6,
                 delay: 0.6,
               }}
-              className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mt-6 sm:mt-8 max-w-2xl px-1 sm:px-0"
+              className="text-gray-600 text-sm md:text-lg leading-relaxed mt-6 sm:mt-8 max-w-2xl px-1 sm:px-0"
             >
               Whether you need a modern business website, a powerful
               e-commerce platform, or a custom digital solution —
@@ -137,10 +137,10 @@ const CTASection = () => {
                 <motion.button
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0px 0px 40px rgba(34,211,238,0.35)",
+                    boxShadow: "0px 0px 40px rgba(21,101,192,0.35)",
                   }}
                   whileTap={{ scale: 0.96 }}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold text-sm sm:text-base"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-bold text-sm sm:text-base min-h-[48px] flex items-center justify-center"
                 >
                   Contact Us
                 </motion.button>
@@ -158,7 +158,7 @@ const CTASection = () => {
                     y: -2,
                   }}
                   whileTap={{ scale: 0.96 }}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-cyan-100 bg-white text-gray-900 font-semibold hover:border-cyan-300 hover:bg-cyan-50 hover:shadow-xl hover:shadow-cyan-100 transition-all duration-300 text-sm sm:text-base"
+                  className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-brand-cyan/20 bg-brand-white text-brand-darkBlue font-semibold hover:border-brand-cyan/40 hover:bg-brand-light hover:shadow-xl hover:shadow-brand-blue/10 transition-all duration-300 text-sm sm:text-base min-h-[48px] flex items-center justify-center"
                 >
                   Get Free Consultation
                 </motion.button>
@@ -176,23 +176,23 @@ const CTASection = () => {
           >
 
             {/* KEEP DESKTOP SAME */}
-            <div className="relative w-full max-w-[520px] bg-white overflow-hidden p-5 sm:p-7 md:p-10">
+            <div className="relative w-full max-w-[520px] bg-white overflow-hidden p-5 sm:p-7 md:p-10 border border-brand-cyan/10 rounded-2xl">
 
-              <div className="absolute top-[-120px] right-[-120px] w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] bg-cyan-200/30 blur-[80px] sm:blur-[100px] rounded-full" />
+              <div className="absolute top-[-120px] right-[-120px] w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] bg-brand-cyan/15 blur-[80px] sm:blur-[100px] rounded-full" />
 
               <div className="relative z-10">
 
-                <p className="text-cyan-500 uppercase tracking-[3px] sm:tracking-[4px] text-[10px] sm:text-xs font-semibold">
+                <p className="text-brand-blue uppercase tracking-[3px] sm:tracking-[4px] text-[10px] sm:text-xs font-semibold">
                   Webify Technologies
                 </p>
 
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 leading-tight mt-4 sm:mt-5">
+                <h3 className="text-xl md:text-2xl font-bold text-brand-darkBlue leading-tight mt-4 sm:mt-5">
                   Your Vision.
                   <br />
                   Our Technology.
                 </h3>
 
-                <p className="text-gray-500 mt-5 sm:mt-6 leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-600 mt-5 sm:mt-6 leading-relaxed text-sm md:text-base">
                   Transforming ideas into premium digital experiences
                   with modern technologies and scalable architecture.
                 </p>
@@ -208,13 +208,13 @@ const CTASection = () => {
                       y: -6,
                       scale: 1.03,
                     }}
-                    className="rounded-2xl sm:rounded-3xl border border-cyan-100 bg-cyan-50/70 p-4 sm:p-6 transition-all duration-300"
+                    className="rounded-2xl sm:rounded-3xl border border-brand-cyan/20 bg-brand-light p-4 sm:p-6 transition-all duration-300"
                   >
-                    <h4 className="text-2xl sm:text-3xl font-black text-gray-900">
+                    <h4 className="text-xl md:text-2xl font-bold text-brand-darkBlue">
                       {item.value}
                     </h4>
 
-                    <p className="text-gray-500 mt-2 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-gray-600 mt-2 text-xs sm:text-sm leading-relaxed">
                       {item.title}
                     </p>
                   </motion.div>
@@ -229,7 +229,7 @@ const CTASection = () => {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute bottom-0 left-0 w-[40%] h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+                className="absolute bottom-0 left-0 w-[40%] h-[2px] bg-gradient-to-r from-transparent via-brand-cyan to-transparent"
               />
             </div>
           </motion.div>

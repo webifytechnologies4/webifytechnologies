@@ -53,13 +53,13 @@ const AboutSection = () => {
   const stackCards = orderedCards.map(({ topic }) => (
     <img
       src={topic.image}
-      alt={topic.label}
+      alt={`${topic.label} preview image`}
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
     />
   ));
 
   return (
-    <section className="px-6 md:px-20 py-14 md:py-28 overflow-hidden">
+    <section id="why-choose-us" aria-label="Why Choose Us" className="px-4 md:px-8 lg:px-16 py-8 md:py-16 overflow-hidden bg-brand-white">
       <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start md:items-center">
 
         {/* ── LEFT ── */}
@@ -69,12 +69,12 @@ const AboutSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center md:text-left"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight text-brand-darkBlue">
             Why Choose
-            <span className="text-blue-900"> Webify?</span>
+            <span className="text-brand-blue"> Webify?</span>
           </h2>
 
-          <p className="text-gray-500 text-base md:text-lg mt-4 md:mt-6 leading-relaxed">
+          <p className="text-gray-600 text-sm md:text-lg mt-4 md:mt-6 leading-relaxed">
             We combine modern technologies, futuristic UI/UX and scalable
             architecture to create next-generation digital products.
           </p>
@@ -90,11 +90,11 @@ const AboutSection = () => {
                   onClick={() => setActiveIndex(i)}
                   animate={{
                     backgroundColor: isActive
-                      ? "rgba(219,234,254,1)"
-                      : "rgba(239,246,255,0.6)",
+                      ? "rgba(227,242,253,1)"
+                      : "rgba(227,242,253,0.3)",
                     borderColor: isActive
-                      ? "rgba(147,197,253,1)"
-                      : "rgba(219,234,254,0.6)",
+                      ? "rgba(21,101,192,1)"
+                      : "rgba(227,242,253,0.4)",
                   }}
                   transition={{ duration: 0.3 }}
                   className="flex items-start gap-3 md:gap-4 px-4 md:px-5 py-3 md:py-4 rounded-lg shadow-md border cursor-pointer"
@@ -102,17 +102,17 @@ const AboutSection = () => {
                   {/* ICON */}
                   <div
                     className={`mt-0.5 flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-xl flex items-center justify-center ${isActive
-                        ? "bg-blue-800 text-white"
-                        : "bg-blue-100 text-blue-600"
+                        ? "bg-brand-blue text-white"
+                        : "bg-brand-light text-brand-blue"
                       }`}
                   >
                     {topic.icon}
                   </div>
 
                   {/* TEXT */}
-                  <div>
+                  <div className="text-left">
                     <p
-                      className={`font-semibold text-sm md:text-md ${isActive ? "text-blue-800" : "text-slate-700"
+                      className={`font-bold text-sm md:text-lg ${isActive ? "text-brand-darkBlue" : "text-slate-700"
                         }`}
                     >
                       {topic.label}
@@ -124,7 +124,7 @@ const AboutSection = () => {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="text-xs md:text-sm text-blue-600/80 mt-1 leading-relaxed"
+                          className="text-xs md:text-sm text-brand-blue/90 mt-1 leading-relaxed"
                         >
                           {topic.desc}
                         </motion.p>
@@ -136,7 +136,7 @@ const AboutSection = () => {
                   {isActive && (
                     <motion.div
                       layoutId="topic-dot"
-                      className="ml-auto mt-1 w-2 h-2 rounded-full bg-blue-600"
+                      className="ml-auto mt-1 w-2 h-2 rounded-full bg-brand-blue"
                     />
                   )}
                 </motion.div>
@@ -153,7 +153,7 @@ const AboutSection = () => {
           className="relative flex items-center justify-center mt-10 md:mt-0"
         >
           {/* GLOW */}
-          <div className="absolute inset-0 bg-blue-400/20 blur-[80px] rounded-full" />
+          <div className="absolute inset-0 bg-brand-cyan/20 blur-[80px] rounded-full" />
 
           {/* RESPONSIVE STACK WRAPPER (FIX MAIN ISSUE) */}
           <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:w-[460px] md:h-[480px] h-[380px]">
@@ -170,7 +170,7 @@ const AboutSection = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              className="absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 px-6 md:px-10 py-2 rounded-full bg-blue-700 text-white text-xs md:text-sm font-semibold shadow-lg whitespace-nowrap"
+              className="absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 px-6 md:px-10 py-2 rounded-full bg-brand-blue text-white text-xs md:text-sm font-semibold shadow-lg whitespace-nowrap"
             >
               {topics[activeIndex].label}
             </motion.div>

@@ -5,21 +5,21 @@ import mission from "../../assets/mission.jpeg";
 
 const MissionVisionSection = () => {
   return (
-    <section className="px-4 sm:px-6 md:px-0 max-w-7xl mx-auto py-10 md:py-6 bg-gray-50 overflow-hidden">
+    <section id="mission-vision" aria-label="Our Mission and Vision" className="max-w-7xl mx-auto py-8 md:py-16 px-4 md:px-8 lg:px-16 bg-brand-white overflow-hidden">
 
       {/* HEADING */}
       <div className="text-center mb-10 md:mb-14">
 
-        <p className="text-cyan-500 uppercase tracking-[3px] md:tracking-[5px] font-semibold mb-3 md:mb-4 text-xs sm:text-sm">
+        <p className="text-brand-blue uppercase tracking-[3px] md:tracking-[5px] font-semibold mb-3 md:mb-4 text-xs sm:text-sm">
           The Foundation
         </p>
 
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black leading-[1.15] text-gray-900">
+        <h2 className="text-3xl md:text-5xl font-bold leading-[1.15] text-brand-darkBlue">
           What Drives
-          <span className="text-cyan-500"> Webify</span>
+          <span className="text-brand-blue"> Webify</span>
         </h2>
 
-        <p className="text-gray-700 max-w-4xl mx-auto mt-5 md:mt-6 leading-relaxed text-sm sm:text-base md:text-lg px-2">
+        <p className="text-gray-600 max-w-4xl mx-auto mt-5 md:mt-6 leading-relaxed text-sm md:text-lg px-2">
           At Webify Technologies, we build innovative and scalable digital
           solutions that help modern businesses grow, perform better,
           and succeed online.
@@ -51,33 +51,33 @@ const MissionVisionSection = () => {
 
                 <img
                   src={vission}
-                  alt="Vision"
+                  alt="Webify Technologies future innovation vision illustration"
                   className="w-full h-full object-cover"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                 <div className="absolute bottom-8 left-8">
-                  <p className="text-cyan-300 uppercase tracking-[4px] text-sm font-semibold mb-3">
+                  <p className="text-brand-cyan uppercase tracking-[4px] text-sm font-semibold mb-3">
                     Future Innovation
                   </p>
 
-                  <h2 className="text-5xl font-black text-white leading-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
                     Our Vision
                   </h2>
                 </div>
               </div>
 
               {/* BACK */}
-              <div className="absolute inset-0 rounded-[18px] overflow-hidden shadow-2xl bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-700 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center px-10">
+              <div className="absolute inset-0 rounded-[18px] overflow-hidden shadow-2xl bg-gradient-to-br from-brand-blue via-brand-cyan to-brand-darkBlue text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center px-10">
 
-                <Layers3 size={55} className="mb-6 text-cyan-100" />
+                <Layers3 size={55} className="mb-6 text-brand-light" />
 
-                <h2 className="text-4xl font-black">
+                <h2 className="text-2xl md:text-3xl font-bold">
                   Future Ready Innovation
                 </h2>
 
-                <p className="text-cyan-100 text-lg leading-relaxed mt-6">
+                <p className="text-brand-white/90 text-xs md:text-sm leading-relaxed mt-4">
                   Our vision is to become a globally trusted technology
                   partner, delivering next-generation digital solutions
                   that redefine user experiences, accelerate business
@@ -96,33 +96,33 @@ const MissionVisionSection = () => {
 
               <img
                 src={vission}
-                alt="Vision"
+                alt="Webify Technologies future innovation vision illustration"
                 className="w-full h-full object-cover"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="absolute bottom-5 left-5">
-                <p className="text-cyan-300 uppercase tracking-[3px] text-[11px] font-semibold mb-2">
+                <p className="text-brand-cyan uppercase tracking-[3px] text-[11px] font-semibold mb-2">
                   Future Innovation
                 </p>
 
-                <h2 className="text-3xl font-black text-white">
+                <h2 className="text-2xl font-bold text-white">
                   Our Vision
                 </h2>
               </div>
             </div>
 
             {/* CONTENT */}
-            <div className="bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-700 text-white p-6">
+            <div className="bg-gradient-to-br from-brand-blue via-brand-cyan to-brand-darkBlue text-white p-6">
 
-              <Layers3 size={40} className="mb-4 text-cyan-100" />
+              <Layers3 size={40} className="mb-4 text-brand-light" />
 
-              <h2 className="text-2xl font-black">
+              <h2 className="text-xl font-bold">
                 Future Ready Innovation
               </h2>
 
-              <p className="text-cyan-100 text-sm leading-relaxed mt-4">
+              <p className="text-brand-white/90 text-xs leading-relaxed mt-4">
                 Our vision is to become a globally trusted technology
                 partner, delivering next-generation digital solutions
                 that redefine user experiences, accelerate business
@@ -155,33 +155,33 @@ const MissionVisionSection = () => {
 
                 <img
                   src={mission}
-                  alt="Mission"
+                  alt="Webify Technologies digital excellence mission illustration"
                   className="w-full h-full object-cover"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                 <div className="absolute bottom-8 left-8">
-                  <p className="text-cyan-300 uppercase tracking-[4px] text-sm font-semibold mb-3">
+                  <p className="text-brand-cyan uppercase tracking-[4px] text-sm font-semibold mb-3">
                     Digital Excellence
                   </p>
 
-                  <h2 className="text-5xl font-black text-white leading-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
                     Our Mission
                   </h2>
                 </div>
               </div>
 
               {/* BACK */}
-              <div className="absolute inset-0 rounded-[18px] overflow-hidden shadow-2xl bg-gradient-to-br from-black via-cyan-900 to-cyan-700 text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center px-10">
+              <div className="absolute inset-0 rounded-[18px] overflow-hidden shadow-2xl bg-gradient-to-br from-brand-darkBlue via-brand-blue to-brand-cyan text-white [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-center px-10">
 
-                <Rocket size={55} className="mb-6 text-cyan-200" />
+                <Rocket size={55} className="mb-6 text-brand-light" />
 
-                <h2 className="text-4xl font-black">
+                <h2 className="text-2xl md:text-3xl font-bold">
                   Building Digital Excellence
                 </h2>
 
-                <p className="text-cyan-100 text-lg leading-relaxed mt-6">
+                <p className="text-brand-white/90 text-xs md:text-sm leading-relaxed mt-4">
                   Our mission is to empower startups and enterprises
                   with high-performance, scalable and secure digital
                   solutions. We focus on delivering impactful products
@@ -200,33 +200,33 @@ const MissionVisionSection = () => {
 
               <img
                 src={mission}
-                alt="Mission"
+                alt="Webify Technologies digital excellence mission illustration"
                 className="w-full h-full object-cover"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="absolute bottom-5 left-5">
-                <p className="text-cyan-300 uppercase tracking-[3px] text-[11px] font-semibold mb-2">
+                <p className="text-brand-cyan uppercase tracking-[3px] text-[11px] font-semibold mb-2">
                   Digital Excellence
                 </p>
 
-                <h2 className="text-3xl font-black text-white">
+                <h2 className="text-2xl font-bold text-white">
                   Our Mission
                 </h2>
               </div>
             </div>
 
             {/* CONTENT */}
-            <div className="bg-gradient-to-br from-black via-cyan-900 to-cyan-700 text-white p-6">
+            <div className="bg-gradient-to-br from-brand-darkBlue via-brand-blue to-brand-cyan text-white p-6">
 
-              <Rocket size={40} className="mb-4 text-cyan-200" />
+              <Rocket size={40} className="mb-4 text-brand-light" />
 
-              <h2 className="text-2xl font-black">
+              <h2 className="text-xl font-bold">
                 Building Digital Excellence
               </h2>
 
-              <p className="text-cyan-100 text-sm leading-relaxed mt-4">
+              <p className="text-brand-white/90 text-xs leading-relaxed mt-4">
                 Our mission is to empower startups and enterprises
                 with high-performance, scalable and secure digital
                 solutions. We focus on delivering impactful products

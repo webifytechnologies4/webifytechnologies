@@ -27,7 +27,7 @@ const ProjectsHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-24 sm:py-28">
+    <section className="relative min-h-screen overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-8 md:py-16">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0">
@@ -35,6 +35,7 @@ const ProjectsHero = () => {
           <motion.img
             key={currentBg}
             src={bgImages[currentBg]}
+            alt="Webify Technologies showcase projects slide background image"
             initial={{ opacity: 0, scale: 1.2 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
@@ -51,7 +52,7 @@ const ProjectsHero = () => {
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 6, repeat: Infinity }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/20 blur-[120px] rounded-full z-10"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-cyan/20 blur-[120px] rounded-full z-10"
       />
 
       {/* MAIN GRID */}
@@ -64,7 +65,7 @@ const ProjectsHero = () => {
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-cyan-400 tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-5 sm:mb-6"
+            className="text-brand-cyan tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-5 sm:mb-6"
           >
             DESIGN • DEVELOP • DELIVER
           </motion.p>
@@ -74,10 +75,10 @@ const ProjectsHero = () => {
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-[80px] font-black leading-[1.05] text-white"
+            className="text-4xl md:text-6xl font-bold leading-[1.05] text-white"
           >
             Turning Ideas Into
-            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-sky-500">
+            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-white to-brand-cyan">
               Digital Reality
             </span>
           </motion.h1>
@@ -87,7 +88,7 @@ const ProjectsHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-5 sm:mt-6 text-gray-300 text-sm sm:text-base md:text-lg"
+            className="mt-5 sm:mt-6 text-gray-200 text-sm md:text-lg"
           >
             We design and build high-performance websites, apps, and software
             solutions that help businesses grow faster with modern technology.
@@ -100,21 +101,21 @@ const ProjectsHero = () => {
             transition={{ delay: 0.35 }}
             className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-4"
           >
-            <Link to="/projects">
+            <Link to="/projects" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 text-white font-semibold shadow-lg w-full sm:w-auto"
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-lg w-full sm:w-auto min-h-[48px] flex items-center justify-center border-none"
               >
                 Explore Projects
               </motion.button>
             </Link>
 
-            <Link to="/contact">
+            <Link to="/contact" className="w-full sm:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 bg-white/5 text-white backdrop-blur-md w-full sm:w-auto"
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-md w-full sm:w-auto min-h-[48px] flex items-center justify-center"
               >
                 Start Your Project
               </motion.button>
@@ -137,9 +138,9 @@ const ProjectsHero = () => {
                 duration: 3 + i,
                 repeat: Infinity,
               }}
-              className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 sm:p-6 text-center shadow-xl"
+              className="rounded-2xl border border-brand-cyan/15 bg-white/5 backdrop-blur-xl p-4 sm:p-6 text-center shadow-xl hover:border-brand-cyan/35 transition-colors duration-300"
             >
-              <h3 className="text-white font-bold text-base sm:text-lg">
+              <h3 className="text-white font-bold text-sm md:text-base">
                 {item.name}
               </h3>
               <p className="text-gray-300 text-[10px] sm:text-xs mt-2">

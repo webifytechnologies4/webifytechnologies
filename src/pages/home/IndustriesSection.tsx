@@ -124,11 +124,13 @@ const IndustriesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-12 px-6 md:px-16 overflow-hidden bg-white"
+      id="industries-section"
+      aria-label="Industries We Serve"
+      className="relative py-8 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white text-gray-900"
     >
       {/* BACKGROUND LIGHT */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-sky-200/40 blur-[140px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-100/40 blur-[120px] rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-brand-cyan/20 blur-[140px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-blue/20 blur-[120px] rounded-full" />
 
       {/* GRID */}
       <div className="absolute inset-0 opacity-[0.04]">
@@ -143,19 +145,19 @@ const IndustriesSection = () => {
       </div>
 
       {/* HEADER */}
-      <div className="relative z-10 text-center mb-28">
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-sky-200 bg-sky-50 text-sky-700 text-sm font-semibold tracking-[3px] uppercase">
+      <div className="relative z-10 text-center mb-20">
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-brand-cyan/40 bg-brand-light text-brand-blue text-xs md:text-sm font-semibold tracking-[3px] uppercase">
           ✦ Industries
         </div>
 
-        <h2 className="mt-6 text-5xl md:text-7xl font-black text-slate-900">
+        <h2 className="mt-6 text-3xl md:text-5xl font-bold text-brand-darkBlue">
           Industries We
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-sky-500 to-cyan-400">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-darkBlue via-brand-blue to-brand-cyan">
             Serve & Scale
           </span>
         </h2>
 
-        <p className="max-w-7xl mx-auto mt-6 text-lg text-slate-900 leading-relaxed">
+        <p className="max-w-4xl mx-auto mt-6 text-sm md:text-lg text-gray-600 leading-relaxed">
           We craft scalable digital ecosystems for modern industries using
           advanced technologies and premium user experiences.
         </p>
@@ -168,7 +170,7 @@ const IndustriesSection = () => {
         <div className="absolute left-[18px] md:left-1/2 top-0 w-[2px] h-full bg-slate-200 -translate-x-1/2" />
 
         {/* ANIMATED LINE */}
-        <div className="timeline-line-fill absolute left-[18px] md:left-1/2 top-0 w-[3px] h-0 bg-gradient-to-b from-blue-700 via-sky-500 to-cyan-400 -translate-x-1/2 origin-top" />
+        <div className="timeline-line-fill absolute left-[18px] md:left-1/2 top-0 w-[3px] h-0 bg-gradient-to-b from-brand-darkBlue via-brand-blue to-brand-cyan -translate-x-1/2 origin-top" />
 
         <div className="space-y-12 md:space-y-18">
 
@@ -182,21 +184,21 @@ const IndustriesSection = () => {
                   }`}
               >
                 {/* DOT */}
-                <div className="timeline-dot absolute left-[18px] md:left-1/2 top-10 w-5 h-5 rounded-full bg-sky-500 border-4 border-white shadow-[0_0_20px_rgba(14,165,233,0.45)] -translate-x-1/2 z-20" />
+                <div className="timeline-dot absolute left-[18px] md:left-1/2 top-10 w-5 h-5 rounded-full bg-brand-cyan border-4 border-white shadow-[0_0_20px_rgba(0,180,216,0.45)] -translate-x-1/2 z-20" />
 
                 {/* CONTENT */}
                 <div className="w-full md:w-1/2 pl-10 md:pl-0">
-                  <div className="timeline-card relative overflow-hidden rounded-lg border border-slate-300 bg-white/80 backdrop-blur-xl p-5 md:p-8 shadow-xl">
+                  <div className="timeline-card relative overflow-hidden rounded-lg border border-slate-300 bg-white/85 backdrop-blur-xl p-5 md:p-8 shadow-xl">
 
-                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-xs font-bold tracking-[2px] uppercase">
+                    <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-brand-light border border-brand-cyan/20 text-brand-blue text-xs font-bold tracking-[2px] uppercase">
                       {ind.stage}
                     </div>
 
-                    <h3 className="mt-5 text-2xl md:text-3xl font-black text-slate-900">
+                    <h3 className="mt-5 text-xl md:text-2xl font-bold text-brand-darkBlue">
                       {ind.title}
                     </h3>
 
-                    <p className="mt-4 text-slate-500 leading-relaxed text-sm md:text-lg">
+                    <p className="mt-4 text-gray-600 leading-relaxed text-xs md:text-sm">
                       {ind.desc}
                     </p>
 
@@ -212,7 +214,7 @@ const IndustriesSection = () => {
 
                     <img
                       src={ind.image}
-                      alt={ind.title}
+                      alt={`${ind.title} ecosystem illustration image`}
                       className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
                     />
 

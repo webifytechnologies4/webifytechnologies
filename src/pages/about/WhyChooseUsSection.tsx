@@ -35,15 +35,15 @@ const whyCards = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="relative py-14 sm:py-16 px-4 sm:px-6 md:px-6 overflow-hidden bg-black">
+    <section id="why-choose-us" aria-label="Why Choose Us" className="relative py-8 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-[#030712]">
 
       {/* PREMIUM BACKGROUND */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
         {/* KEEP DESKTOP SAME */}
-        <div className="absolute top-[-220px] left-[-120px] w-[260px] h-[260px] sm:w-[550px] sm:h-[550px] bg-cyan-500/20 blur-[90px] sm:blur-[180px] rounded-full" />
+        <div className="absolute top-[-220px] left-[-120px] w-[260px] h-[260px] sm:w-[550px] sm:h-[550px] bg-brand-cyan/15 blur-[90px] sm:blur-[180px] rounded-full" />
 
-        <div className="absolute bottom-[-250px] right-[-120px] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-500/20 blur-[100px] sm:blur-[180px] rounded-full" />
+        <div className="absolute bottom-[-250px] right-[-120px] w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-brand-blue/15 blur-[100px] sm:blur-[180px] rounded-full" />
 
         {/* GRID */}
         <div
@@ -51,7 +51,7 @@ const WhyChooseUsSection = () => {
           style={{
             backgroundImage:
               "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
-            backgroundSize: window.innerWidth < 640 ? "40px 40px" : "70px 70px",
+            backgroundSize: "70px 70px",
           }}
         />
 
@@ -63,7 +63,7 @@ const WhyChooseUsSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-20 sm:top-24 w-[180px] sm:w-[320px] h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+          className="absolute top-20 sm:top-24 w-[180px] sm:w-[320px] h-[2px] bg-gradient-to-r from-transparent via-brand-cyan to-transparent"
         />
       </div>
 
@@ -77,27 +77,25 @@ const WhyChooseUsSection = () => {
       >
 
         {/* BADGE */}
-        <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-cyan-500/20 bg-white/5 backdrop-blur-xl">
+        <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-brand-cyan/30 bg-white/5 backdrop-blur-xl">
 
-          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
 
-          <span className="text-cyan-300 text-[10px] sm:text-xs tracking-[2px] sm:tracking-[4px] uppercase font-bold">
+          <span className="text-brand-cyan text-[10px] sm:text-xs tracking-[2px] sm:tracking-[4px] uppercase font-bold">
             Why Choose Webify
           </span>
         </div>
 
         {/* TITLE */}
-        <h2 className="text-[2.2rem] sm:text-5xl md:text-6xl font-black mt-6 sm:mt-8 leading-[1.15] text-white px-1">
-
+        <h2 className="text-3xl md:text-5xl font-bold mt-6 sm:mt-8 leading-[1.15] text-white px-1">
           Engineering
-
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-white to-brand-cyan">
             {" "}Digital Excellence
           </span>
         </h2>
 
         {/* DESCRIPTION */}
-        <p className="text-gray-400 mt-5 sm:mt-8 text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto px-2 sm:px-0">
+        <p className="text-gray-300 mt-5 sm:mt-8 text-sm md:text-lg leading-relaxed max-w-3xl mx-auto px-2 sm:px-0">
           We combine innovation, performance and modern technologies
           to create premium digital experiences that help businesses
           scale faster in the digital world.
@@ -122,7 +120,7 @@ const WhyChooseUsSection = () => {
           >
 
             {/* GLOW BORDER */}
-            <div className="absolute -inset-[1px] rounded-2xl sm:rounded-lg bg-gradient-to-br from-cyan-400/40 via-blue-500/30 to-purple-500/40 opacity-0 group-hover:opacity-100 blur-sm transition duration-500" />
+            <div className="absolute -inset-[1px] rounded-2xl sm:rounded-lg bg-gradient-to-br from-brand-cyan/40 via-brand-blue/30 to-brand-cyan/40 opacity-0 group-hover:opacity-100 blur-sm transition duration-500" />
 
             {/* CARD */}
             <div className="relative h-full rounded-2xl sm:rounded-lg border border-white/10 bg-white/5 backdrop-blur-2xl overflow-hidden">
@@ -132,7 +130,7 @@ const WhyChooseUsSection = () => {
 
                 <img
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.title} feature illustration for Webify Technologies`}
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
                 />
 
@@ -142,11 +140,11 @@ const WhyChooseUsSection = () => {
               {/* CONTENT */}
               <div className="relative p-5 sm:p-8">
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white group-hover:text-cyan-300 transition duration-300 leading-snug">
+                <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-brand-cyan transition duration-300 leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="text-gray-400 leading-relaxed mt-4 sm:mt-5 text-sm sm:text-[16px]">
+                <p className="text-gray-300 leading-relaxed mt-4 sm:mt-5 text-sm md:text-base">
                   {item.desc}
                 </p>
 
@@ -154,10 +152,10 @@ const WhyChooseUsSection = () => {
 
                   <motion.div
                     whileHover={{ width: 90 }}
-                    className="h-[4px] w-12 sm:w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 transition-all duration-500"
+                    className="h-[4px] w-12 sm:w-14 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan transition-all duration-500"
                   />
 
-                  <div className="w-2 h-2 rounded-full bg-cyan-400" />
+                  <div className="w-2 h-2 rounded-full bg-brand-cyan" />
                 </div>
               </div>
 

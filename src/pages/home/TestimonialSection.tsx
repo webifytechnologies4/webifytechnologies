@@ -2,37 +2,20 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
+ 
   {
-    id: 1,
-    name: "Rhythm Benara",
-    country: "Studying in New Zealand",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400",
-    text: `Honestly the best decision I made! I was so stressed about applications and visas, but they handled everything smoothly. The team is super friendly and explains every small detail. Totally worth it!`,
+    id: 5,
+    name: "viaan patel",
+    country: "CEO, Viaan Enterprise",
+    image: "https://www.viaanenterprise.com/static/media/6.dac8c41b2a198c840dfa.png",
+    text: `Webify Technologies transformed our online presence with a stunning, high-performance platform. Their expertise in web development and dedication to excellence helped us scale our digital operations seamlessly.`,
   },
   {
-    id: 2,
-    name: "Sarah Williams",
-    country: "Studying in Canada",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400",
-    text: `Their guidance made my dream come true. From university selection to visa process, everything was organized perfectly.`,
-  },
-  {
-    id: 3,
-    name: "Aarav Patel",
-    country: "Studying in Australia",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400",
-    text: `Very professional team with amazing support. They answered all my questions patiently and helped me at every step.`,
-  },
-  {
-    id: 4,
-    name: "Emily Watson",
-    country: "Studying in UK",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400",
-    text: `I highly recommend them to anyone planning to study abroad. Their process is smooth, transparent, and stress-free.`,
+    id: 6,
+    name: "deep patel",
+    country: "Director, Sky Pathology Lab",
+    image: "https://skypathologylab.in/assets/Petho_Logo-VkAX8ME5.png",
+    text: `The team at Webify delivered an exceptional digital management portal for our pathology lab. It is responsive, highly secure, and extremely user-friendly. Their support is top-notch!`,
   },
 ];
 
@@ -49,13 +32,12 @@ const TestimonialSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#f5f5f5] py-10 md:py-14">
+    <section id="testimonials-section" aria-label="Testimonials" className="relative w-full overflow-hidden bg-brand-light/20 py-8 md:py-16">
       {/* Background Blur */}
-      <div className="absolute top-20 left-10 w-52 h-52 md:w-72 md:h-72 bg-blue-200/20 blur-3xl rounded-full" />
+      <div className="absolute top-20 left-10 w-52 h-52 md:w-72 md:h-72 bg-brand-light/40 blur-3xl rounded-full" />
+      <div className="absolute bottom-10 right-10 w-56 h-56 md:w-80 md:h-80 bg-brand-gold/10 blur-3xl rounded-full" />
 
-      <div className="absolute bottom-10 right-10 w-56 h-56 md:w-80 md:h-80 bg-yellow-200/20 blur-3xl rounded-full" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
@@ -64,13 +46,13 @@ const TestimonialSection = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-14"
         >
-          <p className="uppercase tracking-[3px] md:tracking-[5px] text-yellow-600 font-semibold mb-3 md:mb-4 text-xs sm:text-sm">
-            Student Voices
+          <p className="uppercase tracking-[3px] md:tracking-[5px] text-brand-gold font-semibold mb-3 md:mb-4 text-xs sm:text-sm">
+            Client Stories
           </p>
 
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight text-[#16235a]">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight text-brand-darkBlue">
             Real stories.
-            <span className="block md:inline text-yellow-600">
+            <span className="block md:inline text-brand-gold">
               {" "}Real trust.
             </span>
           </h2>
@@ -89,7 +71,7 @@ const TestimonialSection = () => {
                 }}
                 transition={{ duration: 0.4 }}
                 className={`relative cursor-pointer rounded-full p-[4px] ${index === active
-                    ? "bg-blue-600"
+                    ? "bg-brand-blue"
                     : "bg-gray-300"
                   }`}
               >
@@ -102,16 +84,16 @@ const TestimonialSection = () => {
                       repeat: Infinity,
                       duration: 1.8,
                     }}
-                    className="absolute inset-0 rounded-full border-2 border-blue-500"
+                    className="absolute inset-0 rounded-full border-2 border-brand-blue"
                   />
                 )}
 
                 <img
                   src={item.image}
-                  alt={item.name}
-                  className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full object-cover border-4 transition-all duration-500 ${index === active
-                      ? "border-white grayscale-0"
-                      : "border-white grayscale"
+                  alt={`${item.name} testimonial profile`}
+                  className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full object-cover border-4 transition-all duration-500 bg-white ${index === active
+                      ? "border-white grayscale-0 shadow-lg"
+                      : "border-white grayscale opacity-70"
                     }`}
                 />
               </motion.div>
@@ -129,16 +111,16 @@ const TestimonialSection = () => {
                 transition={{ duration: 0.7 }}
                 className="absolute w-full"
               >
-                <p className="text-lg sm:text-xl md:text-2xl italic text-[#1b274d] leading-relaxed font-medium">
-                  {testimonials[active].text}
+                <p className="text-xl md:text-2xl italic text-brand-darkBlue leading-relaxed font-medium">
+                  "{testimonials[active].text}"
                 </p>
 
                 <div className="mt-8 md:mt-10">
-                  <h4 className="text-lg sm:text-xl font-bold text-[#16235a]">
+                  <h3 className="text-xl md:text-2xl font-bold text-brand-darkBlue">
                     — {testimonials[active].name}
-                  </h4>
+                  </h3>
 
-                  <p className="text-sm sm:text-base md:text-lg text-slate-900 mt-2">
+                  <p className="text-sm md:text-lg text-gray-600 mt-2">
                     {testimonials[active].country}
                   </p>
                 </div>
@@ -148,13 +130,13 @@ const TestimonialSection = () => {
         </div>
 
         {/* Bottom Progress */}
-        <div className="flex justify-center gap-3 mt-4 md:mt-0">
+        <div className="flex justify-center gap-3 mt-8 md:mt-4">
           {testimonials.map((_, index) => (
             <motion.div
               key={index}
               onClick={() => setActive(index)}
               className={`h-2 rounded-full cursor-pointer transition-all duration-500 ${active === index
-                  ? "w-12 md:w-14 bg-blue-600"
+                  ? "w-12 md:w-14 bg-brand-blue"
                   : "w-3 bg-gray-300"
                 }`}
             />

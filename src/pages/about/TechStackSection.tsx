@@ -29,7 +29,7 @@ const allItems = [...techItems, ...techItems];
 
 const TechStackSection = () => {
   return (
-    <section className="relative py-14 sm:py-16 md:py-20 overflow-hidden bg-white">
+    <section id="tech-stack" aria-label="Our Tech Stack" className="relative py-8 md:py-16 overflow-hidden bg-brand-white">
 
       {/* BACKGROUND BLOBS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -44,7 +44,7 @@ const TechStackSection = () => {
             repeat: Infinity,
             duration: 8,
           }}
-          className="absolute top-[-120px] sm:top-[-200px] left-[-80px] sm:left-[-100px] w-[260px] h-[260px] sm:w-[500px] sm:h-[500px] bg-cyan-200/40 blur-[70px] sm:blur-[120px] rounded-full"
+          className="absolute top-[-120px] sm:top-[-200px] left-[-80px] sm:left-[-100px] w-[260px] h-[260px] sm:w-[500px] sm:h-[500px] bg-brand-cyan/15 blur-[70px] sm:blur-[120px] rounded-full"
         />
 
         <motion.div
@@ -56,7 +56,7 @@ const TechStackSection = () => {
             repeat: Infinity,
             duration: 10,
           }}
-          className="absolute bottom-[-120px] sm:bottom-[-200px] right-[-60px] sm:right-[-80px] w-[220px] h-[220px] sm:w-[400px] sm:h-[400px] bg-blue-200/40 blur-[70px] sm:blur-[120px] rounded-full"
+          className="absolute bottom-[-120px] sm:bottom-[-200px] right-[-60px] sm:right-[-80px] w-[220px] h-[220px] sm:w-[400px] sm:h-[400px] bg-brand-blue/15 blur-[70px] sm:blur-[120px] rounded-full"
         />
       </div>
 
@@ -79,7 +79,7 @@ const TechStackSection = () => {
             duration: 1,
           }}
           viewport={{ once: true }}
-          className="text-cyan-500 uppercase tracking-[3px] sm:tracking-[6px] text-[11px] sm:text-sm font-semibold"
+          className="text-brand-blue uppercase tracking-[3px] sm:tracking-[6px] text-[11px] sm:text-sm font-semibold"
         >
           Technologies
         </motion.p>
@@ -89,10 +89,10 @@ const TechStackSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          className="text-[2.2rem] sm:text-5xl md:text-6xl font-black mt-4 leading-[1.15] text-gray-900"
+          className="text-3xl md:text-5xl font-bold mt-4 leading-[1.15] text-brand-darkBlue"
         >
           Technologies We
-          <span className="text-cyan-500">
+          <span className="text-brand-blue">
             {" "}Work With
           </span>
         </motion.h2>
@@ -105,7 +105,7 @@ const TechStackSection = () => {
             duration: 0.9,
           }}
           viewport={{ once: true }}
-          className="text-gray-500 mt-4 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-0"
+          className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed px-2 sm:px-0"
         >
           We use modern technologies to create high-performance websites,
           scalable applications and premium digital experiences.
@@ -134,7 +134,7 @@ const TechStackSection = () => {
 
               <img
                 src={item.image}
-                alt={item.text}
+                alt={`${item.text} technology icon logo`}
                 className="tech-icon-img"
                 loading="lazy"
               />
@@ -213,7 +213,7 @@ const TechStackSection = () => {
       width: 60px;
       height: 60px;
       object-fit: contain;
-      filter: drop-shadow(0 4px 20px rgba(6,182,212,0.2));
+      filter: drop-shadow(0 4px 20px rgba(0,180,216,0.2));
       transition: filter 0.3s ease, transform 0.3s ease;
     }
 
@@ -225,13 +225,13 @@ const TechStackSection = () => {
     }
 
     .tech-icon-item:hover .tech-icon-img {
-      filter: drop-shadow(0 8px 32px rgba(6,182,212,0.5));
+      filter: drop-shadow(0 8px 32px rgba(0,180,216,0.5));
     }
 
     .tech-icon-label {
       font-size: 0.65rem;
       font-weight: 700;
-      color: #0891b2;
+      color: #1565c0;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       white-space: nowrap;

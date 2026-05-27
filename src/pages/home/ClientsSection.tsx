@@ -1,22 +1,19 @@
 import { motion } from "framer-motion";
 
 const logos = [
-  "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
-  "https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_logo_without_text.svg",
+  "https://skypathologylab.in/assets/Petho_Logo-VkAX8ME5.png",
+  "https://www.viaanenterprise.com/static/media/6.dac8c41b2a198c840dfa.png",
+
 ];
 
 const ClientsSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-10 md:py-14">
+    <section id="clients-section" aria-label="Our Clients" className="relative overflow-hidden bg-brand-white py-8 md:py-16">
       {/* Background Glow */}
-      <div className="absolute top-0 left-0 h-56 w-56 md:h-72 md:w-72 rounded-full bg-blue-100 blur-3xl opacity-50" />
-      <div className="absolute bottom-0 right-0 h-56 w-56 md:h-72 md:w-72 rounded-full bg-sky-100 blur-3xl opacity-50" />
+      <div className="absolute top-0 left-0 h-56 w-56 md:h-72 md:w-72 rounded-full bg-brand-light/35 blur-3xl opacity-50" />
+      <div className="absolute bottom-0 right-0 h-56 w-56 md:h-72 md:w-72 rounded-full bg-brand-light/35 blur-3xl opacity-50" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8 lg:px-16">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 70 }}
@@ -25,15 +22,15 @@ const ClientsSection = () => {
           viewport={{ once: true }}
           className="mb-10 md:mb-16 text-center"
         >
-          <span className="inline-block rounded-full bg-blue-50 px-4 md:px-5 py-2 text-[11px] sm:text-sm font-semibold uppercase tracking-[3px] text-blue-700">
+          <span className="inline-block rounded-full bg-brand-light px-4 md:px-5 py-2 text-xs md:text-sm font-semibold uppercase tracking-[3px] text-brand-blue">
             Trusted By Brands
           </span>
 
-          <h2 className="mt-5 md:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-gray-900">
+          <h2 className="mt-5 md:mt-6 text-3xl md:text-5xl font-bold leading-tight text-brand-darkBlue">
             Our Happy Clients
           </h2>
 
-          <p className="mx-auto mt-4 md:mt-5 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-gray-700 px-2">
+          <p className="mx-auto mt-4 md:mt-5 max-w-3xl text-sm md:text-lg leading-relaxed text-gray-700">
             We collaborate with startups, enterprises, and innovative brands
             worldwide to create impactful digital experiences.
           </p>
@@ -53,7 +50,7 @@ const ClientsSection = () => {
             }}
             transition={{
               repeat: Infinity,
-              duration: 18,
+              duration: 20,
               ease: "linear",
             }}
             className="flex w-max gap-4 sm:gap-6 md:gap-10"
@@ -65,12 +62,12 @@ const ClientsSection = () => {
                   y: -8,
                   scale: 1.05,
                 }}
-                className="group flex h-24 w-40 sm:h-28 sm:w-48 md:h-32 md:w-56 flex-shrink-0 items-center justify-center rounded-2xl md:rounded-3xl border border-gray-200 bg-white px-4 sm:px-6 md:px-8 shadow-lg transition duration-500 hover:border-blue-200 hover:shadow-blue-100"
+                className="group flex h-24 w-40 sm:h-28 sm:w-48 md:h-32 md:w-56 flex-shrink-0 items-center justify-center rounded-2xl md:rounded-3xl border border-gray-200 bg-white px-4 sm:px-6 md:px-8 shadow-lg transition duration-500 hover:border-brand-blue/30 hover:shadow-brand-blue/10"
               >
                 <img
                   src={logo}
-                  alt="Client Logo"
-                  className="h-8 sm:h-10 md:h-12 w-auto object-contain grayscale transition duration-500 group-hover:grayscale-0"
+                  alt="Client brand logo"
+                  className="h-8 sm:h-10 md:h-22 w-auto object-contain transition duration-500 "
                 />
               </motion.div>
             ))}

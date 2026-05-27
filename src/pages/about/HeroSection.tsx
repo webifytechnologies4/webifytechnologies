@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-
 import Img1 from "../../assets/aboutfrist.avif";
 
 // Background image URLs (use strings directly — cannot import from HTTP URLs in Vite)
@@ -101,7 +100,7 @@ const HeroSection = () => {
       {/* CONTENT */}
       <div
         ref={heroRef}
-        className="relative z-10 w-full px-6 md:px-20 py-20 md:py-32"
+        className="relative z-10 w-full px-4 md:px-8 lg:px-16 py-12 md:py-24"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
@@ -112,20 +111,19 @@ const HeroSection = () => {
             transition={{ duration: 1 }}
             className="text-center lg:text-left"
           >
-            <p className="text-cyan-400 tracking-[4px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold">
+            <p className="text-brand-cyan tracking-[4px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold">
               INNOVATE • DEVELOP • GROW
             </p>
 
-            <h1 className="text-4xl md:text-6xl lg:text-5xl font-black leading-tight text-white mt-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mt-6">
               Building Digital Experiences
               <br />
-
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-white to-brand-cyan">
                 That Grow Businesses
               </span>
             </h1>
 
-            <p className="text-gray-100 mt-6 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-gray-200 mt-6 text-sm md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
               At Webify Technologies, we create modern websites, scalable
               e-commerce platforms, and powerful digital solutions that help
               brands succeed online with innovation, performance, and clean UI/UX.
@@ -133,27 +131,27 @@ const HeroSection = () => {
 
             {/* BUTTONS */}
             <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
-              <Link to="/services">
+              <Link to="/services" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0px 0px 30px rgba(34,211,238,0.5)",
+                    boxShadow: "0px 0px 30px rgba(0,180,216,0.5)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 rounded-full bg-cyan-500 text-black font-semibold w-full sm:w-auto"
+                  className="px-8 py-3 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-bold w-full sm:w-auto min-h-[48px] flex items-center justify-center"
                 >
                   Explore Services
                 </motion.button>
               </Link>
 
-              <Link to="/contact">
+              <Link to="/contact" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{
                     scale: 1.05,
                     backgroundColor: "rgba(255,255,255,0.1)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 rounded-full border border-white/20 text-white w-full sm:w-auto"
+                  className="px-8 py-3 rounded-full border border-white/40 text-white w-full sm:w-auto min-h-[48px] flex items-center justify-center bg-transparent"
                 >
                   Start Your Project
                 </motion.button>
@@ -175,20 +173,20 @@ const HeroSection = () => {
             >
               <img
                 src={Img1}
-                alt="hero"
+                alt="Webify Technologies digital agency team working scene"
                 className="w-full h-full object-cover hover:scale-110 transition duration-700"
               />
 
-              <div className="absolute top-6 left-6 bg-cyan-500/20 px-4 py-2 rounded-full text-cyan-300 text-xs backdrop-blur-md border border-cyan-400/20">
+              <div className="absolute top-6 left-6 bg-brand-cyan/20 px-4 py-2 rounded-full text-brand-cyan text-xs backdrop-blur-md border border-brand-cyan/30">
                 UI/UX Design
               </div>
 
-              <div className="absolute bottom-6 right-6 bg-blue-500/20 px-4 py-2 rounded-full text-blue-300 text-xs backdrop-blur-md border border-blue-400/20">
+              <div className="absolute bottom-6 right-6 bg-brand-blue/20 px-4 py-2 rounded-full text-brand-light text-xs backdrop-blur-md border border-brand-blue/30">
                 Scalable Systems
               </div>
             </motion.div>
 
-            <div className="absolute -z-10 w-[450px] h-[450px] bg-cyan-400/20 blur-[140px] rounded-full" />
+            <div className="absolute -z-10 w-[450px] h-[450px] bg-brand-cyan/20 blur-[140px] rounded-full" />
           </motion.div>
 
         </div>

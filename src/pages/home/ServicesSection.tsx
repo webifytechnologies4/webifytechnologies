@@ -40,7 +40,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <section className="relative py-8 max-w-7xl mx-auto px-4 overflow-hidden">
+    <section id="services-section" aria-label="Our Digital Services" className="relative py-8 md:py-16 max-w-7xl mx-auto px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white">
 
       {/* HEADING */}
       <div className="relative z-10 text-center mb-10">
@@ -49,15 +49,15 @@ const ServicesSection = () => {
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="mt-6 text-4xl md:text-5xl font-black text-black"
+          className="mt-6 text-3xl md:text-5xl font-bold text-brand-darkBlue"
         >
           Our Premium
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-300">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-darkBlue via-brand-blue to-brand-cyan">
             Digital Services
           </span>
         </motion.h2>
 
-        <p className="max-w-5xl mx-auto mt-6 text-base md:text-lg leading-relaxed text-gray-600">
+        <p className="max-w-5xl mx-auto mt-6 text-sm md:text-lg leading-relaxed text-gray-600">
           We build next-generation digital experiences using modern
           technologies, smooth animations and scalable architectures.
         </p>
@@ -89,7 +89,7 @@ const ServicesSection = () => {
               className="group relative overflow-hidden rounded-lg cursor-pointer min-h-[320px] w-full md:min-h-[340px]"
               style={{
                 boxShadow: isActive
-                  ? "0 25px 80px rgba(0,180,216,0.25)"
+                  ? "0 25px 80px rgba(21,101,192,0.25)"
                   : "0 10px 30px rgba(0,0,0,0.35)",
               }}
             >
@@ -107,7 +107,7 @@ const ServicesSection = () => {
               >
                 <img
                   src={service.bgImage}
-                  alt={service.title}
+                  alt={`${service.title} illustration image`}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -136,24 +136,24 @@ const ServicesSection = () => {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute top-0 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-cyan-400 via-blue-500 to-yellow-300"
+                  className="absolute top-0 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-cyan"
                 />
               )}
 
               {/* ORB */}
-              <div className="absolute -top-40 -right-40 w-[320px] h-[320px] bg-cyan-400/10 rounded-full blur-3xl" />
+              <div className="absolute -top-40 -right-40 w-[320px] h-[320px] bg-brand-cyan/10 rounded-full blur-3xl" />
 
               {/* CONTENT */}
               <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-10 text-white">
 
                 <div>
                   {/* ICON */}
-                  <div className="w-16 md:w-20 h-16 md:h-20 rounded-3xl bg-white/10 backdrop-blur-xl border border-cyan-400/20 flex items-center justify-center">
+                  <div className="w-16 md:w-20 h-16 md:h-20 rounded-3xl bg-white/10 backdrop-blur-xl border border-brand-cyan/20 flex items-center justify-center">
                     {service.icon}
                   </div>
 
                   {/* TITLE */}
-                  <h3 className={`font-black mt-6 leading-tight ${isActive ? "text-3xl md:text-5xl" : "text-xl md:text-3xl"
+                  <h3 className={`font-bold mt-6 leading-tight ${isActive ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
                     }`}>
                     {service.title}
                   </h3>
@@ -166,7 +166,7 @@ const ServicesSection = () => {
 
                     {/* BUTTON (ALWAYS VISIBLE ON MOBILE) */}
                     <Link to="/services">
-                      <button className="mt-6 flex items-center gap-3 px-5 py-3 rounded-full font-semibold bg-gradient-to-r from-cyan-400 to-blue-600 text-white hover:scale-105 transition duration-300">
+                      <button className="mt-6 flex items-center gap-3 px-5 py-3 rounded-full font-semibold bg-gradient-to-r from-brand-blue to-brand-cyan text-white hover:scale-105 transition duration-300 min-h-[48px]">
                         Explore Service
                         <ArrowUpRight size={18} />
                       </button>
@@ -181,7 +181,7 @@ const ServicesSection = () => {
 
                 {/* BADGE */}
                 {isActive && (
-                  <div className="absolute top-6 right-6 px-3 py-1 rounded-full text-xs bg-yellow-400/15 text-yellow-300 border border-yellow-300/30">
+                  <div className="absolute top-6 right-6 px-3 py-1 rounded-full text-xs bg-brand-gold/15 text-brand-gold border border-brand-gold/30">
                     ✦ Premium
                   </div>
                 )}

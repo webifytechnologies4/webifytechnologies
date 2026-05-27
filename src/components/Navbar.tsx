@@ -80,8 +80,8 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   className={`relative text-[15px] font-semibold transition-all duration-300 ${location.pathname === link.path
-                    ? "text-sky-400"
-                    : "text-gray-300 hover:text-sky-400"
+                    ? "text-brand-cyan"
+                    : "text-gray-300 hover:text-brand-cyan"
                     }`}
                 >
                   {link.name}
@@ -89,7 +89,7 @@ const Navbar = () => {
                     <motion.div
                       layoutId="active-nav"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      className="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-gradient-to-r from-blue-600 to-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.7)]"
+                      className="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-gradient-to-r from-brand-darkBlue via-brand-blue to-brand-cyan shadow-[0_0_12px_rgba(0,180,216,0.7)]"
                     />
                   )}
                 </Link>
@@ -100,16 +100,12 @@ const Navbar = () => {
             <div className="hidden md:flex items-center">
               <Link to="/contact">
                 <motion.button
-                  onClick={() => {
-                    const section = document.getElementById("contact-section");
-                    section?.scrollIntoView({ behavior: "smooth" });
-                  }}
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0 0 25px rgba(21,101,192,0.5)",
+                    boxShadow: "0 0 25px rgba(21, 101, 192, 0.5)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-sky-500 hover:from-blue-600 hover:to-sky-400 text-white px-7 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(21,101,192,0.4)] transition-all duration-300"
+                  className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-darkBlue hover:to-brand-blue text-white px-7 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(21,101,192,0.4)] transition-all duration-300 min-h-[48px]"
                 >
                   Get Started
                   <ArrowRight size={18} />
@@ -120,7 +116,8 @@ const Navbar = () => {
             {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden text-white"
+              className="md:hidden text-white min-h-[48px] min-w-[48px] flex items-center justify-center focus:outline-none"
+              aria-label={open ? "Close menu" : "Open menu"}
             >
               {open ? <X size={30} /> : <Menu size={30} />}
             </button>
@@ -136,7 +133,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 w-full h-[100dvh] z-50 md:hidden bg-black/95 backdrop-blur-2xl"
+            className="fixed top-0 left-0 w-full h-[100dvh] z-50 md:hidden bg-brand-darkBlue/98 backdrop-blur-2xl"
           >
             {/* SAFE WRAPPER */}
             <div className="relative h-full w-full flex flex-col items-center justify-center">
@@ -144,21 +141,22 @@ const Navbar = () => {
               {/* CLOSE BUTTON */}
               <button
                 onClick={() => setOpen(false)}
-                className="absolute top-6 right-6 text-white text-3xl z-50"
+                className="absolute top-6 right-6 text-white min-h-[48px] min-w-[48px] flex items-center justify-center focus:outline-none text-3xl z-50"
+                aria-label="Close menu"
               >
                 ✕
               </button>
 
               {/* MENU ITEMS */}
-              <div className="flex flex-col items-center gap-8">
+              <div className="flex flex-col items-center gap-6 w-full px-8">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.path}
                     onClick={() => setOpen(false)}
-                    className={`text-2xl font-semibold transition ${location.pathname === link.path
-                      ? "text-blue-400"
-                      : "text-white/70 hover:text-blue-400"
+                    className={`text-2xl font-semibold transition py-3 px-6 w-full text-center rounded-xl ${location.pathname === link.path
+                      ? "text-brand-cyan bg-white/10"
+                      : "text-white/70 hover:text-brand-cyan hover:bg-white/5"
                       }`}
                   >
                     {link.name}
@@ -167,10 +165,12 @@ const Navbar = () => {
               </div>
 
               {/* CTA */}
-              <div className="mt-12">
-                <button className="flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold">
-                  Start Project <ArrowRight size={18} />
-                </button>
+              <div className="mt-12 w-full px-8 max-w-xs">
+                <Link to="/contact" onClick={() => setOpen(false)} className="w-full block">
+                  <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white w-full h-12 rounded-full font-semibold">
+                    Start Project <ArrowRight size={18} />
+                  </button>
+                </Link>
               </div>
 
             </div>
@@ -181,4 +181,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

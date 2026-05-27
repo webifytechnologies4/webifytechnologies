@@ -10,12 +10,18 @@ import ProjectsSection from "./ProjectsSection";
 import CTASection from "./CTASection";
 import ClientsSection from "./ClientsSection";
 import TestimonialSection from "./TestimonialSection";
+import SEO from "../../components/SEO";
 
 const Home = () => {
   return (
     <>
+      <SEO 
+        title="Webify Technologies | Modern Website, Software & IT Solutions" 
+        description="Webify Technologies builds modern, responsive websites, mobile applications, customized software, and high-performance digital solutions to scale your business."
+        keywords="web development, mobile app development, customized software, IT services, UI UX design, responsive website, Ahmedabad IT company"
+      />
       <Navbar />
-      <div className="bg-white text-black overflow-hidden">
+      <main className="bg-brand-white text-gray-900 overflow-x-hidden w-full">
         <HeroSection />
         <ServicesSection />
         <AboutSection />
@@ -25,7 +31,7 @@ const Home = () => {
         <CTASection />
         <ClientsSection />
         <TestimonialSection />
-      </div>
+      </main>
       <Footer />
     </>
   );

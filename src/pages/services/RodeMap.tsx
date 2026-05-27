@@ -5,8 +5,6 @@ import {
     ShoppingCart, Code, Smartphone, Palette, PenTool, Film, Lightbulb, Layers, Headphones, Globe, User
 } from "lucide-react";
 
-
-
 interface Step {
     id: string;
     title: string;
@@ -20,22 +18,21 @@ interface Point {
 }
 
 const STEPS: Step[] = [
-    { id: "01", title: "Website Development", icon: <Globe size={18} />, color: "#c1972d" },
-    { id: "02", title: "E-Commerce Solutions", icon: <ShoppingCart size={18} />, color: "#260466" },
-    { id: "03", title: "Software Development", icon: <Code size={18} />, color: "#c1972d" },
-    { id: "04", title: "App Development", icon: <Smartphone size={18} />, color: "#260466" },
-    { id: "05", title: "UI/UX Design", icon: <Palette size={18} />, color: "#c1972d" },
-    { id: "06", title: "Graphic Design", icon: <PenTool size={18} />, color: "#260466" },
-    { id: "07", title: "Video Editing", icon: <Film size={18} />, color: "#c1972d" },
-    { id: "08", title: "IT Consulting & Strategy", icon: <Lightbulb size={18} />, color: "#260466" },
-    { id: "09", title: "Custom Software Solutions", icon: <Layers size={18} />, color: "#c1972d" },
-    { id: "10", title: "24/7 Maintenance & Support", icon: <Headphones size={18} />, color: "#260466" },
+    { id: "01", title: "Website Development", icon: <Globe size={18} />, color: "#1565c0" },
+    { id: "02", title: "E-Commerce Solutions", icon: <ShoppingCart size={18} />, color: "#00b4d8" },
+    { id: "03", title: "Software Development", icon: <Code size={18} />, color: "#1565c0" },
+    { id: "04", title: "App Development", icon: <Smartphone size={18} />, color: "#00b4d8" },
+    { id: "05", title: "UI/UX Design", icon: <Palette size={18} />, color: "#1565c0" },
+    { id: "06", title: "Graphic Design", icon: <PenTool size={18} />, color: "#00b4d8" },
+    { id: "07", title: "Video Editing", icon: <Film size={18} />, color: "#1565c0" },
+    { id: "08", title: "IT Consulting & Strategy", icon: <Lightbulb size={18} />, color: "#00b4d8" },
+    { id: "09", title: "Custom Software Solutions", icon: <Layers size={18} />, color: "#1565c0" },
+    { id: "10", title: "24/7 Maintenance & Support", icon: <Headphones size={18} />, color: "#00b4d8" },
 ];
 
 const ROAD_PATH = "M 0 55 C 9 85 15 95 20 85 S 10 40 25 45 S 55 75 55 55 S 60 15 80 35 S 22 65 255 100 ";
 
 const getPosition = (index: number): Point => {
-    // Added coordinates for all 10 steps to prevent crashes
     const coords: Point[] = [
         { x: 1.5, y: 55 },   // 01
         { x: 18, y: 89 },  // 02
@@ -61,24 +58,21 @@ export default function Roadmap() {
         let timeout: any;
 
         const runStep = (index: number) => {
-            setCurrent(index); // student moves
+            setCurrent(index);
 
-            //  delay BEFORE showing card (touch effect)
             timeout = setTimeout(() => {
-                setActiveStep(index); // show card after 0.5s
+                setActiveStep(index);
 
-                // if last step
                 if (index === STEPS.length - 1) {
-
                     setTimeout(() => {
                         setIsFinished(true);
-                        setShowLogo(true); // show company logo overlay
+                        setShowLogo(true);
 
                         setTimeout(() => {
-                            setShowLogo(false); // hide logo after 2s
+                            setShowLogo(false);
                             setIsFinished(false);
                             setActiveStep(0);
-                            runStep(0); // restart
+                            runStep(0);
                         }, 2800);
 
                     }, 1000);
@@ -86,12 +80,11 @@ export default function Roadmap() {
                     return;
                 }
 
-                // move next step
                 timeout = setTimeout(() => {
                     runStep(index + 1);
                 }, 2000);
 
-            }, 500); //  0.5s delay
+            }, 500);
 
         };
 
@@ -102,17 +95,17 @@ export default function Roadmap() {
     const studentPos = getPosition(current);
 
     return (
-        <section className="roadmap-section py-20 px-10 lg:px-0 md:py-10" style={{ position: 'relative' }} id="services-list">
-            <div className="roadmap-container-main ">
+        <section className="roadmap-section py-8 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white" id="services-list" aria-label="Our IT Solutions & Services Roadmap">
+            <div className="roadmap-container-main max-w-7xl mx-auto">
 
-                <div className="roadmap-header">
-                    <h3 className="text-3xl md:text-5xl font-serif font-extrabold text-center text-[#c1972d]">
-                        Our <span className="text-blue-950">IT Solutions</span> & Services
-                    </h3>
+                <div className="roadmap-header text-center mb-10 sm:mb-12">
+                    <h2 className="text-3xl md:text-5xl font-bold text-brand-darkBlue">
+                        Our <span className="text-brand-blue">IT Solutions</span> & Services
+                    </h2>
 
-                    <span className="text-blue-950 text-lg block mt-2">
+                    <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed">
                         Delivering end-to-end digital, web, mobile & software solutions for business growth
-                    </span>
+                    </p>
                 </div>
 
                 <div className="roadmap-visual-area">
@@ -133,7 +126,7 @@ export default function Roadmap() {
                         <path
                             d={ROAD_PATH}
                             className="road-path-bg"
-                            stroke="#374151"
+                            stroke="#1a237e"
                             strokeWidth="35"
                             fill="none"
                             strokeLinecap="round"
@@ -150,7 +143,7 @@ export default function Roadmap() {
                             strokeLinecap="round"
                         />
                     </svg>
-                    {/* STUDENT ICON */}
+                    {/* STUDENT mover */}
                     <motion.div
                         className="student-mover"
                         animate={{ left: `${studentPos.x}%`, top: `${studentPos.y}%` }}
@@ -173,7 +166,6 @@ export default function Roadmap() {
                         const pos = getPosition(index);
                         const isActive = activeStep === index;
                         const isCompleted = current >= index;
-                        // logic for card placement
                         const isTop = [0, 2, 5, 8].includes(index);
 
                         return (
@@ -181,7 +173,6 @@ export default function Roadmap() {
                                 key={step.id}
                                 className={`step-node ${isActive ? 'active' : ''}`}
                                 style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
-
                             >
                                 <div
                                     className="step-pin"
@@ -202,15 +193,12 @@ export default function Roadmap() {
                                 >
                                     <div className="card-header">
                                         <div className="card-icon" style={{ color: step.color }}>{step.icon}</div>
-
                                     </div>
                                     <h3 className="card-title">{step.title}</h3>
                                 </motion.div>
                             </div>
                         );
                     })}
-
-                    {/* placeholder — logo overlay is rendered at section level below */}
                 </div>
             </div>
 
@@ -244,12 +232,12 @@ export default function Roadmap() {
                         >
                             <img
                                 src="/logo.webp"
-                                alt="Webify Technologies"
+                                alt="Webify Technologies Logo"
                                 style={{
                                     width: 'clamp(140px, 22vw, 240px)',
                                     height: 'auto',
                                     objectFit: 'contain',
-                                    filter: 'drop-shadow(0 8px 32px rgba(6,182,212,0.35))',
+                                    filter: 'drop-shadow(0 8px 32px rgba(21,101,192,0.35))',
                                 }}
                             />
                             <motion.p
@@ -261,7 +249,7 @@ export default function Roadmap() {
                                     fontWeight: 700,
                                     letterSpacing: '0.12em',
                                     textTransform: 'uppercase',
-                                    color: '#0e7490',
+                                    color: '#1565c0',
                                 }}
                             >
                                 All Services Delivered ✓

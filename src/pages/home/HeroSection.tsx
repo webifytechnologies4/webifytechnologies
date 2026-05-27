@@ -52,7 +52,8 @@ const HeroSection = () => {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-black pt-20 sm:pt-24 md:pt-0"
+      aria-label="Introduction Hero"
+      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-brand-darkBlue pt-20 sm:pt-24 md:pt-0"
     >
       {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0">
@@ -60,7 +61,7 @@ const HeroSection = () => {
           <motion.img
             key={currentBg}
             src={bgImages[currentBg]}
-            alt=""
+            alt="Futuristic software development environment and code lines"
             initial={{ opacity: 0, scale: 1.15 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.08 }}
@@ -89,18 +90,18 @@ const HeroSection = () => {
       <motion.div
         animate={{ x: [0, 80, -40, 0], y: [0, -50, 50, 0] }}
         transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-        className="absolute top-20 left-20 w-[400px] h-[400px] bg-sky-500/20 rounded-full blur-[120px] z-10"
+        className="absolute top-20 left-20 w-[400px] h-[400px] bg-brand-cyan/20 rounded-full blur-[120px] z-10"
       />
 
       <motion.div
         animate={{ x: [0, -50, 40, 0], y: [0, 60, -40, 0] }}
         transition={{ repeat: Infinity, duration: 14, ease: "easeInOut" }}
-        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-blue-700/20 rounded-full blur-[120px] z-10"
+        className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-brand-blue/20 rounded-full blur-[120px] z-10"
       />
 
       {/* MOUSE GLOW */}
       <motion.div
-        className="absolute w-[500px] h-[500px] rounded-full bg-sky-400/10 blur-[120px] pointer-events-none z-20"
+        className="absolute w-[500px] h-[500px] rounded-full bg-brand-cyan/10 blur-[120px] pointer-events-none z-20"
         animate={{
           x: mouseX.get(),
           y: mouseY.get(),
@@ -116,17 +117,17 @@ const HeroSection = () => {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative z-30 max-w-7xl text-center px-4 sm:px-6 md:px-0"
+        className="relative z-30 max-w-7xl text-center px-4 md:px-8 lg:px-16"
       >
         {/* BADGE */}
         <motion.div
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-sky-400/40 bg-white/10 backdrop-blur-xl mb-6 sm:mb-8"
+          className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-brand-cyan/40 bg-white/10 backdrop-blur-xl mb-6 sm:mb-8"
         >
-          <div className="w-2 h-2 bg-sky-400 rounded-full animate-ping" />
-          <span className="text-sky-300 text-sm sm:text-base font-medium tracking-wide">
+          <div className="w-2 h-2 bg-brand-cyan rounded-full animate-ping" />
+          <span className="text-brand-cyan text-sm sm:text-base font-medium tracking-wide">
             Webify Technologies
           </span>
         </motion.div>
@@ -136,10 +137,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-white"
+          className="text-4xl md:text-6xl font-bold leading-tight text-white"
         >
           Build Future Ready
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-blue-400 to-sky-500 animate-pulse">
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-white to-brand-cyan animate-pulse">
             Digital Products
           </span>
         </motion.h1>
@@ -149,7 +150,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="max-w-3xl mx-auto mt-6 sm:mt-8 text-sm sm:text-lg md:text-xl text-gray-300 leading-relaxed"
+          className="max-w-3xl mx-auto mt-6 sm:mt-8 text-sm md:text-lg text-gray-300 leading-relaxed"
         >
           We craft high-performance websites, applications and immersive
           digital experiences with premium UI/UX and futuristic development.
@@ -160,23 +161,23 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35 }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-12 w-full"
+          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mt-8 sm:mt-12 w-full px-4 md:px-0"
         >
-          <Link to="/contact" className="w-full sm:w-auto">
+          <Link to="/contact" className="w-full md:w-auto">
             <motion.button
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-blue-700 to-sky-500 text-white font-semibold shadow-lg"
+              className="w-full md:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-darkBlue hover:to-brand-blue text-white font-semibold shadow-lg min-h-[48px]"
             >
               Start Project
             </motion.button>
           </Link>
 
-          <Link to="/services" className="w-full sm:w-auto">
+          <Link to="/services" className="w-full md:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 rounded-full border border-sky-400/60 text-sky-300 font-semibold backdrop-blur-md"
+              className="w-full md:w-auto px-8 py-4 rounded-full border border-brand-cyan/60 text-brand-cyan font-semibold backdrop-blur-md min-h-[48px]"
             >
               Explore Services
             </motion.button>

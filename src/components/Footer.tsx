@@ -48,13 +48,13 @@ export default function Footer() {
   const containerRef = useRef(null);
 
   return (
-    <footer className="bg-black relative overflow-hidden border-t border-white/10 noise-overlay">
+    <footer className="bg-brand-darkBlue relative overflow-hidden border-t border-white/10 noise-overlay">
       {/* Big display text */}
       <div className="pt-12 px-8 text-center overflow-hidden no-splash">
         <div
           ref={containerRef}
           style={{ position: 'relative' }}
-          className="font-display font-bold text-[clamp(2.5rem,8vw,7rem)] leading-none text-white/60 [text-stroke:1px_rgba(255,255,255,0.15)] tracking-tighter opacity-80 uppercase cursor-default no-splash"
+          className="font-display font-bold text-[clamp(2.5rem,8vw,7rem)] leading-none text-white/40 [text-stroke:1px_rgba(255,255,255,0.15)] tracking-tighter opacity-80 uppercase cursor-default no-splash"
         >
           <VariableProximity
             label="HELLO! WE'RE LISTENING"
@@ -82,12 +82,12 @@ export default function Footer() {
             >
               <img
                 src={logoImg}
-                alt="Webify Logo"
+                alt="Webify Technologies brand logo"
                 className="h-11 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
               />
 
-              <div className="font-display font-bold leading-[1.1] transition duration-300 group-hover:text-cyan-400">
-                <div className="text-white group-hover:text-cyan-400 transition duration-300">
+              <div className="font-display font-bold leading-[1.1] transition duration-300 group-hover:text-brand-cyan">
+                <div className="text-white group-hover:text-brand-cyan transition duration-300">
                   Webify Technologies
                 </div>
               </div>
@@ -113,7 +113,7 @@ ${s.label === "Instagram"
                         ? "bg-white/10 border-white/10 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-[0_10px_25px_rgba(37,99,235,0.45)]"
                         : s.label === "YouTube"
                           ? "bg-white/10 border-white/10 hover:bg-red-600 hover:border-red-600 hover:text-white hover:shadow-[0_10px_25px_rgba(220,38,38,0.45)]"
-                          : "bg-white/10 border-white/10 hover:bg-cyan-400 hover:border-cyan-400 hover:text-black hover:shadow-[0_10px_25px_rgba(34,211,238,0.4)]"
+                          : "bg-white/10 border-white/10 hover:bg-brand-cyan hover:border-brand-cyan hover:text-brand-darkBlue hover:shadow-[0_10px_25px_rgba(0,180,216,0.4)]"
                     }`}
                 >
                   <span className="transition-transform duration-300 group-hover:scale-110">
@@ -141,9 +141,9 @@ ${s.label === "Instagram"
                 <li key={c.name}>
                   <Link
                     to={c.path}
-                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
+                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-brand-cyan hover:translate-x-2"
                   >
-                    <span className="w-0 h-0 group-hover:w-1 group-hover:h-1 rounded-full bg-cyan-400 transition-all duration-300" />
+                    <span className="w-0 h-0 group-hover:w-1 group-hover:h-1 rounded-full bg-brand-cyan transition-all duration-300" />
                     {c.name}
                   </Link>
                 </li>
@@ -162,9 +162,9 @@ ${s.label === "Instagram"
                 <li key={s}>
                   <Link
                     to="/services"
-                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
+                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-brand-cyan hover:translate-x-2"
                   >
-                    <span className="w-0 h-0 group-hover:w-1 group-hover:h-1 rounded-full bg-cyan-400 transition-all duration-300" />
+                    <span className="w-0 h-0 group-hover:w-1 group-hover:h-1 rounded-full bg-brand-cyan transition-all duration-300" />
                     {s}
                   </Link>
                 </li>
@@ -181,7 +181,7 @@ ${s.label === "Instagram"
             <div className="flex flex-col gap-4">
               <a
                 href="mailto:webifytechnologies4@gmail.com"
-                className="text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-1 break-all"
+                className="text-white/60 no-underline text-sm transition-all duration-300 hover:text-brand-cyan hover:translate-x-1 break-all"
               >
                 webifytechnologies4@gmail.com
               </a>
@@ -198,21 +198,21 @@ ${s.label === "Instagram"
       <div className="border-t border-white/10 px-8 py-6">
         <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 
-          <p className="text-white/60 text-[0.75rem] font-mono hover:text-cyan-400 transition duration-300 text-center sm:text-left">
+          <p className="text-white/60 text-[0.75rem] font-mono hover:text-brand-cyan transition duration-300 text-center sm:text-left">
             © 2026 Webify Technologies. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5">
             <Link
               to="/privacy-policy"
-              className="text-white/50 text-xs hover:text-cyan-400 transition duration-300"
+              className="text-white/50 text-xs hover:text-brand-cyan transition duration-300"
             >
               Privacy Policy
             </Link>
 
             <Link
               to="/terms-conditions"
-              className="text-white/50 text-xs hover:text-cyan-400 transition duration-300"
+              className="text-white/50 text-xs hover:text-brand-cyan transition duration-300"
             >
               Terms & Conditions
             </Link>

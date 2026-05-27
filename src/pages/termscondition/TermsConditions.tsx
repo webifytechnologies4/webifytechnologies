@@ -179,14 +179,25 @@ const TermsConditions = () => {
                 {/* Button */}
                 <div className="relative z-50 w-full lg:w-auto">
                   <a
-                    href="mailto:webifytechnologies4@gmail.com"
-                    className="inline-flex w-full lg:w-auto items-center justify-center gap-3 px-5 sm:px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-xs sm:text-sm lg:text-base transition-all duration-300 hover:scale-[1.03] active:scale-95 shadow-[0_15px_40px_rgba(34,211,238,0.25)] whitespace-nowrap cursor-pointer"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=webifytechnologies4@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-50 w-full lg:w-auto inline-flex"
                   >
-                    <Mail size={18} className="min-w-[18px]" />
+                    <motion.button
+                      whileHover={{
+                        scale: 1.03,
+                        y: -2,
+                      }}
+                      whileTap={{ scale: 0.96 }}
+                      className="inline-flex w-full lg:w-auto items-center justify-center gap-3 px-5 sm:px-7 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-xs sm:text-sm lg:text-base transition-all duration-300 shadow-[0_15px_40px_rgba(34,211,238,0.25)] whitespace-nowrap cursor-pointer"
+                    >
+                      <Mail size={18} className="min-w-[18px]" />
 
-                    <span>
-                      webifytechnologies4@gmail.com
-                    </span>
+                      <span>
+                        webifytechnologies4@gmail.com
+                      </span>
+                    </motion.button>
                   </a>
                 </div>
               </motion.div>

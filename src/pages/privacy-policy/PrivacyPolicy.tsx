@@ -43,7 +43,7 @@ const PrivacyPolicy = () => {
     <>
       <Navbar />
 
-     <section className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-28">
+      <section className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-28">
 
         {/* Background Glow */}
         <div className="absolute top-0 left-0 w-[220px] sm:w-[320px] h-[220px] sm:h-[320px] bg-cyan-100 blur-3xl opacity-60 rounded-full" />
@@ -151,8 +151,10 @@ const PrivacyPolicy = () => {
                 </div>
 
                 <a
-                  href="mailto:webifytechnologies4@gmail.com"
-                  className="group inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm sm:text-base hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-[0_15px_40px_rgba(34,211,238,0.25)] break-all text-center"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=webifytechnologies4@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm sm:text-base hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-[0_15px_40px_rgba(34,211,238,0.25)] break-all text-center cursor-pointer"
                 >
                   <Mail size={18} />
 

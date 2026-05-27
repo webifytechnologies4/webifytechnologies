@@ -125,49 +125,50 @@ const Navbar = () => {
       </motion.header>
 
       {/* MOBILE MENU */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {open && (
           <motion.div
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-2xl md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-0 left-0 w-full h-[100dvh] z-50 md:hidden bg-black/95 backdrop-blur-2xl"
           >
-            {/* CLOSE BUTTON */}
-            <button
-              onClick={() => setOpen(false)}
-              className="absolute top-6 right-6 text-white text-3xl"
-            >
-              ✕
-            </button>
+            {/* SAFE WRAPPER */}
+            <div className="relative h-full w-full flex flex-col items-center justify-center">
 
-            {/* MENU ITEMS */}
-            <div className="flex flex-col items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setOpen(false)}
-                  className={`text-2xl font-semibold transition-all ${location.pathname === link.path
-                    ? "text-sky-400"
-                    : "text-white/70 hover:text-sky-400"
-                    }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-
-            {/* CTA BUTTON */}
-            <div className="mt-12">
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-700 to-sky-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg"
+              {/* CLOSE BUTTON */}
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-6 right-6 text-white text-3xl z-50"
               >
-                Start Project
-                <ArrowRight size={18} />
-              </motion.button>
+                ✕
+              </button>
+
+              {/* MENU ITEMS */}
+              <div className="flex flex-col items-center gap-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setOpen(false)}
+                    className={`text-2xl font-semibold transition ${location.pathname === link.path
+                        ? "text-blue-400"
+                        : "text-white/70 hover:text-blue-400"
+                      }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="mt-12">
+                <button className="flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-semibold">
+                  Start Project <ArrowRight size={18} />
+                </button>
+              </div>
+
             </div>
           </motion.div>
         )}

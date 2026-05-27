@@ -6,7 +6,7 @@ const bgImage =
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden  ">
 
       {/* BACKGROUND IMAGE */}
       <motion.img
@@ -36,7 +36,7 @@ const HeroSection = () => {
         >
           <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
 
-          {/* ✅ FIX: force single line on mobile */}
+          {/*  FIX: force single line on mobile */}
           <span className="text-cyan-200 text-[10px] sm:text-sm uppercase tracking-[3px] font-semibold whitespace-nowrap">
             Services • Solutions • Support
           </span>

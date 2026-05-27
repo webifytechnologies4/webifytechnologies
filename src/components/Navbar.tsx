@@ -100,6 +100,10 @@ const Navbar = () => {
             <div className="hidden md:flex items-center">
               <Link to="/contact">
                 <motion.button
+                  onClick={() => {
+                    const section = document.getElementById("contact-section");
+                    section?.scrollIntoView({ behavior: "smooth" });
+                  }}
                   whileHover={{
                     scale: 1.05,
                     boxShadow: "0 0 25px rgba(21,101,192,0.5)",
@@ -153,8 +157,8 @@ const Navbar = () => {
                     to={link.path}
                     onClick={() => setOpen(false)}
                     className={`text-2xl font-semibold transition ${location.pathname === link.path
-                        ? "text-blue-400"
-                        : "text-white/70 hover:text-blue-400"
+                      ? "text-blue-400"
+                      : "text-white/70 hover:text-blue-400"
                       }`}
                   >
                     {link.name}

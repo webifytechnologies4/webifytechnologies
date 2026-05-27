@@ -43,7 +43,15 @@ const CTASection = () => {
             </Link>
 
             <Link to="/services">
-              <button className="flex items-center justify-center gap-2 px-4 py-3 text-[#1e1b4b] font-bold hover:text-indigo-700 transition-colors group text-sm sm:text-base">
+              <button
+                onClick={() => {
+                  document.getElementById("services-list")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
+                className="flex items-center justify-center gap-2 px-4 py-3 text-[#1e1b4b] font-bold hover:text-indigo-700 transition-colors group text-sm sm:text-base"
+              >
                 Explore Services
 
                 <ArrowRight

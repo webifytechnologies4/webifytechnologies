@@ -72,6 +72,8 @@ const projectsList = [
 const ProjectGrid = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const filteredProjects =
     activeCategory === "All"
       ? projectsList

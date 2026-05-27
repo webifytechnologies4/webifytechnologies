@@ -102,7 +102,7 @@ export default function Roadmap() {
     const studentPos = getPosition(current);
 
     return (
-        <section className="roadmap-section py-20 px-10 lg:px-0 md:py-10" style={{ position: 'relative' }}>
+        <section className="roadmap-section py-20 px-10 lg:px-0 md:py-10" style={{ position: 'relative' }} id="services-list">
             <div className="roadmap-container-main ">
 
                 <div className="roadmap-header">

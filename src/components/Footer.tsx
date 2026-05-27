@@ -11,13 +11,6 @@ const services = [
   'Graphic Design',
   'Video Editing'
 ]
-const company = [
-  'Home',
-  'About Us',
-  'Services',
-  'Projects',
-  'Contact Us',
-]
 
 const socials = [
   {
@@ -76,11 +69,13 @@ export default function Footer() {
       </div>
 
       {/* Main footer content */}
-      <div className="max-w-[1400px] mx-auto px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 py-16">
+
+        {/* Updated Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-[1.3fr_.8fr_.8fr_1fr] gap-x-5 lg:gap-x-8 gap-y-12 lg:pl-6">
 
           {/* Brand column */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link
               to="/"
               className="flex items-center gap-3 no-underline mb-5 group"
@@ -112,7 +107,7 @@ export default function Footer() {
                   href={s.href}
                   aria-label={s.label}
                   className={`group w-10 h-10 rounded-xl border flex items-center justify-center text-white/70 transition-all duration-300 hover:-translate-y-1
-      ${s.label === "Instagram"
+${s.label === "Instagram"
                       ? "bg-white/10 border-white/10 hover:bg-pink-500 hover:border-pink-500 hover:text-white hover:shadow-[0_10px_25px_rgba(236,72,153,0.45)]"
                       : s.label === "Facebook"
                         ? "bg-white/10 border-white/10 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-[0_10px_25px_rgba(37,99,235,0.45)]"
@@ -129,8 +124,35 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Company */}
+          <div className="lg:ml-4">
+            <h4 className="font-display font-semibold text-white mb-5 text-base">
+              Company
+            </h4>
+
+            <ul className="list-none flex flex-col gap-3">
+              {[
+                { name: "Home", path: "/" },
+                { name: "About Us", path: "/about" },
+                { name: "Services", path: "/services" },
+                { name: "Projects", path: "/projects" },
+                { name: "Contact Us", path: "/contact" }
+              ].map((c) => (
+                <li key={c.name}>
+                  <Link
+                    to={c.path}
+                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
+                  >
+                    <span className="w-0 h-0 group-hover:w-1 group-hover:h-1 rounded-full bg-cyan-400 transition-all duration-300" />
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Services */}
-          <div>
+          <div className="lg:ml-2">
             <h4 className="font-display font-semibold text-white mb-5 text-base">
               Services
             </h4>
@@ -142,7 +164,7 @@ export default function Footer() {
                     to="/services"
                     className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
                   >
-                    <span className="w-0 group-hover:w-2 h-[2px] bg-cyan-400 transition-all duration-300" />
+                    <span className="w-0 h-0 group-hover:w-1 group-hover:h-1 rounded-full bg-cyan-400 transition-all duration-300" />
                     {s}
                   </Link>
                 </li>
@@ -150,29 +172,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h4 className="font-display font-semibold text-white mb-5 text-base">
-              Company
-            </h4>
-
-            <ul className="list-none flex flex-col gap-3">
-              {company.map((c) => (
-                <li key={c}>
-                  <Link
-                    to="/about"
-                    className="group inline-flex items-center gap-2 text-white/60 no-underline text-sm transition-all duration-300 hover:text-cyan-400 hover:translate-x-2"
-                  >
-                    <span className="w-0 group-hover:w-2 h-[2px] bg-cyan-400 transition-all duration-300" />
-                    {c}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Contact */}
-          <div>
+          <div className="col-span-2 lg:col-span-1 lg:pl-4">
             <h4 className="font-display font-semibold text-white mb-5 text-base">
               Contact
             </h4>
@@ -195,10 +196,27 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 px-8 py-6">
-        <div className="max-w-[1400px] mx-auto flex flex-wrap justify-center items-center gap-4">
-          <p className="text-white/60 text-[0.75rem] font-mono hover:text-cyan-400 transition duration-300">
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+
+          <p className="text-white/60 text-[0.75rem] font-mono hover:text-cyan-400 transition duration-300 text-center sm:text-left">
             © 2026 Webify Technologies. All rights reserved.
           </p>
+
+          <div className="flex items-center gap-5">
+            <Link
+              to="/privacy-policy"
+              className="text-white/50 text-xs hover:text-cyan-400 transition duration-300"
+            >
+              Privacy Policy
+            </Link>
+
+            <Link
+              to="/terms-conditions"
+              className="text-white/50 text-xs hover:text-cyan-400 transition duration-300"
+            >
+              Terms & Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

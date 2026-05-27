@@ -76,6 +76,11 @@ const HeroSection = () => {
 
           <Link to="/services" className="w-full sm:w-auto">
             <motion.button
+              onClick={() => {
+                document.getElementById("services-list")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 text-black font-semibold shadow-lg"

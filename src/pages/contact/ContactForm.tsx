@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const ContactForm = () => {
   return (
-    <section className="px-4 sm:px-6 md:px-20 py-16 md:py-24 bg-white grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-14">
+    <section className="px-4 sm:px-6 md:px-20 py-16 md:py-24 bg-white grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-14"  id="contact-section">
 
       {/* LEFT FORM */}
       <div className="bg-white p-4 sm:p-6 md:p-10 w-full">

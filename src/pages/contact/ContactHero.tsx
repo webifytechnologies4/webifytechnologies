@@ -114,13 +114,33 @@ const ContactHero = () => {
             transition={{ delay: 1.3 }}
             className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-5 mt-8 md:mt-10 w-full"
           >
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold shadow-[0_10px_40px_rgba(34,211,238,0.35)] hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base">
+            <button
+              onClick={() => {
+                const section = document.getElementById("contact-section");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-semibold shadow-[0_10px_40px_rgba(34,211,238,0.35)] hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base"
+            >
               Start Project
             </button>
 
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full border border-gray-300 bg-white/70 backdrop-blur-xl text-gray-700 hover:bg-white active:scale-95 transition-all duration-300 text-sm sm:text-base">
-              Free Consultation
-            </button>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=webifytechnologies4@gmail.com&su=Free%20Consultation&body=Hello%20Webify%20Technologies,%20I%20want%20a%20free%20consultation%20for%20my%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  y: -2,
+                }}
+                whileTap={{ scale: 0.96 }}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full border border-gray-300 bg-white/70 backdrop-blur-xl text-gray-700 hover:bg-white hover:border-gray-400 hover:shadow-lg active:scale-95 transition-all duration-300 text-sm sm:text-base font-medium"
+              >
+                Free Consultation
+              </motion.button>
+            </a>
           </motion.div>
 
         </motion.div>

@@ -5,7 +5,7 @@ import bgImage from "../../assets/serviceshero/hero1.jpeg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative py-30 flex items-center justify-center overflow-hidden">
 
       {/* BACKGROUND IMAGE */}
       <motion.img
@@ -25,7 +25,7 @@ const HeroSection = () => {
       <div className="absolute w-[400px] h-[400px] bg-brand-blue/20 blur-[140px] rounded-full bottom-10 right-10" />
 
       {/* CONTENT */}
-      <div className="relative z-10 text-center max-w-4xl px-4">
+      <div className="relative z-10 text-center max-w-6xl px-4">
 
         {/* BADGE */}
         <motion.div
@@ -60,7 +60,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-6 text-gray-200 text-sm md:text-lg"
+          className="mt-3 text-gray-200 text-sm md:text-lg"
         >
           From websites to mobile apps and enterprise solutions — we deliver
           high-quality digital services tailored for your business growth.

@@ -32,7 +32,7 @@ const ProjectsHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] pt-30 md:pt-0 overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-8 md:py-16">
+    <section className="relative  pt-30 md:py-30 overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-8 md:py-16">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0">

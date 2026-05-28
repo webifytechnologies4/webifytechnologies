@@ -73,7 +73,7 @@ const CTASection = () => {
           duration: 6,
           repeat: Infinity,
         }}
-        className="absolute top-20 left-10 w-32 h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-40"
+        className="absolute top-20 left-10 w-32 h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60"
       />
 
       <motion.div
@@ -84,7 +84,7 @@ const CTASection = () => {
           duration: 8,
           repeat: Infinity,
         }}
-        className="absolute bottom-24 right-10 w-40 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
+        className="absolute bottom-24 right-10 w-40 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-10"
       />
 
       {/* Main Content */}
@@ -93,7 +93,7 @@ const CTASection = () => {
           y: textY,
           opacity,
         }}
-        className="relative z-10 min-h-[65vh] sm:min-h-[72vh] flex items-center justify-center px-5 sm:px-8 lg:px-16 py-20"
+        className="relative z-10 min-h-[65vh] sm:min-h-[72vh] flex items-center justify-center px-5 sm:px-8 lg:px-16 py-10"
       >
         <div className="max-w-6xl mx-auto text-center">
 
@@ -144,7 +144,7 @@ const CTASection = () => {
             transition={{
               duration: 0.9,
             }}
-            className="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-white"
+            className="text-3xl sm:text-5xl lg:text-6xl font-black leading-[0.95] text-white"
           >
             Build Something
             <motion.span
@@ -181,7 +181,7 @@ const CTASection = () => {
               duration: 0.8,
               delay: 0.15,
             }}
-            className="max-w-3xl mx-auto mt-7 text-sm sm:text-lg lg:text-xl leading-relaxed text-white/75"
+            className="max-w-6xl mx-auto mt-7 text-sm sm:text-lg lg:text-xl leading-relaxed text-white"
           >
             We craft premium websites, scalable software,
             high-performance applications, and modern

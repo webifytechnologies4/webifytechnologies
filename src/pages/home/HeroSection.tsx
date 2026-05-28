@@ -54,7 +54,7 @@ const HeroSection = () => {
     <section
       onMouseMove={handleMouseMove}
       aria-label="Introduction Hero"
-      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-brand-darkBlue pt-20 sm:pt-24 md:pt-0"
+      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-brand-darkBlue pt-20 sm:pt-24 md:pt-10"
     >
       {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0">
@@ -76,7 +76,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/70 z-10" />
 
       {/* GRID OVERLAY */}
-      <div className="absolute inset-0 z-10 opacity-20">
+      <div className="absolute inset-0 z-10 opacity-50">
         <div
           className="w-full h-full"
           style={{
@@ -125,7 +125,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-brand-cyan/40 bg-white/10 backdrop-blur-xl mb-6 sm:mb-8"
+          className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full border border-brand-cyan/40 bg-white/10 backdrop-blur-xl mb-6 sm:mb-4"
         >
           <div className="w-2 h-2 bg-brand-cyan rounded-full animate-ping" />
           <span className="text-brand-cyan text-sm sm:text-base font-medium tracking-wide">

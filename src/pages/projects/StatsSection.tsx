@@ -9,7 +9,7 @@ const stats = [
 
 const StatsSection = () => {
   return (
-    <section aria-label="Our Achievements Stats" className="px-4 md:px-8 lg:px-16 py-8 md:py-16 bg-brand-white">
+    <section aria-label="Our Achievements Stats" className="px-4 md:px-8 lg:px-16 py-8 md:py-10 bg-brand-white">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-bold text-brand-darkBlue">
           Our <span className="text-brand-blue">Numbers</span>
@@ -26,7 +26,7 @@ const StatsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
             whileHover={{ y: -8, scale: 1.03 }}
-            className="bg-white border border-brand-cyan/10 rounded-[30px] p-6 md:p-8 text-center shadow-lg shadow-brand-blue/5 hover:border-brand-cyan/35 transition-colors duration-300"
+            className="bg-white border border-brand-cyan/10 rounded-lg p-6 md:p-8 text-center shadow-lg shadow-brand-blue/50 hover:border-brand-cyan/35 transition-colors duration-300"
           >
             <h3 className="text-4xl md:text-5xl font-bold text-brand-cyan">{item.number}</h3>
             <p className="text-gray-600 mt-4 text-sm md:text-base font-medium">{item.text}</p>

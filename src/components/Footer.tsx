@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import logoImg from "../assets/logo.webp";
+import logoImg from "../assets/logo-removebg-preview.png";
 import VariableProximity from '../components/VariableProximity'
 
 const services = [
@@ -16,17 +16,17 @@ const socials = [
   {
     label: 'LinkedIn', icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
-    ), href: '#'
+    ), href: 'https://www.linkedin.com/company/webifytechnologies/'
   },
   {
     label: 'Instagram', icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" /></svg>
-    ), href: '#'
+    ), href: 'https://www.instagram.com/webifytechnologies?igsh=MXRxdWc5ZXptZjI2cQ=='
   },
   {
     label: 'Facebook', icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
-    ), href: '#'
+    ), href: 'https://www.facebook.com/share/1QS9oGiAUA/'
   },
   {
     label: 'YouTube',
@@ -40,7 +40,7 @@ const socials = [
         <path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.8 31.8 0 000 12a31.8 31.8 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.8 31.8 0 0024 12a31.8 31.8 0 00-.5-5.8zM9.7 15.5v-7L16 12l-6.3 3.5z" />
       </svg>
     ),
-    href: '#',
+    href: 'https://www.youtube.com/@Webify-Technologies',
   },
 ]
 
@@ -83,21 +83,12 @@ export default function Footer() {
               <img
                 src={logoImg}
                 alt="Webify Technologies brand logo"
-                className="h-11 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
+                className="h-56 w-auto object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
               />
 
-              <div className="font-display font-bold leading-[1.1] transition duration-300 group-hover:text-brand-cyan">
-                <div className="text-white group-hover:text-brand-cyan transition duration-300">
-                  Webify Technologies
-                </div>
-              </div>
             </Link>
 
-            <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-[280px] hover:text-white transition duration-300">
-              Webify Technologies is a modern IT company building websites,
-              software, mobile apps, and powerful digital solutions for growing
-              businesses.
-            </p>
+        
 
             {/* Socials */}
             <div className="flex gap-3">
@@ -105,6 +96,8 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   className={`group w-10 h-10 rounded-xl border flex items-center justify-center text-white/70 transition-all duration-300 hover:-translate-y-1
 ${s.label === "Instagram"

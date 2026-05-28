@@ -47,7 +47,7 @@ const ProjectsSection = () => {
     <section
       id="projects-section"
       aria-label="Our Featured Projects"
-      className="relative overflow-hidden bg-brand-white py-12 md:py-20"
+      className="relative overflow-hidden bg-brand-white py-12 md:py-10"
     >
       {/* Background Glow */}
       <div className="absolute top-0 left-0 h-[260px] w-[260px] md:h-[450px] md:w-[450px] rounded-full bg-brand-blue/10 blur-3xl opacity-70" />
@@ -82,7 +82,7 @@ const ProjectsSection = () => {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-sm md:text-lg leading-relaxed text-gray-600">
+          <p className="mx-auto mt-5 max-w-4xl text-sm md:text-lg leading-relaxed text-gray-600">
             We design modern digital experiences with premium UI, powerful
             development and immersive user interactions.
           </p>
@@ -105,7 +105,7 @@ const ProjectsSection = () => {
                 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-[24px] border border-gray-200 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_18px_60px_rgba(0,0,0,0.10)] transition-all duration-500"
+                className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg shadow-black/60 hover:shadow-[0_18px_60px_rgba(0,0,0,0.10)] transition-all duration-500"
               >
 
                 {/* Hover Glow */}

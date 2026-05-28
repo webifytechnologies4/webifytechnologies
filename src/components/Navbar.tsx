@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logoImg from "../assets/logo.webp";
+import logoImg from "../assets/logo1-removebg-preview.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -61,8 +61,8 @@ const Navbar = () => {
           ${isForceBlack
             ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
             : scrolled
-              ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
-              : "bg-white/15 backdrop-blur-2xl border-white/20 shadow-[0_10px_50px_rgba(255,255,255,0.10)]"
+              ? "bg-black/55 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
+              : "bg-white/55 backdrop-blur-2xl border-white/20  shadow-[0_10px_50px_rgba(255,255,255,0.10)]"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -70,9 +70,11 @@ const Navbar = () => {
 
             {/* LOGO */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-xl overflow-hidden bg-white flex items-center justify-center">
-                <img src={logoImg} className="h-11 w-11 object-contain" />
-              </div>
+              <img
+                src={logoImg}
+                alt="Webify Technologies logo"
+                className="h-14 w-auto object-contain"
+              />
             </Link>
 
             {/* DESKTOP MENU */}
@@ -91,7 +93,7 @@ const Navbar = () => {
                         ? "text-cyan-300"
                         : isForceBlack || scrolled
                           ? "text-gray-300 group-hover:text-cyan-300"
-                          : "text-white group-hover:text-cyan-200"
+                          : "text-black group-hover:text-cyan-700"
                         }`}
                     >
                       {link.name}
@@ -108,14 +110,15 @@ const Navbar = () => {
                   </Link>
                 );
               })}
+              {/* CTA */}
+              <Link to="/contact" className="hidden md:flex">
+                <button className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-7 py-3 rounded-full font-semibold">
+                  Get Started <ArrowRight size={18} />
+                </button>
+              </Link>
             </nav>
 
-            {/* CTA */}
-            <Link to="/contact" className="hidden md:flex">
-              <button className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-7 py-3 rounded-full font-semibold">
-                Get Started <ArrowRight size={18} />
-              </button>
-            </Link>
+
 
             {/* MOBILE */}
             <button

@@ -3,31 +3,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Layout, Lock } from "lucide-react";
 import Stack from "../../components/Stack/Stack";
 
-// ── Each topic has its own icon, label, description & hero image ──────────
+import uiImg from "../../assets/homeabout/about1.jpeg";
+import speedImg from "../../assets/homeabout/about2.jpeg";
+import appImg from "../../assets/homeservices/app.jpeg";
+import securityImg from "../../assets/homeabout/about4.jpeg";
+
+
 const topics = [
   {
     icon: <Layout size={18} />,
     label: "Premium UI/UX",
     desc: "Pixel-perfect interfaces crafted for maximum visual impact and intuitive usability.",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=600&auto=format&fit=crop",
+    image: uiImg,
   },
   {
     icon: <Zap size={18} />,
     label: "Fast Performance",
     desc: "Blazing-fast load times and smooth 60fps animations optimised across all devices.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+    image: speedImg,
   },
   {
     icon: <Layout size={18} />,
     label: "Responsive Design",
     desc: "Fluid layouts that look flawless from mobile phones to ultra-wide desktop monitors.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop",
+    image: appImg,
   },
   {
     icon: <Lock size={18} />,
     label: "Secure Systems",
     desc: "Enterprise-grade security baked in from day one — protecting your data and users.",
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=600&auto=format&fit=crop",
+    image: securityImg,
   },
 ];
 
@@ -102,8 +107,8 @@ const AboutSection = () => {
                   {/* ICON */}
                   <div
                     className={`mt-0.5 flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-xl flex items-center justify-center ${isActive
-                        ? "bg-brand-blue text-white"
-                        : "bg-brand-light text-brand-blue"
+                      ? "bg-brand-blue text-white"
+                      : "bg-brand-light text-brand-blue"
                       }`}
                   >
                     {topic.icon}

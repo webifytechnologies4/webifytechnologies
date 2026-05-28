@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 
-const logos = [
-  "https://skypathologylab.in/assets/Petho_Logo-VkAX8ME5.png",
-  "https://www.viaanenterprise.com/static/media/6.dac8c41b2a198c840dfa.png",
+import pethoLogo from "../../assets/homeclients/client3.webp";
+import viaanLogo from "../../assets/homeclients/client2.png";
+import medilifeLogo from "../../assets/homeclients/client1.jpg";
 
+const logos = [
+  pethoLogo,
+  viaanLogo,
+  medilifeLogo
 ];
 
 const ClientsSection = () => {

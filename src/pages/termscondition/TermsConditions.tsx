@@ -58,7 +58,7 @@ const TermsConditions = () => {
         <Navbar />
       </div>
 
-      <main className="bg-brand-white text-gray-900 overflow-x-hidden w-full">
+      <main className="bg-brand-white text-gray-900 overflow-x-hidden w-full pt-20">
         <section className="relative overflow-hidden py-8 md:py-16">
 
           {/* Premium Background */}

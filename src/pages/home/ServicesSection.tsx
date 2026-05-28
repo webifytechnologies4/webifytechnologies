@@ -3,27 +3,28 @@ import { motion } from "framer-motion";
 import { Globe, Smartphone, Code2, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import webImg from "../../assets/homeservices/web.jpeg";
+import appImg from "../../assets/homeservices/app.jpeg";
+import softwareImg from "../../assets/homeservices/software.jpeg";
+
 const services = [
   {
     icon: <Globe size={42} />,
     title: "Web Development",
     desc: "Modern responsive websites with premium UI/UX and high performance development.",
-    bgImage:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
+    bgImage: webImg,
   },
   {
     icon: <Smartphone size={42} />,
     title: "App Development",
     desc: "Scalable Android & iOS applications with smooth animations and modern architecture.",
-    bgImage:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+    bgImage: appImg,
   },
   {
     icon: <Code2 size={42} />,
     title: "Software Solutions",
     desc: "Custom software systems and automation tools built for startups and enterprises.",
-    bgImage:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop",
+    bgImage: softwareImg,
   },
 ];
 

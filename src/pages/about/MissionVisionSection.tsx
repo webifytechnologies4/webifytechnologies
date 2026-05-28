@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Layers3, Rocket } from "lucide-react";
-import vission from "../../assets/vission.jpeg";
-import mission from "../../assets/mission.jpeg";
+import vission from "../../assets/aboutmissionvision/vission.jpeg";
+import mission from "../../assets/aboutmissionvision/mission.jpeg";
 
 const MissionVisionSection = () => {
   return (
@@ -29,9 +29,7 @@ const MissionVisionSection = () => {
       {/* CARDS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 perspective-[2000px]">
 
-        {/* ========================= */}
         {/* VISION CARD */}
-        {/* ========================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 80 }}
@@ -133,9 +131,7 @@ const MissionVisionSection = () => {
           </div>
         </motion.div>
 
-        {/* ========================= */}
         {/* MISSION CARD */}
-        {/* ========================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 80 }}

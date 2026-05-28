@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
+
+import hero1 from "../../assets/homehero/hero1.avif";
+import Img2 from "../../assets/projectshero/img2.jpeg";
+import ctaImg from "../../assets/homecta/homecta.jpeg";
+
 const bgImages = [
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+  hero1,
+  Img2,
+  ctaImg
 ];
 
 const services = [
@@ -27,7 +32,7 @@ const ProjectsHero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-8 md:py-16">
+    <section className="relative min-h-[100svh] pt-30 md:pt-0 overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-8 md:py-16">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0">
@@ -65,7 +70,7 @@ const ProjectsHero = () => {
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-brand-cyan tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-5 sm:mb-6"
+            className="text-brand-cyan tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-1 sm:mb-2"
           >
             DESIGN • DEVELOP • DELIVER
           </motion.p>

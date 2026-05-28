@@ -1,21 +1,31 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import pethoLogo from "../../assets/homeclients/client3.webp";
+import viaanLogo from "../../assets/homeclients/client2.png";
+import LeifMed from "../../assets/homeclients/client1.jpg";
 
 const testimonials = [
- 
+
   {
     id: 5,
     name: "viaan patel",
     country: "CEO, Viaan Enterprise",
-    image: "https://www.viaanenterprise.com/static/media/6.dac8c41b2a198c840dfa.png",
+    image: viaanLogo,
     text: `Webify Technologies transformed our online presence with a stunning, high-performance platform. Their expertise in web development and dedication to excellence helped us scale our digital operations seamlessly.`,
   },
   {
     id: 6,
     name: "deep patel",
     country: "Director, Sky Pathology Lab",
-    image: "https://skypathologylab.in/assets/Petho_Logo-VkAX8ME5.png",
+    image: pethoLogo,
     text: `The team at Webify delivered an exceptional digital management portal for our pathology lab. It is responsive, highly secure, and extremely user-friendly. Their support is top-notch!`,
+  },
+  {
+    id: 7,
+    name: "milan patel",
+    country: "CEO, LeifMed",
+    image: LeifMed,
+    text: `Webify Technologies helped us build a modern and professional digital presence for LeifMed. Their team delivered a fast, responsive, and user-friendly solution that perfectly matched our vision and business goals.`,
   },
 ];
 
@@ -71,8 +81,8 @@ const TestimonialSection = () => {
                 }}
                 transition={{ duration: 0.4 }}
                 className={`relative cursor-pointer rounded-full p-[4px] ${index === active
-                    ? "bg-brand-blue"
-                    : "bg-gray-300"
+                  ? "bg-brand-blue"
+                  : "bg-gray-300"
                   }`}
               >
                 {/* Pulse Ring */}
@@ -91,9 +101,9 @@ const TestimonialSection = () => {
                 <img
                   src={item.image}
                   alt={`${item.name} testimonial profile`}
-                  className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full object-cover border-4 transition-all duration-500 bg-white ${index === active
-                      ? "border-white grayscale-0 shadow-lg"
-                      : "border-white grayscale opacity-70"
+                  className={`w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full object-contain p-2 border-4 transition-all duration-500 bg-white ${index === active
+                    ? "border-white grayscale-0 shadow-lg"
+                    : "border-white grayscale opacity-70"
                     }`}
                 />
               </motion.div>
@@ -136,8 +146,8 @@ const TestimonialSection = () => {
               key={index}
               onClick={() => setActive(index)}
               className={`h-2 rounded-full cursor-pointer transition-all duration-500 ${active === index
-                  ? "w-12 md:w-14 bg-brand-blue"
-                  : "w-3 bg-gray-300"
+                ? "w-12 md:w-14 bg-brand-blue"
+                : "w-3 bg-gray-300"
                 }`}
             />
           ))}

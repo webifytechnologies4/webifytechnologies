@@ -1,27 +1,46 @@
 import { motion } from "framer-motion";
+import reactImg from "../../assets/abouttechnologies/react.svg";
+import nextImg from "../../assets/abouttechnologies/next.svg";
+import angularImg from "../../assets/abouttechnologies/angular.svg";
+import tailwindImg from "../../assets/abouttechnologies/tailwind.svg";
+import nodeImg from "../../assets/abouttechnologies/node.svg";
+import phpImg from "../../assets/abouttechnologies/php.svg";
+import pythonImg from "../../assets/abouttechnologies/python.svg";
+import mongodbImg from "../../assets/abouttechnologies/mongo.svg";
+import mysqlImg from "../../assets/abouttechnologies/mysql.svg";
+import postgresqlImg from "../../assets/abouttechnologies/postgresql.svg";
+import flutterImg from "../../assets/abouttechnologies/flutter.svg";
+import typescriptImg from "../../assets/abouttechnologies/typescript.svg";
+import javascriptImg from "../../assets/abouttechnologies/javascript.svg";
+import dockerImg from "../../assets/abouttechnologies/docker.svg";
+import awsImg from "../../assets/abouttechnologies/aws.svg";
+import azureImg from "../../assets/abouttechnologies/azure.svg";
+import wordpressImg from "../../assets/abouttechnologies/wordpress.svg";
+import figmaImg from "../../assets/abouttechnologies/figma.svg";
+import gitImg from "../../assets/abouttechnologies/git.svg";
+import linuxImg from "../../assets/abouttechnologies/linux.svg";
 
-// Devicon SVG URLs — fully transparent icons, no background boxes
 const techItems = [
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", text: "React.js" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", text: "Next.js" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg", text: "Angular" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", text: "Tailwind CSS" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg", text: "Node.js" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg", text: "PHP" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg", text: "Python" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg", text: "MongoDB" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", text: "MySQL" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg", text: "PostgreSQL" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg", text: "Flutter" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg", text: "TypeScript" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg", text: "JavaScript" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg", text: "Docker" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", text: "AWS" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg", text: "Azure" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg", text: "WordPress" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg", text: "Figma" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", text: "Git" },
-  { image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg", text: "Linux" },
+  { image: reactImg, text: "React.js" },
+  { image: nextImg, text: "Next.js" },
+  { image: angularImg, text: "Angular" },
+  { image: tailwindImg, text: "Tailwind CSS" },
+  { image: nodeImg, text: "Node.js" },
+  { image: phpImg, text: "PHP" },
+  { image: pythonImg, text: "Python" },
+  { image: mongodbImg, text: "MongoDB" },
+  { image: mysqlImg, text: "MySQL" },
+  { image: postgresqlImg, text: "PostgreSQL" },
+  { image: flutterImg, text: "Flutter" },
+  { image: typescriptImg, text: "TypeScript" },
+  { image: javascriptImg, text: "JavaScript" },
+  { image: dockerImg, text: "Docker" },
+  { image: awsImg, text: "AWS" },
+  { image: azureImg, text: "Azure" },
+  { image: wordpressImg, text: "WordPress" },
+  { image: figmaImg, text: "Figma" },
+  { image: gitImg, text: "Git" },
+  { image: linuxImg, text: "Linux" },
 ];
 
 // Duplicate for seamless infinite loop

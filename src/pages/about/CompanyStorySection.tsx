@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Globe, CheckCircle2, ArrowRight, Code2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import teamImg from "../../assets/aboutcompany/company1.jpeg";
+import Img1 from "../../assets/abouthero/aboutright.avif";
+
 const CompanyStorySection = () => {
   return (
     <section id="company-story" aria-label="Our Company Story" className="relative py-8 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white">
@@ -32,7 +35,7 @@ const CompanyStorySection = () => {
             className="absolute top-0 left-2 sm:left-0 w-[68%] sm:w-[58%] h-[220px] sm:h-[280px] rounded-2xl md:rounded-lg overflow-hidden shadow-xl shadow-black border-2 border-white"
           >
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop"
+              src={teamImg}
               alt="Webify Technologies professional software engineering team working collaboratively"
               className="w-full h-full object-cover"
             />
@@ -49,7 +52,7 @@ const CompanyStorySection = () => {
             className="relative mt-20 sm:mt-28 ml-12 sm:ml-20 w-[78%] sm:w-[65%] h-[250px] sm:h-[320px] rounded-2xl md:rounded-lg overflow-hidden shadow-2xl border-4 border-white z-10"
           >
             <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&auto=format&fit=crop"
+              src={Img1}
               alt="Webify Technologies software engineer writing clean code on a workstation"
               className="w-full h-full object-cover"
             />

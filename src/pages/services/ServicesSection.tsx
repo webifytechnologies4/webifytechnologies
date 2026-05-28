@@ -13,43 +13,31 @@ const services = [
     icon: Globe,
     title: "Website Development",
     desc: "Modern responsive websites with premium UI/UX and high performance.",
-    image:
-      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop",
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce Solutions",
     desc: "Scalable online stores with secure payment integration and automation.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop",
   },
   {
     icon: Server,
     title: "Software Development",
     desc: "Custom SaaS platforms, dashboards and enterprise-grade systems.",
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1600&auto=format&fit=crop",
   },
   {
     icon: Smartphone,
     title: "App Development",
     desc: "Android & iOS apps built with modern technologies and clean UI.",
-    image:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1600&auto=format&fit=crop",
   },
   {
     icon: PenTool,
     title: "UI/UX Design",
     desc: "Creative and user-focused interfaces for modern digital products.",
-    image:
-      "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop",
   },
   {
     icon: Video,
     title: "Video Editing",
     desc: "Professional editing for reels, branding videos and promotions.",
-    image:
-      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1600&auto=format&fit=crop",
   },
 ];
 
@@ -77,7 +65,7 @@ const ServicesSection = () => {
       <div className="w-[95%] md:w-[85%] max-w-7xl">
         {/* HEADER */}
         <div className="text-center mb-16 md:mb-24">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -87,7 +75,7 @@ const ServicesSection = () => {
             What We Offer
           </motion.p>
 
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -116,7 +104,7 @@ const ServicesSection = () => {
               >
                 {/* CARD */}
                 <motion.div
-                  whileHover={{ 
+                  whileHover={{
                     y: -6,
                     transition: { duration: 0.3, ease: "easeOut" }
                   }}
@@ -124,22 +112,20 @@ const ServicesSection = () => {
                     shadow-lg shadow-brand-blue/5
                     hover:shadow-[0_25px_60px_rgba(21,101,192,0.08)] 
                     transition-shadow duration-500 px-6 md:px-12 py-10 md:py-12 
-                    ${
-                      isEven
-                        ? "rounded-[32px] md:rounded-r-full md:rounded-l-[32px]"
-                        : "rounded-[32px] md:rounded-l-full md:rounded-r-[32px]"
+                    ${isEven
+                      ? "rounded-[32px] md:rounded-r-full md:rounded-l-[32px]"
+                      : "rounded-[32px] md:rounded-l-full md:rounded-r-[32px]"
                     }`}
                 >
                   {/* FLOATING ICON COMPONENT */}
                   <div
-                    className={`absolute top-1/2 -translate-y-1/2 z-[10] ${
-                      isEven 
-                        ? "right-[-32px] md:right-[-64px]" 
+                    className={`absolute top-1/2 -translate-y-1/2 z-[10] ${isEven
+                        ? "right-[-32px] md:right-[-64px]"
                         : "left-[-32px] md:left-[-64px]"
-                    }`}
+                      }`}
                   >
                     {/* OUTER CIRCLE SHADOW EFFECT */}
-                    <motion.div 
+                    <motion.div
                       whileHover={{ scale: 1.05, rotate: isEven ? 5 : -5 }}
                       className="w-20 h-20 md:w-32 md:h-32 rounded-full bg-brand-light shadow-[0_12px_35px_rgba(21,101,192,0.1)] group-hover:shadow-[0_20px_45px_rgba(21,101,192,0.15)] transition-all duration-500 flex items-center justify-center"
                     >

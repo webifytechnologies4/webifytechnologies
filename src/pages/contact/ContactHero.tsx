@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import contactHeroImg from "../../assets/contacthero/contacthero.jpeg";
 
 const Typewriter = ({ text }: { text: string }) => {
   const [displayText, setDisplayText] = useState("");
@@ -31,7 +32,7 @@ const ContactHero = () => {
 
       {/* BACKGROUND IMAGE */}
       <motion.img
-        src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop"
+        src={contactHeroImg}
         alt="Webify Technologies customer support and tech consulting team"
         className="absolute inset-0 w-full h-full object-cover"
         animate={{

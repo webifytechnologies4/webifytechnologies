@@ -3,15 +3,19 @@ import gsap from "gsap";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import Img1 from "../../assets/aboutfrist.avif";
+import bg1 from "../../assets/abouthero/abouthero1.jpeg";
+import bg2 from "../../assets/abouthero/abouthero2.jpg";
+import bg3 from "../../assets/abouthero/abouthero3.jpeg";
+import bg4 from "../../assets/abouthero/abouthero4.jpeg";
+import bg5 from "../../assets/abouthero/abouthero5.avif";
+import Img1 from "../../assets/abouthero/aboutright.avif";
 
-// Background image URLs (use strings directly — cannot import from HTTP URLs in Vite)
 const backgrounds: string[] = [
-  "https://plus.unsplash.com/premium_photo-1661877737564-3dfd7282efcb?fm=jpg&q=60&w=3000&auto=format&fit=crop",
-  "https://static.vecteezy.com/system/resources/thumbnails/071/061/766/small/person-coding-on-computer-at-night-software-development-free-photo.jpg",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSDoCAUt49OLYBYMLsZg7S76To8DpOLqutFQ&s",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoiBiON9sFYQDE-zQALxHcP6R0pb7_Mj2nSA&s",
-  "https://static.toiimg.com/thumb/msid-122002709,imgsize-269008,width-400,resizemode-4/122002709.jpg",
+  bg1,
+  bg2,
+  bg3,
+  bg4,
+  bg5,
 ];
 
 const stats = [
@@ -111,11 +115,11 @@ const HeroSection = () => {
             transition={{ duration: 1 }}
             className="text-center lg:text-left"
           >
-            <p className="text-brand-cyan tracking-[4px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold">
+            <p className="text-brand-cyan tracking-[4px] md:tracking-[6px] uppercase text-[10px] mt-3 sm:mt-0 md:text-xs font-semibold">
               INNOVATE • DEVELOP • GROW
             </p>
 
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mt-6">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mt-2">
               Building Digital Experiences
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-white to-brand-cyan">

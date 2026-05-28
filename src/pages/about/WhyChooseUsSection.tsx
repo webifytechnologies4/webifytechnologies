@@ -1,35 +1,42 @@
 import { motion } from "framer-motion";
 
+import innovativeImg from "../../assets/aboutwhychooseus/img1.jpeg";
+import performanceImg from "../../assets/aboutwhychooseus/img2.jpeg";
+import clientImg from "../../assets/aboutwhychooseus/img3.jpeg";
+import pricingImg from "../../assets/aboutwhychooseus/img4.jpeg";
+import securityImg from "../../assets/aboutwhychooseus/img5.jpeg";
+import deliveryImg from "../../assets/aboutwhychooseus/img6.jpeg";
+
 const whyCards = [
   {
     title: "Innovative Solutions",
     desc: "Future-ready digital products designed for modern businesses.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    image: innovativeImg,
   },
   {
     title: "Performance Driven",
     desc: "Fast, scalable and optimized systems built for growth.",
-    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=1200&auto=format&fit=crop",
+    image: performanceImg,
   },
   {
     title: "Client Focused",
     desc: "Every project is crafted around business success.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+    image: clientImg,
   },
   {
     title: "Affordable Pricing",
     desc: "Premium quality services within your budget.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
+    image: pricingImg,
   },
   {
     title: "Secure Development",
     desc: "Reliable technologies with enterprise-grade security.",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop",
+    image: securityImg,
   },
   {
     title: "On-Time Delivery",
     desc: "Professional workflows ensuring timely execution.",
-    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop",
+    image: deliveryImg,
   },
 ];
 

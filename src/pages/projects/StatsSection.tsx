@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { number: "10+", text: "Projects Completed" },
+  { number: "7+", text: "Projects Completed" },
   { number: "5+", text: "Technologies" },
-  { number: "100%", text: "Client Satisfaction" },
+  { number: "99%", text: "Client Satisfaction" },
   { number: "24/7", text: "Support" },
 ];
 

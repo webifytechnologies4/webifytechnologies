@@ -3,11 +3,12 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-mo
 import gsap from "gsap";
 import { Link } from "react-router-dom";
 
-const bgImages = [
-  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop",
-];
+import hero1 from "../../assets/homehero/hero1.avif";
+import hero2 from "../../assets/homehero/hero2.jpeg";
+import hero3 from "../../assets/homehero/hero3.avif";
+
+
+const bgImages = [hero1, hero2, hero3];
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);

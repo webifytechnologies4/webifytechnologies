@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const bgImage =
-  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070&auto=format&fit=crop";
+import bgImage from "../../assets/serviceshero/hero1.jpeg";
 
 const HeroSection = () => {
   return (

@@ -48,7 +48,7 @@ export default function Footer() {
   const containerRef = useRef(null);
 
   return (
-    <footer className="bg-brand-darkBlue relative overflow-hidden border-t border-white/10 noise-overlay">
+    <footer className="bg-black relative overflow-hidden border-t border-white/10 noise-overlay">
       {/* Big display text */}
       <div className="pt-12 px-8 text-center overflow-hidden no-splash">
         <div

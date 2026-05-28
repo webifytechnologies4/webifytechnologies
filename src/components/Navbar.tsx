@@ -15,27 +15,35 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);        // hide/show state
-  const lastScrollY = useRef(0);                        // track previous scroll position
+  const [visible, setVisible] = useState(true);
+
+  const lastScrollY = useRef(0);
   const location = useLocation();
+
+  // FIX: always black pages
+  const forceBlackPages = [
+    "/contact",
+    "/privacy-policy",
+    "/terms-conditions",
+  ];
+
+  const isForceBlack = forceBlackPages.includes(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
+      const heroHeight = window.innerHeight * 0.9;
 
-      // Show/hide logic:
-      // – scrolling UP   → show navbar
-      // – scrolling DOWN → hide navbar (only after we've scrolled past 80px)
       if (currentY < 80) {
-        setVisible(true);          // always show near the top
+        setVisible(true);
       } else if (currentY < lastScrollY.current) {
-        setVisible(true);          // scrolling up
+        setVisible(true);
       } else if (currentY > lastScrollY.current) {
-        setVisible(false);         // scrolling down
-        setOpen(false);            // close mobile menu when hiding
+        setVisible(false);
+        setOpen(false);
       }
 
-      setScrolled(currentY > 20);
+      setScrolled(currentY > heroHeight);
       lastScrollY.current = currentY;
     };
 
@@ -49,130 +57,127 @@ const Navbar = () => {
       <motion.header
         animate={{ y: visible ? 0 : "-120%" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] z-50 rounded-[30px] border transition-colors duration-500 ${scrolled
-          ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
-          : "bg-black/60 backdrop-blur-xl border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+        className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] z-50 rounded-[30px] border transition-all duration-500
+          ${isForceBlack
+            ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
+            : scrolled
+              ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
+              : "bg-white/15 backdrop-blur-2xl border-white/20 shadow-[0_10px_50px_rgba(255,255,255,0.10)]"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="h-20 flex items-center justify-between">
 
             {/* LOGO */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <motion.div
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="h-12 w-12 rounded-xl overflow-hidden flex items-center justify-center bg-white shadow-[0_6px_24px_rgba(21,101,192,0.4)]"
-              >
-                <img
-                  src={logoImg}
-                  alt="Webify Technologies Logo"
-                  className="h-11 w-11 object-contain"
-                />
-              </motion.div>
+            <Link to="/" className="flex items-center gap-3">
+              <div className="h-12 w-12 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+                <img src={logoImg} className="h-11 w-11 object-contain" />
+              </div>
             </Link>
 
             {/* DESKTOP MENU */}
             <nav className="hidden md:flex items-center gap-10">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`relative text-[15px] font-semibold transition-all duration-300 ${location.pathname === link.path
-                    ? "text-brand-cyan"
-                    : "text-gray-300 hover:text-brand-cyan"
-                    }`}
-                >
-                  {link.name}
-                  {location.pathname === link.path && (
-                    <motion.div
-                      layoutId="active-nav"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      className="absolute left-0 -bottom-2 w-full h-[3px] rounded-full bg-gradient-to-r from-brand-darkBlue via-brand-blue to-brand-cyan shadow-[0_0_12px_rgba(0,180,216,0.7)]"
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className="relative font-semibold transition group"
+                  >
+                    <span
+                      className={`transition duration-300 ${isActive
+                        ? "text-cyan-300"
+                        : isForceBlack || scrolled
+                          ? "text-gray-300 group-hover:text-cyan-300"
+                          : "text-white group-hover:text-cyan-200"
+                        }`}
+                    >
+                      {link.name}
+                    </span>
+
+                    {/* UNDERLINE */}
+                    <span
+                      className={`absolute left-0 -bottom-2 h-[2px] bg-gradient-to-r from-brand-blue to-brand-cyan transition-all duration-300
+          ${isActive
+                          ? "w-full"
+                          : "w-0 group-hover:w-full"
+                        }`}
                     />
-                  )}
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </nav>
 
-            {/* CTA BUTTON */}
-            <div className="hidden md:flex items-center">
-              <Link to="/contact">
-                <motion.button
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: "0 0 25px rgba(21, 101, 192, 0.5)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan hover:from-brand-darkBlue hover:to-brand-blue text-white px-7 py-3 rounded-full font-semibold shadow-[0_10px_30px_rgba(21,101,192,0.4)] transition-all duration-300 min-h-[48px]"
-                >
-                  Get Started
-                  <ArrowRight size={18} />
-                </motion.button>
-              </Link>
-            </div>
+            {/* CTA */}
+            <Link to="/contact" className="hidden md:flex">
+              <button className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-7 py-3 rounded-full font-semibold">
+                Get Started <ArrowRight size={18} />
+              </button>
+            </Link>
 
-            {/* MOBILE MENU BUTTON */}
+            {/* MOBILE */}
             <button
               onClick={() => setOpen(!open)}
-              className="md:hidden text-white min-h-[48px] min-w-[48px] flex items-center justify-center focus:outline-none"
-              aria-label={open ? "Close menu" : "Open menu"}
+              className="md:hidden text-white"
             >
-              {open ? <X size={30} /> : <Menu size={30} />}
+              {open ? <X /> : <Menu />}
             </button>
+
           </div>
         </div>
       </motion.header>
 
       {/* MOBILE MENU */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-0 left-0 w-full h-[100dvh] z-50 md:hidden bg-brand-darkBlue/98 backdrop-blur-2xl"
+            className="fixed inset-0 z-50 bg-brand-darkBlue/95 backdrop-blur-xl flex flex-col justify-center items-center h-[100dvh] overflow-hidden"
           >
-            {/* SAFE WRAPPER */}
-            <div className="relative h-full w-full flex flex-col items-center justify-center">
+            {/* CLOSE BUTTON */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute top-6 right-6 text-white text-3xl hover:rotate-90 transition-transform duration-300"
+            >
+              ✕
+            </button>
 
-              {/* CLOSE BUTTON */}
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-6 right-6 text-white min-h-[48px] min-w-[48px] flex items-center justify-center focus:outline-none text-3xl z-50"
-                aria-label="Close menu"
-              >
-                ✕
-              </button>
+            {/* MENU ITEMS */}
+            <div className="flex flex-col items-center gap-7">
+              {navLinks.map((link, i) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setOpen(false)}
+                  className="text-white text-2xl font-medium relative group"
+                >
+                  {link.name}
 
-              {/* MENU ITEMS */}
-              <div className="flex flex-col items-center gap-6 w-full px-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setOpen(false)}
-                    className={`text-2xl font-semibold transition py-3 px-6 w-full text-center rounded-xl ${location.pathname === link.path
-                      ? "text-brand-cyan bg-white/10"
-                      : "text-white/70 hover:text-brand-cyan hover:bg-white/5"
-                      }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <div className="mt-12 w-full px-8 max-w-xs">
-                <Link to="/contact" onClick={() => setOpen(false)} className="w-full block">
-                  <button className="flex items-center justify-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white w-full h-12 rounded-full font-semibold">
-                    Start Project <ArrowRight size={18} />
-                  </button>
+                  {/* underline animation */}
+                  <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-0 h-[2px] bg-gradient-to-r from-brand-blue to-brand-cyan group-hover:w-full transition-all duration-300"></span>
                 </Link>
-              </div>
+              ))}
+            </div>
 
+            {/* GET STARTED BUTTON */}
+            <div className="mt-12 w-full px-8 max-w-xs">
+              <Link to="/contact" onClick={() => setOpen(false)}>
+                <button className="w-full flex items-center justify-center gap-2 
+          bg-gradient-to-r from-brand-blue to-brand-cyan 
+          text-white py-4 rounded-2xl font-semibold shadow-lg
+          active:scale-95 transition-transform">
+                  Get Started <ArrowRight size={18} />
+                </button>
+              </Link>
+
+              {/* LINE */}
+              <p className="text-center text-white/50 text-xs mt-4">
+                Let’s build something amazing 🚀
+              </p>
             </div>
           </motion.div>
         )}
@@ -181,4 +186,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

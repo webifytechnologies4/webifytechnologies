@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code2, BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import softwareImg from "../../assets/servicescta/cta1.jpeg";
+import programmingImg from "../../assets/servicescta/cta2.jpeg";
+
 const CTASection = () => {
   return (
     <section id="services-cta" aria-label="Start Your Project" className="relative py-8 md:py-16 bg-brand-white flex justify-center overflow-hidden w-full">
@@ -103,7 +106,7 @@ const CTASection = () => {
 
             <div className="rounded-xl overflow-hidden h-36 sm:h-40 md:h-48">
               <img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop"
+                src={softwareImg}
                 alt="Webify Technologies premium custom software development representation"
                 className="w-full h-full object-cover"
               />
@@ -147,7 +150,7 @@ const CTASection = () => {
 
             <div className="rounded-xl overflow-hidden h-24 sm:h-28 md:h-32">
               <img
-                src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop"
+                src={programmingImg}
                 alt="Scalable coding and software programming at Webify Technologies"
                 className="w-full h-full object-cover"
               />

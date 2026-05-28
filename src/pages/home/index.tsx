@@ -28,7 +28,8 @@ const Home = () => {
         <FeaturesSection />
         <IndustriesSection />
         <ProjectsSection />
-        <CTASection />
+        <CTASection /> 
+        
         <ClientsSection />
         <TestimonialSection />
       </main>

@@ -148,7 +148,7 @@ const Navbar = () => {
 
             {/* MENU ITEMS */}
             <div className="flex flex-col items-center gap-7">
-              {navLinks.map((link, i) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}

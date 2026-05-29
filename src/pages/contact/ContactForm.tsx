@@ -12,13 +12,15 @@ const ContactForm = () => {
   const [openService, setOpenService] = useState(false);
   const [selectedService, setSelectedService] = useState("");
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      const target = event.target as Node;
+
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setOpenCountry(false);
       }
     };
@@ -27,46 +29,42 @@ const ContactForm = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
- const validateForm = (form: HTMLFormElement) => {
-  const newErrors: any = {};
+  const validateForm = (form: HTMLFormElement) => {
+    const newErrors: Record<string, string> = {};
 
-  const formData = new FormData(form);
+    const formData = new FormData(form);
 
-  const name = formData.get("name")?.toString().trim() || "";
-  const phone = formData.get("phone")?.toString().trim() || "";
-  const email = formData.get("email")?.toString().trim() || "";
-  const company = formData.get("company")?.toString().trim() || "";
-  const message = formData.get("message")?.toString().trim() || "";
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const company = String(formData.get("company") || "").trim();
+    const message = String(formData.get("message") || "").trim();
 
-  const phoneRegex = /^[0-9]{10}$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!name) newErrors.name = "Name is required";
+    if (!name) newErrors.name = "Name is required";
+    if (!phone) newErrors.phone = "Phone Number is required";
+    else if (!phoneRegex.test(phone)) newErrors.phone = "Invalid phone number";
 
-  if (!phone) newErrors.phone = "Phone Number is required";
-  else if (!phoneRegex.test(phone)) newErrors.phone = "Invalid phone number";
+    if (!email) newErrors.email = "Email Id is required";
+    else if (!emailRegex.test(email)) newErrors.email = "Invalid email address";
 
-  if (!email) newErrors.email = "Email Id is required";
-  else if (!emailRegex.test(email)) newErrors.email = "Invalid email address";
+    if (!company) newErrors.company = "Company Name is required";
+    if (!selectedService) newErrors.service = "Service is required";
+    if (!selectedCountry) newErrors.country = "Country is required";
+    if (!message) newErrors.message = "Message is required";
 
-  if (!company) newErrors.company = "Company Name is required";
+    setErrors(newErrors);
 
-  if (!selectedService) newErrors.service = "Service is required";
-
-  if (!selectedCountry) newErrors.country = "Country is required";
-
-  if (!message) newErrors.message = "Message is required";
-
-  setErrors(newErrors);
-
-  return Object.keys(newErrors).length === 0;
-};
+    return Object.keys(newErrors).length === 0;
+  };
 
   //  FORM SUBMIT 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.target;
+    const form = e.currentTarget;
 
     if (!validateForm(form)) return;
 

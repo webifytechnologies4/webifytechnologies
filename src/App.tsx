@@ -8,11 +8,15 @@ import Projects from "./pages/projects/index";
 import PrivacyPolicy from "./pages/privacy-policy/PrivacyPolicy";
 import TermsConditions from "./pages/termscondition/TermsConditions";
 import ScrollToTop from "./components/ScrollToTop";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster position="top-right" />
+
       <ScrollToTop />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

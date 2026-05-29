@@ -32,7 +32,7 @@ const projects = [
     tags: ["React", "Node.js", "Tailwind CSS"],
   },
   {
-    title: "Life-Made",
+    title: "LEIFMED",
     desc: "Modern medical healthcare platform designed for patient care, health services, and seamless medical management experience.",
     image: medilifeLogo,
     icon: HeartPulse,

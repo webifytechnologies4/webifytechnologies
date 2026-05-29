@@ -32,7 +32,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 mt-13 md:mt-0 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl mb-6"
+          className="inline-flex items-center gap-2 mt-10 md:mt-0 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl mb-6"
         >
           <div className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
 

@@ -54,7 +54,7 @@ const HeroSection = () => {
     <section
       onMouseMove={handleMouseMove}
       aria-label="Introduction Hero"
-      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-brand-darkBlue pt-16 sm:pt-24 md:pt-10"
+      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-brand-darkBlue pt-12 sm:pt-24 md:pt-10"
     >
       {/* BACKGROUND SLIDER */}
       <div className="absolute inset-0">

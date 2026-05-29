@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logoImg from "../assets/logo1-removebg-preview.png";
+import logo from "../assets/logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -22,7 +22,6 @@ const Navbar = () => {
 
   // FIX: always black pages
   const forceBlackPages = [
-    "/contact",
     "/privacy-policy",
     "/terms-conditions",
   ];
@@ -61,7 +60,7 @@ const Navbar = () => {
           ${isForceBlack
             ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
             : scrolled
-              ? "bg-black/55 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
+              ? "bg-black/35 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.25)]"
               : "bg-white/55 backdrop-blur-2xl border-white/20  shadow-[0_10px_50px_rgba(255,255,255,0.10)]"
           }`}
       >
@@ -69,11 +68,11 @@ const Navbar = () => {
           <div className="h-20 flex items-center justify-between">
 
             {/* LOGO */}
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-2">
               <img
-                src={logoImg}
+                src={logo}
                 alt="Webify Technologies logo"
-                className="h-14 w-auto object-contain"
+                className="h-[65px] w-auto object-contain"
               />
             </Link>
 
@@ -111,14 +110,16 @@ const Navbar = () => {
                 );
               })}
               {/* CTA */}
-              <Link to="/contact" className="hidden md:flex">
-                <button className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-7 py-3 rounded-full font-semibold">
-                  Get Started <ArrowRight size={18} />
-                </button>
-              </Link>
+              <button
+                onClick={() => {
+                  const section = document.getElementById("contact-section");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="flex items-center gap-2 bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-7 py-3 rounded-full font-semibold"
+              >
+                Get Started <ArrowRight size={18} />
+              </button>
             </nav>
-
-
 
             {/* MOBILE */}
             <button

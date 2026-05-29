@@ -19,7 +19,7 @@ const Typewriter = ({ text }: { text: string }) => {
   }, [text]);
 
   return (
-    <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
+    <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
       {displayText}
       <span className="animate-pulse text-brand-cyan">|</span>
     </h1>
@@ -45,30 +45,22 @@ const ContactHero = () => {
         }}
       />
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-white/80 md:bg-white/75 backdrop-blur-[2px] md:backdrop-blur-sm" />
+      {/* DARK OVERLAY (BLACK THEME) */}
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-[2px]" />
 
       {/* PREMIUM GLOW */}
-      <div className="absolute top-[-120px] md:top-[-150px] left-1/2 -translate-x-1/2 w-[320px] h-[320px] md:w-[600px] md:h-[600px] bg-brand-cyan/20 blur-[100px] md:blur-[150px]" />
+      <div className="absolute top-[-120px] md:top-[-150px] left-1/2 -translate-x-1/2 w-[320px] h-[320px] md:w-[600px] md:h-[600px] bg-brand-cyan/20 blur-[120px]" />
 
-      {/* ANIMATED GRID */}
-      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:40px_40px] md:bg-[size:70px_70px]" />
+      {/* GRID */}
+      <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       {/* CONTENT */}
       <div className="relative z-10 w-full px-4 md:px-8 lg:px-16 text-center max-w-6xl mx-auto pt-26 md:pt-0">
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         >
 
           {/* BADGE */}
@@ -76,11 +68,11 @@ const ContactHero = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/70 border border-white/40 backdrop-blur-xl mb-5 md:mb-6 shadow-lg"
+            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-5 md:mb-6 shadow-lg"
           >
             <div className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse shrink-0" />
 
-            <span className="text-gray-700 uppercase tracking-[2px] sm:tracking-[4px] text-[10px] sm:text-xs md:text-sm font-semibold whitespace-nowrap">
+            <span className="text-white uppercase tracking-[2px] sm:tracking-[4px] text-[10px] sm:text-xs md:text-sm font-semibold whitespace-nowrap">
               Webify Technologies
             </span>
           </motion.div>
@@ -92,16 +84,10 @@ const ContactHero = () => {
 
           {/* DESCRIPTION */}
           <motion.p
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              delay: 1,
-            }}
-            className="text-gray-700 text-sm md:text-lg mt-6 md:mt-8 leading-relaxed max-w-3xl mx-auto px-2 sm:px-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="text-gray-300 text-sm md:text-lg mt-6 md:mt-8 leading-relaxed max-w-3xl mx-auto px-2 sm:px-0"
           >
             We create modern websites, scalable applications,
             and premium digital experiences that help businesses
@@ -115,12 +101,13 @@ const ContactHero = () => {
             transition={{ delay: 1.3 }}
             className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-5 mt-8 md:mt-10 w-full"
           >
+
             <button
               onClick={() => {
                 const section = document.getElementById("contact-section");
                 section?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-md shadow-brand-blue/15 hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base min-h-[48px] flex items-center justify-center border-none"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-md hover:scale-105 active:scale-95 transition-all duration-300 text-sm sm:text-base min-h-[48px] flex items-center justify-center"
             >
               Start Project
             </button>
@@ -142,6 +129,7 @@ const ContactHero = () => {
                 Free Consultation
               </motion.button>
             </a>
+
           </motion.div>
 
         </motion.div>

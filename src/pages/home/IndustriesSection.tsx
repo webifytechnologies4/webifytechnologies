@@ -3,6 +3,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import Img1 from "../../assets/homeserve/img1.jpeg";
+import Img2 from "../../assets/homeserve/img2.jpeg";
+import Img3 from "../../assets/homeserve/img3.jpeg";
+import Img4 from "../../assets/homeserve/img4.jpeg";
+import Img5 from "../../assets/homeserve/img5.jpeg";
+import Img6 from "../../assets/homeserve/img6.jpeg";
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const industries = [
@@ -11,48 +18,42 @@ const industries = [
     stage: "Phase 01",
     desc: "Engineered high-security software infrastructures meeting strict HIPAA standards.",
     icon: "🏥",
-    image:
-      "https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg",
+    image: Img1,
   },
   {
     title: "Fintech & Fiscal Ledgers",
     stage: "Phase 02",
     desc: "Scalable transaction engines and predictive financial management systems.",
     icon: "💳",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop",
+    image: Img2,
   },
   {
     title: "Distributed Education",
     stage: "Phase 03",
     desc: "Cloud-synced LMS ecosystems and modern streaming infrastructures.",
     icon: "📚",
-    image:
-      "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1600&auto=format&fit=crop",
+    image: Img3,
   },
   {
     title: "Enterprise Real Estate",
     stage: "Phase 04",
     desc: "Interactive dashboards and intelligent real-estate management systems.",
     icon: "🏢",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop",
+    image: Img4,
   },
   {
     title: "High-Volume E-Commerce",
     stage: "Phase 05",
     desc: "Scalable storefront systems built for extreme seasonal traffic spikes.",
     icon: "🛒",
-    image:
-      "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=1600&auto=format&fit=crop",
+    image: Img5,
   },
   {
     title: "Next-Gen Technology",
     stage: "Phase 06",
     desc: "AI-powered SaaS ecosystems and futuristic scalable architectures.",
     icon: "🚀",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop",
+    image: Img6,
   },
 ];
 

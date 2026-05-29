@@ -92,7 +92,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="px-4 md:px-8 lg:px-16 py-8 md:py-16 bg-brand-white grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-14 max-w-7xl mx-auto">
+    <section className="px-4 md:px-8 lg:px-16 py-8 md:py-16 bg-brand-white grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-14 max-w-7xl mx-auto" id="contact-section">
 
       {/* LEFT FORM */}
       <div className="bg-white p-4 sm:p-6 md:p-10 w-full rounded-3xl border border-brand-cyan/10 shadow-lg shadow-brand-blue/5">

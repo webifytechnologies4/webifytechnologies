@@ -32,7 +32,7 @@ const ProjectsHero = () => {
   }, []);
 
   return (
-   <section className="relative min-h-screen flex items-center overflow-hidden bg-black px-4 sm:px-6 md:px-20 py-20 md:py-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-black px-4 sm:px-6 md:px-20 py-20 md:py-0">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0">
@@ -106,15 +106,15 @@ const ProjectsHero = () => {
             transition={{ delay: 0.35 }}
             className="mt-7 sm:mt-8 flex flex-col sm:flex-row gap-4"
           >
-            <Link to="/projects" className="w-full sm:w-auto">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-lg w-full sm:w-auto min-h-[48px] flex items-center justify-center border-none"
-              >
-                Explore Projects
-              </motion.button>
-            </Link>
+            <button
+              onClick={() => {
+                const section = document.getElementById("projects-section");
+                section?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-brand-blue to-brand-cyan text-white font-semibold shadow-lg w-full sm:w-auto min-h-[48px] flex items-center justify-center border-none"
+            >
+              Explore Projects
+            </button>
 
             <Link to="/contact" className="w-full sm:w-auto">
               <motion.button

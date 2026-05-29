@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import logoImg from "../assets/logo-removebg-preview.png";
+import logoImg from "../assets/footerlogo.png";
 import VariableProximity from '../components/VariableProximity'
 
 const services = [

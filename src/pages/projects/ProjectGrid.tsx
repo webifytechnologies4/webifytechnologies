@@ -206,7 +206,7 @@ const ProjectGrid = () => {
   return (
     <>
       <section
-        id="portfolio-grid"
+        id="projects-section"
         aria-label="Our Creative Projects"
         className="relative bg-brand-white py-8 md:py-10 overflow-hidden w-full"
       >

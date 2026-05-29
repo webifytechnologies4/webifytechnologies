@@ -73,7 +73,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center pt-14 sm:pt-16 md:pt-0">
+    <section className="relative min-h-screen overflow-hidden flex items-center pt-19 sm:pt-16 md:pt-0">
       {/* BACKGROUND IMAGES */}
       <div className="absolute inset-0">
         {backgrounds.map((bg, index) => (

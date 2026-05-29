@@ -32,7 +32,7 @@ const ProjectsHero = () => {
   }, []);
 
   return (
-    <section className="relative  pt-30 md:py-30 overflow-hidden bg-black flex items-center px-4 sm:px-6 md:px-20 py-8 md:py-16">
+   <section className="relative min-h-screen flex items-center overflow-hidden bg-black px-4 sm:px-6 md:px-20 py-20 md:py-0">
 
       {/* BACKGROUND */}
       <div className="absolute inset-0">
@@ -70,7 +70,7 @@ const ProjectsHero = () => {
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-brand-cyan tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-1 sm:mb-2"
+            className="text-brand-cyan tracking-[3px] md:tracking-[6px] uppercase text-[10px] md:text-xs font-semibold mb-1 sm:mb-2 mt-16 md:mt-0"
           >
             DESIGN • DEVELOP • DELIVER
           </motion.p>

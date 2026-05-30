@@ -8,3 +8,46 @@
   --color-brand-light: #e3f2fd;
   --color-brand-white: #ffffff;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Lenis Smooth Scroll — Required CSS
+   These rules are mandatory for Lenis to work correctly.
+   Do NOT remove them.
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Lenis sets this class on <html> while scrolling is active */
+html.lenis,
+html.lenis body {
+  height: auto; /* let content determine page height */
+}
+
+/* Lenis manages its own scroll container — disable browser-native smooth scroll
+   to prevent double-easing / conflicting animations */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Disable Lenis inside elements that have their own scroll (e.g. modals) */
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Pause Lenis scroll during momentum on iOS / trackpad */
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Smooth scrollbar appearance (optional but recommended) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 180, 216, 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 180, 216, 0.65);
+}

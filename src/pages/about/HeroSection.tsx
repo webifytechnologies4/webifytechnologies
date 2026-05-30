@@ -119,7 +119,7 @@ const HeroSection = () => {
               INNOVATE • DEVELOP • GROW
             </p>
 
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mt-2">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-white mt-2">
               Building Digital Experiences
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-brand-white to-brand-cyan">

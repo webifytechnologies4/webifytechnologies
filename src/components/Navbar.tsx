@@ -57,7 +57,7 @@ const Navbar = () => {
       <motion.header
         animate={{ y: visible ? 0 : "-120%" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] z-50 rounded-[30px] border transition-all duration-500
+        className={`fixed top-3 left-1/2 -translate-x-1/2 w-[95%] z-50 rounded-full border transition-all duration-500
           ${isForceBlack
             ? "bg-black/85 backdrop-blur-2xl border-blue-500/30 shadow-[0_10px_50px_rgba(21,101,192,0.30)]"
             : scrolled
@@ -65,7 +65,7 @@ const Navbar = () => {
               : "bg-white/55 backdrop-blur-2xl border-white/20  shadow-[0_10px_50px_rgba(255,255,255,0.10)]"
           }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="max-w-7xl mx-auto px-3 md:px-5">
           <div className="h-20 flex items-center justify-between">
 
             {/* LOGO */}

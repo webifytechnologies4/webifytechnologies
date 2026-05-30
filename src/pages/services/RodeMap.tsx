@@ -95,7 +95,7 @@ export default function Roadmap() {
     const studentPos = getPosition(current);
 
     return (
-        <section className="roadmap-section py-8 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white" id="services-list" aria-label="Our IT Solutions & Services Roadmap">
+        <section className="roadmap-section py-18 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden bg-brand-white" id="services-list" aria-label="Our IT Solutions & Services Roadmap">
             <div className="roadmap-container-main max-w-7xl mx-auto">
 
                 <div className="roadmap-header text-center mb-10 sm:mb-12">

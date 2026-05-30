@@ -2,16 +2,18 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
-  Globe,
-  ShoppingCart,
   Zap,
   Building2,
   Home,
   X,
+  HeartPulse,
+  Microscope,
   ExternalLink,
+  ShoppingCart,
 } from "lucide-react";
 
-const categories = ["All", "Solar", "Real Estate", "Medical", "E-Commerce", "Websites"];
+
+const categories = ["All", "Solar Energy", "Real Estate", "Healthcare", "E-Commerce"];
 
 interface Project {
   icon: React.ReactNode;
@@ -27,15 +29,15 @@ interface Project {
 }
 
 const projectsList: Project[] = [
-    {
-    icon: <ShoppingCart size={34} />,
+  {
+    icon: <HeartPulse size={34} />,
     title: "LEIFMED – Medical Marketplace",
     client: "LEIFMED Health Platform",
     shortDesc:
       "Ultra-modern dark mode medical e-commerce platform for prescription medicines and wellness essentials.",
     fullDesc:
       "LEIFMED is an advanced medical e-commerce marketplace designed to make healthcare accessible and intuitive. Built with a stunning dark mode UI featuring slate/navy backgrounds and emerald green branding, the platform enables users to order verified prescription medicines, wellness essentials, first aid kits, and hospital-grade medical supplies. The SaaS-dashboard-inspired interface includes a central search bar, glassmorphic card grids, glowing category highlights, and floating navigation. The design feels premium, professional, and instantly trustworthy for a sensitive sector like healthcare.",
-    category: "Medical",
+    category: "Healthcare",
     tags: ["React", "Next.js", "Tailwind CSS", "Vercel"],
     image:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
@@ -72,14 +74,14 @@ const projectsList: Project[] = [
     ],
   },
   {
-    icon: <Globe size={34} />,
+    icon: <Microscope size={34} />,
     title: "Sky Pathology Lab",
     client: "Sky Pathology Lab",
     shortDesc:
       "Advanced clinical diagnostic management system and patient booking portal for seamless medical reporting.",
     fullDesc:
       "Sky Pathology Lab is a comprehensive digital platform for a clinical diagnostic center, featuring a patient booking portal, diagnostic report access, and a management system for lab staff. The website delivers a clean, professional interface that simplifies appointment scheduling, test ordering, and report delivery for patients, while offering administrative tools for lab operations. Built with React, Node.js, and Tailwind CSS, the platform prioritizes security, speed, and ease of use in a sensitive medical environment.",
-    category: "Websites",
+    category: "Healthcare",
     tags: ["React", "Node.js", "Tailwind CSS"],
     image:
       "https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1200&auto=format&fit=crop",
@@ -101,7 +103,7 @@ const projectsList: Project[] = [
       "Professional solar energy provider website for residential & commercial clients in Victoria, Australia.",
     fullDesc:
       "West Vic Energy is a trusted solar energy provider serving residential and commercial clients across Victoria, Australia. The website showcases their solar panel installation services, Tesla Powerwall battery packages, and government rebate programs. Built with a deep navy and amber gold color scheme, the site features a prominent hero slider, real-world project photography, and prominent CTAs for free energy quotes. The professional design inspires trust through compliance badges and detailed service breakdowns.",
-    category: "Solar",
+    category: "Solar Energy",
     tags: ["React", "Next.js", "Tailwind CSS", "Vercel"],
     image:
       "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop",
@@ -123,7 +125,7 @@ const projectsList: Project[] = [
       "Large-scale industrial solar EPC (Engineering, Procurement & Construction) portfolio website.",
     fullDesc:
       "Dmax Solar is a B2B solar energy infrastructure company specializing in large-scale utility and industrial solar installations. The website highlights their EPC capabilities with impressive statistics — 78 MW+ total capacity and 20+ completed projects. Built with a sleek teal/navy color scheme, the site uses a minimalist SPA layout with an abundant whitespace grid showcasing project achievements, corporate milestones, and technical capabilities. Ideal for attracting large industrial and government clients seeking trusted green energy partners.",
-    category: "Solar",
+    category: "Solar Energy",
     tags: ["React", "Next.js", "Tailwind CSS", "Vercel"],
     image:
       "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop",
@@ -206,7 +208,7 @@ const ProjectGrid = () => {
   return (
     <>
       <section
-        id="portfolio-grid"
+        id="projects-section"
         aria-label="Our Creative Projects"
         className="relative bg-brand-white py-8 md:py-10 overflow-hidden w-full"
       >
@@ -227,9 +229,9 @@ const ProjectGrid = () => {
             </div>
 
             <h2 className="text-3xl md:text-5xl font-bold text-brand-darkBlue leading-tight">
-              Our Latest
+              Our Featured
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-cyan">
-                Creative Projects
+                Digital Solutions
               </span>
             </h2>
 
@@ -246,10 +248,9 @@ const ProjectGrid = () => {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 min-h-[48px] flex items-center justify-center
-                  ${
-                    activeCategory === cat
-                      ? "bg-gradient-to-r from-brand-blue to-brand-cyan text-white shadow-md shadow-brand-blue/15 border-none"
-                      : "bg-white border border-brand-cyan/15 text-gray-600 hover:bg-brand-light hover:text-brand-blue"
+                  ${activeCategory === cat
+                    ? "bg-gradient-to-r from-brand-blue to-brand-cyan text-white shadow-md shadow-brand-blue/15 border-none"
+                    : "bg-white border border-brand-cyan/15 text-gray-600 hover:bg-brand-light hover:text-brand-blue"
                   }`}
               >
                 {cat}
@@ -312,7 +313,7 @@ const ProjectGrid = () => {
                     </div>
 
                     <div>
-                     
+
 
                       {/* ACTION */}
                       <div className="mt-5 flex items-center gap-2 text-brand-blue group-hover:text-brand-cyan font-semibold text-sm min-h-[44px]">
@@ -395,7 +396,7 @@ const ProjectGrid = () => {
 
               {/* Modal Content */}
               <div className="p-6 md:p-8">
-            
+
 
                 {/* Description */}
                 <div className="mb-6">

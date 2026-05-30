@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/home/index";
 import About from "./pages/about/index";
@@ -21,9 +22,14 @@ function App() {
        captures scroll events before any router or page component */
     <SmoothScrollProvider>
       <BrowserRouter>
+        {/* Toast notifications (from remote) */}
+        <Toaster position="top-right" />
+
         <ScrollToTop />
+
         {/* WhatsApp widget — fixed bottom-right, visible on every page */}
         <WhatsAppChat />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

@@ -17,19 +17,6 @@ const CTASection = () => {
     offset: ["start end", "end start"],
   });
 
-  // Smooth Scroll Effects
-  const textY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [60, -30]
-  );
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 1],
-    [0, 1, 1]
-  );
-
   const imageScale = useTransform(
     scrollYProgress,
     [0, 1],
@@ -61,7 +48,6 @@ const CTASection = () => {
 
       {/* Glow */}
       <div className="absolute -top-24 -left-24 w-[320px] h-[320px] bg-cyan-400/20 blur-[120px] rounded-full" />
-
       <div className="absolute -bottom-24 -right-24 w-[320px] h-[320px] bg-blue-500/20 blur-[120px] rounded-full" />
 
       {/* Floating Animated Lines */}
@@ -88,43 +74,29 @@ const CTASection = () => {
       />
 
       {/* Main Content */}
-      <motion.div
-        style={{
-          y: textY,
-          opacity,
-        }}
-        className="relative z-10 min-h-[65vh] sm:min-h-[72vh] flex items-center justify-center px-5 sm:px-8 lg:px-16 py-10"
-      >
-        <div className="max-w-6xl mx-auto text-center">
+      <div className="relative z-10 w-full flex items-center justify-center px-5 sm:px-8 lg:px-16 py-20 sm:py-24">
+        <div className="max-w-5xl mx-auto text-center flex flex-col items-center justify-center">
 
-          {/* Animated Mini Text */}
+          {/* Premium Digital Agency */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.7,
-            }}
-            className="mb-7 overflow-hidden"
+            transition={{ duration: 0.6 }}
+            className="mb-5 block w-full"
           >
             <motion.div
               animate={{
-                x: ["-10%", "10%", "-10%"],
+                x: ["-3%", "3%", "-3%"], 
               }}
               transition={{
-                duration: 8,
+                duration: 6,
                 repeat: Infinity,
                 ease: "linear",
               }}
-              className="inline-block"
+              className="inline-block whitespace-nowrap"
             >
-              <span className="text-sm sm:text-base uppercase tracking-[6px] text-cyan-300 font-semibold">
+              <span className="text-sm sm:text-base uppercase tracking-[4px] sm:tracking-[6px] text-cyan-300 font-semibold drop-shadow-[0_0_8px_rgba(34,211,238,0.2)]">
                 Premium Digital Agency
               </span>
             </motion.div>
@@ -132,19 +104,11 @@ const CTASection = () => {
 
           {/* Heading */}
           <motion.h2
-            initial={{
-              opacity: 0,
-              y: 60,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.9,
-            }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-black leading-[0.95] text-white"
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-black leading-none text-white tracking-tight"
           >
             Build Something
             <motion.span
@@ -168,20 +132,11 @@ const CTASection = () => {
 
           {/* Description */}
           <motion.p
-            initial={{
-              opacity: 0,
-              y: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              delay: 0.15,
-            }}
-            className="max-w-6xl mx-auto mt-7 text-sm sm:text-lg lg:text-xl leading-relaxed text-white"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="max-w-3xl mx-auto mt-6 text-sm sm:text-lg lg:text-xl leading-relaxed text-slate-300/90"
           >
             We craft premium websites, scalable software,
             high-performance applications, and modern
@@ -191,69 +146,33 @@ const CTASection = () => {
 
           {/* Buttons */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              delay: 0.25,
-            }}
-            className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 w-full"
           >
             {/* Primary */}
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto"
-            >
+            <Link to="/contact" className="w-full sm:w-auto">
               <motion.button
-                whileHover={{
-                  scale: 1.04,
-                  y: -4,
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
+                whileHover={{ scale: 1.04, y: -4 }}
+                whileTap={{ scale: 0.95 }}
                 className="relative overflow-hidden w-full sm:w-auto min-w-[220px] rounded-full bg-white px-6 sm:px-9 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-[#041B34] shadow-[0_20px_60px_rgba(255,255,255,0.18)]"
               >
-                <span className="relative z-10">
-                  Start Your Project
-                </span>
-
-                {/* Shine */}
+                <span className="relative z-10">Start Your Project</span>
                 <motion.div
-                  animate={{
-                    x: ["-150%", "250%"],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
+                  animate={{ x: ["-150%", "250%"] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent skew-x-12"
                 />
               </motion.button>
             </Link>
 
             {/* Secondary */}
-            <Link
-              to="/contact"
-              className="w-full sm:w-auto"
-            >
+            <Link to="/contact" className="w-full sm:w-auto">
               <motion.button
-                whileHover={{
-                  scale: 1.04,
-                  borderColor:
-                    "rgba(255,255,255,0.5)",
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
+                whileHover={{ scale: 1.04, borderColor: "rgba(255,255,255,0.5)" }}
+                whileTap={{ scale: 0.95 }}
                 className="w-full sm:w-auto min-w-[220px] rounded-full border border-white/20 bg-white/10 backdrop-blur-xl px-6 sm:px-9 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-white transition-all duration-300 hover:bg-white/15"
               >
                 Discuss Your Project
@@ -261,7 +180,7 @@ const CTASection = () => {
             </Link>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

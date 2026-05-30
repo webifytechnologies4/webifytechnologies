@@ -32,7 +32,7 @@ const projects = [
     tags: ["React", "Node.js", "Tailwind CSS"],
   },
   {
-    title: "Life-Made",
+    title: "LEIFMED",
     desc: "Modern medical healthcare platform designed for patient care, health services, and seamless medical management experience.",
     image: medilifeLogo,
     icon: HeartPulse,
@@ -105,6 +105,7 @@ const ProjectsSection = () => {
                 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
+                onClick={() => window.open(project.link, "_blank")}
                 className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg shadow-black/60 hover:shadow-[0_18px_60px_rgba(0,0,0,0.10)] transition-all duration-500"
               >
 

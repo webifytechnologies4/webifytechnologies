@@ -1,156 +1,312 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { getNames } from "country-list";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
+  const countries = getNames();
+  const [openCountry, setOpenCountry] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
+
+  const [openService, setOpenService] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        setOpenCountry(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const validateForm = (form: HTMLFormElement) => {
+    const newErrors: Record<string, string> = {};
+
+    const formData = new FormData(form);
+
+    const name = String(formData.get("name") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const company = String(formData.get("company") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name) newErrors.name = "Name is required";
+    if (!phone) newErrors.phone = "Phone Number is required";
+    else if (!phoneRegex.test(phone)) newErrors.phone = "Invalid phone number";
+
+    if (!email) newErrors.email = "Email Id is required";
+    else if (!emailRegex.test(email)) newErrors.email = "Invalid email address";
+
+    if (!company) newErrors.company = "Company Name is required";
+    if (!selectedService) newErrors.service = "Service is required";
+    if (!selectedCountry) newErrors.country = "Country is required";
+    if (!message) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  //  FORM SUBMIT 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    if (!validateForm(form)) return;
+
+    const data = new FormData(form);
+    data.append("access_key", "c2bb12fc-b188-4b2f-a11b-42a3c4026e19");
+    data.append("country", selectedCountry);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: data,
+    });
+
+    const result = await res.json();
+
+    if (result.success) {
+      toast.success("Message sent successfully!");
+
+      form.reset();
+      setSelectedCountry("");
+      setSelectedService("");
+    } else {
+      toast.error("Something went wrong! Please try again.");
+    }
+
+  };
+
   return (
     <section className="px-4 md:px-8 lg:px-16 py-8 md:py-16 bg-brand-white grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-8 md:gap-14 max-w-7xl mx-auto" id="contact-section">
 
       {/* LEFT FORM */}
       <div className="bg-white p-4 sm:p-6 md:p-10 w-full rounded-3xl border border-brand-cyan/10 shadow-lg shadow-brand-blue/5">
 
-        <p className="text-[11px] sm:text-xs tracking-[2px] sm:tracking-[3px] text-gray-600 uppercase font-semibold">
-          Webify Technologies
-        </p>
+        {/*  FORM WRAP */}
+        <form onSubmit={handleSubmit}>
 
-        <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-3 text-brand-darkBlue leading-tight">
-          Let's Build Something Great
-        </h2>
-
-        <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 leading-relaxed">
-          Share your details and our team will get back to you shortly.
-        </p>
-
-        {/* FORM GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
-
-          <input
-            className="w-full h-12 px-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm sm:text-base"
-            placeholder="Full Name"
-          />
-
-          <input
-            className="w-full h-12 px-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm sm:text-base"
-            placeholder="Phone Number"
-            type="tel"
-          />
-
-          <input
-            className="w-full h-12 px-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition sm:col-span-2 text-sm sm:text-base"
-            placeholder="Email Address"
-            type="email"
-          />
-
-          <input
-            className="w-full h-12 px-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition sm:col-span-2 text-sm sm:text-base"
-            placeholder="Company Name"
-          />
-
-          <select className="w-full h-12 px-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm sm:text-base bg-white">
-            <option>Select Service</option>
-            <option>Web Development</option>
-            <option>Mobile App Development</option>
-            <option>UI/UX Design</option>
-            <option>SEO & Marketing</option>
-          </select>
-
-          <select className="w-full h-12 px-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition text-sm sm:text-base bg-white">
-            <option>India</option>
-            <option>United States</option>
-            <option>United Kingdom</option>
-            <option>Canada</option>
-            <option>Australia</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        {/* TEXTAREA */}
-        <textarea
-          rows={5}
-          className="w-full mt-4 sm:mt-5 p-4 border border-gray-200 rounded-xl focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition resize-none text-sm sm:text-base"
-          placeholder="Tell us about your project..."
-        />
-
-        {/* FOOTER */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mt-6 md:mt-8">
-
-          <p className="text-xs text-gray-500 leading-relaxed max-w-full md:max-w-xs">
-            Your information is secure and only used for project discussion.
+          <p className="text-[11px] sm:text-xs tracking-[2px] sm:tracking-[3px] text-gray-600 uppercase font-semibold">
+            Webify Technologies
           </p>
 
-          <button className="bg-gradient-to-r from-brand-blue to-brand-cyan hover:scale-[1.02] active:scale-[0.98] text-white px-6 md:px-8 py-4 rounded-xl w-full md:w-auto transition text-sm sm:text-base font-medium min-h-[48px] flex items-center justify-center border-none shadow-md shadow-brand-blue/15">
-            Send Message →
-          </button>
-        </div>
+          <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-3 text-brand-darkBlue leading-tight">
+            Let's Build Something Great
+          </h2>
+
+          <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 leading-relaxed">
+            Share your details and our team will get back to you shortly.
+          </p>
+
+          {/* FORM GRID */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
+
+            <div className="flex flex-col">
+              <input
+                name="name"
+                className="w-full h-12 px-4 border border-gray-200 rounded-xl"
+                placeholder="Full Name"
+              />
+
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+              )}
+            </div>
+
+            <div className="flex flex-col">
+              <input
+                name="phone"
+                className="w-full h-12 px-4 border border-gray-200 rounded-xl"
+                placeholder="Phone Number"
+                type="tel"
+              />
+
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+              )}
+            </div>
+
+            <div className="flex flex-col sm:col-span-2">
+              <input
+                name="email"
+                className="w-full h-12 px-4 border border-gray-200 rounded-xl"
+                placeholder="Email Address"
+                type="email"
+              />
+
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
+
+            <div className="flex flex-col sm:col-span-2">
+              <input
+                name="company"
+                className="w-full h-12 px-4 border border-gray-200 rounded-xl"
+                placeholder="Company Name"
+              />
+
+              {errors.company && (
+                <p className="text-red-500 text-xs mt-1">{errors.company}</p>
+              )}
+            </div>
+
+            {/* SERVICE */}
+            <div className="relative flex flex-col">
+              <div
+                onClick={() => setOpenService(!openService)}
+                className="w-full h-12 px-4 border border-gray-200 rounded-xl flex items-center justify-between cursor-pointer bg-white"
+              >
+                <span className={selectedService ? "text-black" : "text-gray-400"}>
+                  {selectedService || "Select Service"}
+                </span>
+
+                <ChevronDown size={18} className="text-gray-500" />
+              </div>
+
+              {openService && (
+                <div className="absolute top-full left-0 mt-2 w-full max-h-60 overflow-auto bg-white border border-gray-200 rounded-xl shadow-lg z-50">
+
+                  {[
+                    "Web Development",
+                    "Software Development",
+                    "Mobile App Development",
+                    "UI/UX Design",
+                    "Graphic Design",
+                    "Video Editing",
+                    "SEO & Marketing"
+                  ].map((service, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setSelectedService(service);
+                        setOpenService(false);
+                      }}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-black"
+                    >
+                      {service}
+                    </div>
+                  ))}
+
+                </div>
+              )}
+
+              {/* ERROR  */}
+              {errors.service && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.service}
+                </p>
+              )}
+            </div>
+
+            {/* COUNTRY */}
+            <div className="relative flex flex-col" ref={dropdownRef}>
+              <div
+                onClick={() => setOpenCountry(!openCountry)}
+                className="w-full h-12 px-4 border border-gray-200 rounded-xl flex items-center justify-between cursor-pointer bg-white"
+              >
+                <span className={selectedCountry ? "text-black" : "text-gray-400"}>
+                  {selectedCountry || "Country"}
+                </span>
+
+                <ChevronDown size={18} className="text-gray-500" />
+              </div>
+
+              {openCountry && (
+                <div className="absolute top-full left-0 mt-2 w-full max-h-60 overflow-auto bg-white border border-gray-200 rounded-xl shadow-lg z-50">
+
+                  {countries.map((country, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setSelectedCountry(country);
+                        setOpenCountry(false);
+                      }}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                    >
+                      {country}
+                    </div>
+                  ))}
+
+                </div>
+              )}
+
+              {/* ERROR */}
+              {errors.country && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.country}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* TEXTAREA */}
+          <div className="flex flex-col">
+            <textarea
+              name="message"
+              rows={5}
+              className="w-full mt-4 sm:mt-5 p-4 border border-gray-200 rounded-xl"
+              placeholder="Tell us about your project..."
+            />
+
+            {errors.message && (
+              <p className="text-red-500 text-xs mt-1">
+                {errors.message}
+              </p>
+            )}
+          </div>
+
+          {/* FOOTER */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mt-6 md:mt-8">
+
+            <p className="text-xs text-gray-500">
+              Your information is secure and only used for project discussion.
+            </p>
+
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-brand-blue to-brand-cyan text-white px-6 md:px-8 py-4 rounded-xl w-full md:w-auto"
+            >
+              Send Message →
+            </button>
+          </div>
+
+        </form>
       </div>
 
-      {/* RIGHT SIDE */}
+      {/* RIGHT SIDE (UNCHANGED) */}
       <div className="space-y-5 md:space-y-6 md:sticky md:top-28 h-fit">
 
-        {/* CALL */}
-        <div className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-brand-blue/30 via-brand-cyan/20 to-brand-blue/30">
-          <div className="bg-white rounded-2xl p-5 sm:p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-brand-cyan/5">
-
-            <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-brand-light">
-              <Phone className="text-brand-blue" size={20} />
-            </div>
-
-            <p className="text-[11px] sm:text-xs text-brand-blue mt-4 uppercase tracking-wider font-bold">
-              Call Us
-            </p>
-
-            <h3 className="text-lg font-bold mt-1 text-brand-darkBlue">
-              Talk to Webify Experts
-            </h3>
-
-            <p className="text-sm md:text-base text-gray-600 mt-1">
-              +91 9723223010
-            </p>
-          </div>
+        <div className="p-6 bg-white rounded-2xl border">
+          <Phone className="text-brand-blue" />
+          <p>Call Us</p>
+          <h3>+91 9723223010</h3>
         </div>
 
-        {/* EMAIL */}
-        <div className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-brand-blue/30 via-brand-cyan/20 to-brand-blue/30">
-          <div className="bg-white rounded-2xl p-5 sm:p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-brand-cyan/5">
-
-            <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-brand-light">
-              <Mail className="text-brand-blue" size={20} />
-            </div>
-
-            <p className="text-[11px] sm:text-xs text-brand-blue mt-4 uppercase tracking-wider font-bold">
-              Email Us
-            </p>
-
-            <h3 className="text-lg font-bold mt-1 text-brand-darkBlue">
-              Get a Free Consultation
-            </h3>
-
-            <p className="text-sm md:text-base text-gray-600 break-all mt-1">
-              webifytechnologies4@gmail.com
-            </p>
-          </div>
+        <div className="p-6 bg-white rounded-2xl border">
+          <Mail className="text-brand-blue" />
+          <p>Email Us</p>
+          <h3>webifytechnologies4@gmail.com</h3>
         </div>
 
-        {/* OFFICE */}
-        <div className="group relative p-[1px] rounded-2xl bg-gradient-to-r from-brand-blue/30 via-brand-cyan/20 to-brand-blue/30">
-          <div className="bg-white rounded-2xl p-5 sm:p-6 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-brand-cyan/5">
-
-            <div className="w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-brand-light">
-              <MapPin className="text-brand-blue" size={20} />
-            </div>
-
-            <p className="text-[11px] sm:text-xs text-brand-blue mt-4 uppercase tracking-wider font-bold">
-              Location
-            </p>
-
-            <h3 className="text-lg font-bold mt-1 text-brand-darkBlue">
-              Webify Technologies
-            </h3>
-
-            <p className="text-gray-600 text-sm md:text-base mt-1 leading-relaxed">
-              Ahmedabad, Gujarat, India
-              <br />
-              Remote & Global Support Available
-            </p>
-          </div>
+        <div className="p-6 bg-white rounded-2xl border">
+          <MapPin className="text-brand-blue" />
+          <p>Location</p>
+          <h3>Ahmedabad, Gujarat, India</h3>
         </div>
 
       </div>

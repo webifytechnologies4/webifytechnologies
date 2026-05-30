@@ -5,7 +5,7 @@ import bgImage from "../../assets/serviceshero/hero1.jpeg";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-30 flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen py-30 flex items-center justify-center overflow-hidden">
 
       {/* BACKGROUND IMAGE */}
       <motion.img
@@ -25,14 +25,14 @@ const HeroSection = () => {
       <div className="absolute w-[400px] h-[400px] bg-brand-blue/20 blur-[140px] rounded-full bottom-10 right-10" />
 
       {/* CONTENT */}
-      <div className="relative z-10 text-center max-w-6xl px-4">
+      <div className="relative z-10 text-center max-w-6xl px-4 ">
 
         {/* BADGE */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl mb-6"
+          className="inline-flex items-center gap-2 mt-10 md:mt-0 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl mb-6"
         >
           <div className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
 

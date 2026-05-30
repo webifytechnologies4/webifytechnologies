@@ -23,9 +23,9 @@ const testimonials = [
   {
     id: 7,
     name: "milan patel",
-    country: "CEO, LeifMed",
+    country: "CEO, LEIFMED",
     image: LeifMed,
-    text: `Webify Technologies helped us build a modern and professional digital presence for LeifMed. Their team delivered a fast, responsive, and user-friendly solution that perfectly matched our vision and business goals.`,
+    text: `Webify Technologies helped us build a modern and professional digital presence for LEIFMED. Their team delivered a fast, responsive, and user-friendly solution that perfectly matched our vision and business goals.`,
   },
 ];
 

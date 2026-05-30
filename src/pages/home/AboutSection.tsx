@@ -47,8 +47,6 @@ const AboutSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // ── Build ordered card array: active image always on top (last in array) ─
-  // Stack renders last-item on top; rotate so activeIndex card is last.
   const orderedCards = topics.map((_, i) => {
     const offset = (i - activeIndex + topics.length) % topics.length;
     return { offset, topic: topics[i] };
@@ -155,12 +153,12 @@ const AboutSection = () => {
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative flex items-center justify-center mt-10 md:mt-0"
+          className="relative flex items-center justify-center mt-10 md:mt-0 mb-10 md:mb-0"
         >
           {/* GLOW */}
           <div className="absolute inset-0 bg-brand-cyan/20 blur-[80px] rounded-full" />
 
-          {/* RESPONSIVE STACK WRAPPER (FIX MAIN ISSUE) */}
+          {/* RESPONSIVE STACK WRAPPER  */}
           <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:w-[460px] md:h-[480px] h-[380px]">
             <Stack
               cards={stackCards}

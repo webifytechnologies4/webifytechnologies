@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo1-removebg-preview.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
